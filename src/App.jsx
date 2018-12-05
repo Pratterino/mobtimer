@@ -40,7 +40,6 @@ class App extends Component {
 
                     <Timer/>
 
-                    <button onClick={this.startCountDown}>Start timer</button>
                 </div>
             </div>
         );

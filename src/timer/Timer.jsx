@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
-import {toggleTimer} from "./timerActions"
+import {startTimer, toggleTimer} from "./timerActions"
 import {bindActionCreators} from "redux";
 
 class Timer extends Component {
@@ -13,18 +13,25 @@ class Timer extends Component {
     }
 
     render() {
+        const {timer} = this.props;
         return (
             <div>
                 <h1>{this.props.minutes}:{this.props.seconds}</h1>
-                <button onClick={this.props.toggleTimer}>Pause timer</button>
+                {timer.active ?
+                    <button onClick={this.props.toggleTimer}>Pause timer</button> :
+                    <button onClick={this.props.startTimer}>Start timer</button>
+                }
             </div>
         );
     }
 }
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({
+    timer: state.timer,
+});
 const mapDispatchToProps = dispatch => bindActionCreators({
     toggleTimer,
+    startTimer,
 }, dispatch);
 
 
