@@ -7,7 +7,3 @@ export const startTimer = () => ({
 export const stopTimer = () => ({
     type: actionTypes.STOP_TIMER,
 });
-
-export const toggleTimer = () => ({
-    type: actionTypes.PAUSE_TIMER,
-});
