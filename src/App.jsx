@@ -1,45 +1,36 @@
 import React, {Component} from 'react';
+import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
 
 import Timer from './timer/Timer';
+import Settings from './settings/Settings';
 import {startTimer} from "./timer/timerActions"
+import {usersSelector} from "./user/userReducer";
+import Users from "./user/Users";
 import './App.css';
-import {bindActionCreators} from "redux";
-
-class Settings extends Component {
-    render() {
-        return (
-            <div>
-                <h3>Minutes</h3>
-                <input
-                    type="number"
-                    value={this.props.minutes}
-                    onChange={this.props.handleChange}
-                />
-            </div>
-        );
-    }
-}
 
 class App extends Component {
     startCountDown = () => {
         this.props.startTimer();
     };
 
-    handleChange = (event) => {
-        console.log("TODO: ", {minutes: event.target.value})
-    };
-
     render() {
         return (
             <div>
                 <div className="row">
-                    <pre>{JSON.stringify(this.props.state)}</pre>
+                    State
+                    <pre>{JSON.stringify(this.props.test, null, 2)}</pre>
+                    <hr/>
+                    Users
+                    <Users/>
 
+                    <hr/>
+                    Settings
                     <Settings/>
 
+                    <hr/>
+                    Timer
                     <Timer/>
-
                 </div>
             </div>
         );
@@ -47,8 +38,9 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
-    state,
+    test: state,
     timer: state.timer,
+    users: usersSelector(state),
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({

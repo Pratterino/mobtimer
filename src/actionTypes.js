@@ -7,6 +7,8 @@ const actions = {
     RESET_TIMER: "RESET_TIMER",
 
     // user
+    ADD_USER: "ADD_USER",
+    REMOVE_USER: "REMOVE_USER",
     NEXT_USER: "NEXT_USER",
 
 };

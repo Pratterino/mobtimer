@@ -1,0 +1,13 @@
+.user {
+
+}
+
+.user__image {
+  border-radius: 45%;
+  display: flex;
+  width: 80px;
+  height: 80px;
+  background-color: #61dafb;
+  background-size: cover;
+  background-position: center;
+}
