@@ -5,9 +5,11 @@ import _ from "lodash";
 const defaultUserState = {
     users: [{
         image: _.sample(userImages),
+        active: false,
         name: "Sten",
     }, {
         image: _.sample(userImages),
+        active: false,
         name: "Pär",
     }],
 };
@@ -29,9 +31,30 @@ export default (state = defaultUserState, action) => {
                 users: [...withNewUser],
             };
         case actions.REMOVE_USER:
+            // TODO: cant remove if active
             const withoutUser = [...state.users];
             return {
                 users: [..._.reject(withoutUser, user => (user.name === action.user.name))],
+            };
+
+        case actions.NEXT_USER:
+            let activeIndex = _.findLastIndex(state.users, {active: true});
+            let nextActiveUserIndex = (activeIndex >= 0 ? activeIndex : -1) + 1;
+
+            if (nextActiveUserIndex > state.users.length - 1) {
+                nextActiveUserIndex = 0;
+            }
+
+            let _users = [...state.users].map(user => {
+                return {
+                    ...user,
+                    active: false,
+                };
+            });
+            _users[nextActiveUserIndex].active = true;
+
+            return {
+                users: [..._users],
             };
 
         default:

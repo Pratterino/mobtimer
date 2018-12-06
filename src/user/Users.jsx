@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import {usersSelector} from "./userReducer";
-import {addUser} from "./userActions";
+import {addUser, nextUser} from "./userActions";
 import User from "./User";
 
 class Users extends Component {
@@ -24,7 +24,6 @@ class Users extends Component {
     };
 
     render() {
-        console.info(this.props.users);
         return (
             <div>
                 <p>User list</p>
@@ -36,6 +35,7 @@ class Users extends Component {
                 ))}
                 <input value={this.state.nameValue} onChange={this.onChangeName}/>
                 <button onClick={this.addUser}>Add user</button>
+                <button onClick={this.props.nextUser}>Next user</button>
             </div>
         );
     }
@@ -48,6 +48,7 @@ const mapStateToProps = state => ({
 });
 const mapDispatchToProps = dispatch => bindActionCreators({
     addUser,
+    nextUser,
 }, dispatch);
 
 

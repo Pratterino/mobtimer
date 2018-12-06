@@ -11,13 +11,13 @@ class User extends Component {
     };
 
     render() {
-        const {name, image} = this.props.user;
+        const {name, image, active} = this.props.user;
         const style = {backgroundImage: `url(${image})`};
         return (
-            <div className="user">
+            <div className={`user ${active === true ? "active" : ""}`}>
                 <div className="user__image" style={style}/>
                 <br/>
-                <div className="user__name">{name}</div>
+                <div className="user__name">{name} - {active}</div>
                 <button onClick={this.removeUser.bind(null, this.props.user)}>Remove</button>
             </div>
         );

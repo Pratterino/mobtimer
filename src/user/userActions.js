@@ -5,6 +5,7 @@ import _ from "lodash";
 export const addUser = (name) => {
     const user = {
         name,
+        active: false,
         image: _.sample(userImages),
     };
 
@@ -18,5 +19,11 @@ export const removeUser = (user) => {
     return {
         type: actionTypes.REMOVE_USER,
         user,
+    }
+};
+
+export const nextUser = () => {
+    return {
+        type: actionTypes.NEXT_USER,
     }
 };
