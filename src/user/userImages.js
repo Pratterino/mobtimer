@@ -1,6 +1,6 @@
 export const userImages = [
     // TODO: Unique photos for each user, not allow same one.
-    // male famous
+    // famous males
     "https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/09/12/11/naturo-monkey-selfie.jpg",
     "http://thinkup.me/wp-content/uploads/2017/11/Jim_Carrey-1-e1510001639348.jpg",
     "https://cdn.onlyinyourstate.com/wp-content/uploads/2016/07/3630750300_f1cd14cdc3_b-700x875.jpg",

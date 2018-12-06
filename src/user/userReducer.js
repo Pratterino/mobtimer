@@ -15,19 +15,25 @@ const defaultUserState = {
 export default (state = defaultUserState, action) => {
     switch (action.type) {
         case actions.ADD_USER:
-            const newUsers = [...state.users];
+            const withNewUser = [...state.users];
 
             // Username already in state.
-            if (newUsers.filter(user => (user.name === action.user.name)).length) {
+            if (withNewUser.filter(user => (user.name === action.user.name)).length) {
                 return {
                     ...state,
                 }
             } else {
-                newUsers.push(action.user);
+                withNewUser.push(action.user);
             }
             return {
-                users: [...newUsers],
+                users: [...withNewUser],
             };
+        case actions.REMOVE_USER:
+            const withoutUser = [...state.users];
+            return {
+                users: [..._.reject(withoutUser, user => (user.name === action.user.name))],
+            };
+
         default:
             return state;
     }

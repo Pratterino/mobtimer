@@ -1,13 +1,22 @@
 import actionTypes from "./../actionTypes";
+import {userImages} from "./userImages";
+import _ from "lodash";
 
 export const addUser = (name) => {
     const user = {
         name,
-        image: "https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/09/12/11/naturo-monkey-selfie.jpg",
+        image: _.sample(userImages),
     };
 
     return {
         type: actionTypes.ADD_USER,
+        user,
+    }
+};
+
+export const removeUser = (user) => {
+    return {
+        type: actionTypes.REMOVE_USER,
         user,
     }
 };
