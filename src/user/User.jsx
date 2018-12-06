@@ -10,7 +10,8 @@ class User extends Component {
         return (
             <div className="user">
                 <div className="user__image" style={style}/>
-                <p>{name}</p>
+                <br/>
+                <div className="user__name">{name}</div>
             </div>
         );
     }

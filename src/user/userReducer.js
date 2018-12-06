@@ -1,7 +1,15 @@
 import actions from "./../actionTypes";
+import {userImages} from "./userImages";
+import _ from "lodash";
 
 const defaultUserState = {
-    users: [],
+    users: [{
+        image: _.sample(userImages),
+        name: "Sten",
+    }, {
+        image: _.sample(userImages),
+        name: "Pär",
+    }],
 };
 
 export default (state = defaultUserState, action) => {
