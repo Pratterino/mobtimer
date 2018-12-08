@@ -11,6 +11,7 @@ const actions = {
     ADD_USER: "ADD_USER",
     REMOVE_USER: "REMOVE_USER",
     NEXT_USER: "NEXT_USER",
+    TOGGLE_USER: "TOGGLE_USER",
 
     // sound
     PLAY_FINISHED_SOUND: "PLAY_FINISHED_SOUND",

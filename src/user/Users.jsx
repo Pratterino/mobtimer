@@ -13,8 +13,9 @@ class Users extends Component {
         };
     }
 
-    addUser = () => {
-        this.props.addUser(this.nameValue);
+    addUser = (event) => {
+        event.preventDefault();
+        this.props.addUser(this.state.nameValue);
         this.setState({
             nameValue: "",
         });
@@ -34,10 +35,13 @@ class Users extends Component {
                     <User
                         key={user.name}
                         user={user}
+                        disabled={user.disabled}
                     />
                 ))}
-                <input value={this.state.nameValue} onChange={this.onChangeName}/>
-                <button onClick={this.addUser}>Add user</button>
+                <form onSubmit={this.addUser}>
+                    <input placeholder="Name of new user" value={this.state.nameValue} onChange={this.onChangeName}/>
+                    <input type="submit" value="Add user"/>
+                </form>
                 <button onClick={this.props.nextUser}>Next user</button>
             </div>
         );

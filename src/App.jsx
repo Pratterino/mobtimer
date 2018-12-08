@@ -16,22 +16,23 @@ class App extends Component {
 
     render() {
         return (
-            <div>
-                <div className="row">
-                    State
+            <div className="app">
+                <div className="hide">
+                    <h3>ReduxState</h3>
                     <pre>{JSON.stringify(this.props.test, null, 2)}</pre>
                     <hr/>
-                    Users
-                    <Users/>
-
-                    <hr/>
-                    Settings
-                    <Settings/>
-
-                    <hr/>
-                    Timer
-                    <Timer/>
                 </div>
+
+                <h3>Users</h3>
+                <Users/>
+
+                <hr/>
+                <h3>Settings</h3>
+                <Settings/>
+
+                <hr/>
+                <h3>Timer</h3>
+                <Timer/>
             </div>
         );
     }

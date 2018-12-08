@@ -8,12 +8,7 @@ class Settings extends Component {
     render() {
         return (
             <div>
-                <h3>Minutes</h3>
-                <input
-                    type="number"
-                    value={this.props.minutes}
-                    onChange={this.handleChange}
-                />
+                Inga settings ännu.
             </div>
         );
     }

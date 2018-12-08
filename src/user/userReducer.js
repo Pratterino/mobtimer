@@ -6,57 +6,85 @@ const defaultUserState = {
     users: [{
         image: _.sample(userImages),
         active: false,
+        disabled: false,
         name: "Chris",
     }, {
         image: _.sample(userImages),
         active: false,
+        disabled: false,
         name: "Pär",
     }],
 };
 
+const getNextActiveUserIndex = (users) => {
+    const nonDisabledUsers = users.filter(user => !user.disabled);
+
+    const currentlyActiveIndex = _.findLastIndex(nonDisabledUsers, {active: true});
+    let nextActiveIndex = currentlyActiveIndex + 1;
+
+    if (nextActiveIndex >= nonDisabledUsers.length) {
+        nextActiveIndex = 0;
+    }
+    return users.findIndex(user => user.name === nonDisabledUsers[nextActiveIndex].name)
+};
+
 export default (state = defaultUserState, action) => {
+    let users;
+
     switch (action.type) {
         case actions.ADD_USER:
-            const withNewUser = [...state.users];
+            users = [...state.users];
 
             // Username already in state.
-            if (withNewUser.filter(user => (user.name === action.user.name)).length) {
+            if (users.filter(user => (user.name === action.user.name)).length) {
                 return {
                     ...state,
                 }
             } else {
-                withNewUser.push(action.user);
+                users.push(action.user);
             }
             return {
-                users: [...withNewUser],
+                users: [...users],
             };
+
         case actions.REMOVE_USER:
             // TODO: cant remove if active
-            const withoutUser = [...state.users];
             return {
                 users: [
-                    ..._.reject(withoutUser, user => (user.name === action.user.name))
+                    ..._.reject(
+                        [...state.users],
+                        user => (user.name === action.user.name
+                        ))
                 ],
             };
 
+        case actions.TOGGLE_USER:
+            users = [...state.users].map((user) => {
+                if (user.name === action.user.name) {
+                    user.disabled = !user.disabled;
+                }
+                return user;
+            });
+            return {
+                users,
+            };
+
         case actions.NEXT_USER:
-            let activeIndex = _.findLastIndex(state.users, {active: true});
-            let nextActiveUserIndex = (activeIndex >= 0 ? activeIndex : -1) + 1;
+            const nextActiveUserIndex = getNextActiveUserIndex(state.users);
 
-            if (nextActiveUserIndex > state.users.length - 1) {
-                nextActiveUserIndex = 0;
-            }
-
-            let _users = [...state.users].map(user => {
+            // de-activate all users.
+            users = [...state.users].map(user => {
                 return {
                     ...user,
                     active: false,
                 };
             });
-            _users[nextActiveUserIndex].active = true;
+
+            users[nextActiveUserIndex].active = true;
+
 
             return {
-                users: [..._users],
+                users: [...users],
             };
 
         default:

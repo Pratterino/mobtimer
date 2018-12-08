@@ -27,3 +27,10 @@ export const nextUser = () => {
         type: actionTypes.NEXT_USER,
     }
 };
+
+export const toggleUser = (user) => {
+    return {
+        type: actionTypes.TOGGLE_USER,
+        user,
+    }
+};
