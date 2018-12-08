@@ -11,7 +11,8 @@ Timer
   
 User
 * ~Remove a user~
-* Toggle inactive/active user
+* ~Toggle inactive/active user~
+* ~NEXT_USER skips disabled users~
 * Edit username
 * Not be able remove an active user
 
