@@ -14,7 +14,10 @@ class Users extends Component {
     }
 
     addUser = () => {
-        this.props.addUser(this.state.nameValue);
+        this.props.addUser(this.nameValue);
+        this.setState({
+            nameValue: "",
+        });
     };
 
     onChangeName = (e) => {

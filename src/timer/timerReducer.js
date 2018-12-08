@@ -4,19 +4,27 @@ import store from "./../store";
 let interval;
 const defaultTimerState = {
     active: false,
-    time: 10,
+    time: 2,
+};
+
+const timerIsDone = () => {
+    store.dispatch({
+        type: actions.FINISH_TIMER,
+    });
+    // ALARM
+    store.dispatch({
+        type: actions.PLAY_FINISHED_SOUND,
+    });
+
+    store.dispatch({
+        type: actions.NEXT_USER,
+    });
 };
 
 const startTimerInterval = () => {
     interval = setInterval(() => {
         if (store.getState().timer.time <= 0) {
-            store.dispatch({
-                type: actions.RESET_TIMER,
-            });
-            // TODO: NEXT USER / ALARM
-            //store.dispatch({
-            //    type: actions.NEXT_USER,
-            //});
+            timerIsDone();
         }
         store.dispatch({
             type: actions.SECOND_DECREMENT_TIMER,
@@ -44,6 +52,13 @@ export default (state = defaultTimerState, action) => {
             return {
                 ...state,
                 active: true,
+            };
+        case actions.FINISH_TIMER:
+            stopTimerInterval();
+            return {
+                ...state,
+                time: defaultTimerState.time + 1,
+                active: false,
             };
         case actions.STOP_TIMER:
             stopTimerInterval();

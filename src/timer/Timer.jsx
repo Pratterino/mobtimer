@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
-import {startTimer, stopTimer} from "./timerActions"
 import {bindActionCreators} from "redux";
+import {startTimer, stopTimer} from "./timerActions";
+import {playFinishedSound} from "./../sound/soundActions";
 
 class Timer extends Component {
     addLeadingZeroToTime = (time) => {

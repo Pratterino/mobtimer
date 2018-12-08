@@ -6,7 +6,7 @@ const defaultUserState = {
     users: [{
         image: _.sample(userImages),
         active: false,
-        name: "Sten",
+        name: "Chris",
     }, {
         image: _.sample(userImages),
         active: false,
@@ -34,7 +34,9 @@ export default (state = defaultUserState, action) => {
             // TODO: cant remove if active
             const withoutUser = [...state.users];
             return {
-                users: [..._.reject(withoutUser, user => (user.name === action.user.name))],
+                users: [
+                    ..._.reject(withoutUser, user => (user.name === action.user.name))
+                ],
             };
 
         case actions.NEXT_USER:
