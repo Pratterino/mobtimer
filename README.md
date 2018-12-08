@@ -5,6 +5,7 @@ Timer
 * ~Add users (unique ones by name)~
 * "paused" state when timer has ended
   - Red/yellow/green
+  - Show favicon color based on state
 * Intermesso/Break after every n rounds
   - timebased? after around 60 min
   
