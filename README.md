@@ -11,7 +11,8 @@ Timer
   
 User
 * ~Remove a user~
-* Inactivate/activate user
+* Toggle inactive/active user
+* Edit username
 * Not be able remove an active user
 
 User images
