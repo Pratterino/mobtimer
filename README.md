@@ -1,6 +1,7 @@
 ### TODO
 * ~Timer in title/tab~
 * ~Add users (unique ones by name)~
+  - Unsplashed API
 * ~Remove a user~
 * ~Random user images~
 * NEXT_USER after timer ends
