@@ -10,11 +10,13 @@ Timer
   - timebased? after around 60 min
   
 User
+* Start with user [0] active.
 * ~Remove a user~
 * ~Toggle inactive/active user~
 * ~NEXT_USER skips disabled users~
 * Edit username
 * Not be able remove an active user
+* Not be able to disable all / i.e not the active one.
 
 User images
 * ~Random user images (hardcoded)~
