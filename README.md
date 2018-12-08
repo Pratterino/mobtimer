@@ -12,7 +12,7 @@ User
 * Not be able remove an active user
 
 User images
-* ~Random user images~
+* ~Random user images (hardcoded)~
   - Unsplashed API
 * ~NEXT_USER after timer ends~
 * Set timer time in Settings
