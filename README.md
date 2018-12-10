@@ -2,6 +2,7 @@
 
 Timer
 * ~Timer in title/tab~
+  - Formatted in "helper" class to minutes:seconds.
 * ~Add users (unique ones by name)~
 * ~Circular "chart" visualisation of time~
 * "paused" state when timer has ended
