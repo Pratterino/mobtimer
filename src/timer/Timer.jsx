@@ -2,7 +2,9 @@ import React, {Component} from 'react';
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import {startTimer, stopTimer, pauseTimer} from "./timerActions";
-import "./Timer.css";
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faPause, faPlay} from '@fortawesome/free-solid-svg-icons'
+import "./Timer.scss";
 import "./TimerCircle.css";
 
 class Timer extends Component {
@@ -53,7 +55,12 @@ class Timer extends Component {
 
         return (
             <div className="timer__time">
-                {parsedMinutes}:{parsedSeconds}
+                <div className="timer__time--numbers">
+                    {parsedMinutes}:{parsedSeconds}
+                </div>
+                <div className="timer__time--icons">
+                    <FontAwesomeIcon icon={this.props.timer.active ? faPause : faPlay}/>
+                </div>
             </div>
         );
     };

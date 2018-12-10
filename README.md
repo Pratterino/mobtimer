@@ -3,6 +3,7 @@
 Timer
 * ~Timer in title/tab~
 * ~Add users (unique ones by name)~
+* ~Circular "chart" visualisation of time~
 * "paused" state when timer has ended
   - Red/yellow/green
   - Show favicon color based on state
