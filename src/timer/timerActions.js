@@ -4,6 +4,10 @@ export const startTimer = () => ({
     type: actionTypes.START_TIMER,
 });
 
+export const pauseTimer = () => ({
+    type: actionTypes.PAUSE_TIMER,
+});
+
 export const stopTimer = () => ({
     type: actionTypes.STOP_TIMER,
 });
