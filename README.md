@@ -1,4 +1,6 @@
 ### Features to-do
+Settings
+* Themes
 
 Timer
 * ~Timer in title/tab~
