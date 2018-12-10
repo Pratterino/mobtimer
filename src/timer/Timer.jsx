@@ -29,7 +29,7 @@ class Timer extends Component {
                 <defs>
                     <linearGradient id="background" x1="0%" y1="0%" x2="0%" y2="100%">
                         <stop offset="0%" stopColor="#f3f3f3" />
-                        <stop offset="100%" stopColor="#f8f8f8" />
+                        <stop offset="100%" stopColor="#e8e8e8" />
                     </linearGradient>
                     <linearGradient id="inactive" x1="0%" y1="0%" x2="0%" y2="100%">
                         <stop offset="0%" stopColor="#d7686c" />
@@ -93,7 +93,6 @@ class Timer extends Component {
                     {this.renderCircularProgressbar()}
                     {this.renderTimeRemaining(timer.currentTime)}
                 </div>
-                {timer.active ? "Pause timer" : "Start timer"}
             </div>
         );
     }
