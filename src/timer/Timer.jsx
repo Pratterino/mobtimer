@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import {startTimer, stopTimer, pauseTimer} from "./timerActions";
+import "./Timer.css";
 import "./TimerCircle.css";
 
 class Timer extends Component {
@@ -60,8 +61,7 @@ class Timer extends Component {
         return (
             <div>
                 <div
-                    style={{border: "2px solid brown"}}
-                    className="pointer"
+                    className="timer pointer"
                     onClick={this.props.pauseTimer}
                 >
                     {this.renderCircularProgressbar()}
