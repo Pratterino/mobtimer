@@ -15,7 +15,7 @@ User
 * ~Remove a user~
 * ~Toggle inactive/active user~
 * ~NEXT_USER skips disabled users~
-* Edit username
+* ~Edit username~
 * Not be able remove an active user
 * Not be able to disable all / i.e not the active one.
 
