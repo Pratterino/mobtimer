@@ -1,6 +1,7 @@
 ### Features to-do
 Settings
 * Themes
+* Set sessionTime in settings
 
 Timer
 * ~Timer in title/tab~
@@ -24,12 +25,10 @@ User
 * Not be able remove an active user
 * Change order of users
 * Not be able to disable all / i.e not the active one.
-
-User images
-* ~Random user images (hardcoded)~
+* Images
+  - ~Random user images (hardcoded)~
   - Unsplashed API
-* ~NEXT_USER after timer ends~
-* Set timer time in Settings
+  - ~NEXT_USER after timer ends~
 
 Sound
 * Elevator music when paused
