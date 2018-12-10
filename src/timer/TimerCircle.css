@@ -1,5 +1,8 @@
+.circle-chart {
+    overflow: visible;
+}
 .circle-chart__circle {
-    animation: circle-chart-fill .2s reverse;
+    animation: circle-chart-fill .2s ease-in-out reverse;
     transform: rotate(-90deg);
     transform-origin: center;
 }

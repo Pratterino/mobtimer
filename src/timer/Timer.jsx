@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import {startTimer, stopTimer, pauseTimer} from "./timerActions";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import classNames from 'classnames'
 import {faPause, faPlay} from '@fortawesome/free-solid-svg-icons'
 import "./Timer.scss";
 import "./TimerCircle.css";
@@ -18,8 +19,7 @@ class Timer extends Component {
     };
 
     renderCircularProgressbar = () => {
-        let percentDone = this.getPercentageLeftOfTime();
-        console.info(percentDone);
+        const circleGradient = this.props.timer.active ? "active" : "inactive";
 
         return (
             <svg className="circle-chart"
@@ -27,18 +27,36 @@ class Timer extends Component {
                  width="180"
                  height="180"
                  xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="background" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stopColor="#f3f3f3" />
+                        <stop offset="100%" stopColor="#f8f8f8" />
+                    </linearGradient>
+                    <linearGradient id="inactive" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stopColor="#d7686c" />
+                        <stop offset="100%" stopColor="#f9999f" />
+                    </linearGradient>
+                    <linearGradient id="active" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stopColor="#66cdaa" />
+                        <stop offset="100%" stopColor="#66cdaa" />
+                    </linearGradient>
+                    <linearGradient id="paused" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stopColor="#d7d283" />
+                        <stop offset="100%" stopColor="#d7d283" />
+                    </linearGradient>
+                </defs>
                 <circle className="circle-chart__background"
-                        stroke="#f3f3f3"
+                        stroke="url(#background)"
                         strokeWidth="3"
                         fill="none"
                         cx="16.91549431"
                         cy="16.91549431"
                         r="15.91549431"
                 />
-                <circle className="circle-chart__circle"
-                        stroke="#00acc1"
+                <circle className={`circle-chart__circle`}
+                        stroke={`url(#${circleGradient})`}
                         strokeWidth="3"
-                        strokeDasharray={`${percentDone || 100},100`}
+                        strokeDasharray={`${this.getPercentageLeftOfTime() || 100},100`}
                         strokeLinecap="round"
                         fill="none"
                         cx="16.91549431"

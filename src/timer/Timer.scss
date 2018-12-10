@@ -1,5 +1,10 @@
+$transitionTime: .1s;
+$activeColor: #66cdaa;
+$inactiveColor: #d7686c;
+$pausedColor: #d7d283;
+
 .timer {
-  border: 2px solid brown;
+  box-sizing: content-box;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -9,9 +14,14 @@
     font-size: 40px;
   }
 
+  .paused, .inactive, .active {
+    transition: stroke $transitionTime ease-in-out;
+  }
+
   .timer__time--numbers {
     display: block;
   }
+
   .timer__time--icons {
     display: none;
   }
@@ -20,6 +30,7 @@
     .timer__time--numbers {
       display: none;
     }
+
     .timer__time--icons {
       display: block;
     }
