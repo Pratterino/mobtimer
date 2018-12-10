@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
-import {startTimer, stopTimer, pauseTimer} from "./timerActions";
+import {pauseTimer, startTimer, stopTimer} from "./timerActions";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import classNames from 'classnames'
 import {faPause, faPlay} from '@fortawesome/free-solid-svg-icons'
 import "./Timer.scss";
 import "./TimerCircle.css";
