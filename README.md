@@ -6,6 +6,7 @@ Timer
 * ~Timer in title/tab~
   - Formatted in "helper" class to minutes:seconds.
 * ~Add users (unique ones by name)~
+  - case insensitive..
 * ~Circular chart visualisation of time~
   - ~Toggle play/pause on click~
 * "paused" state when timer has ended
