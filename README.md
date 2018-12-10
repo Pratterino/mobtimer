@@ -6,7 +6,8 @@ Timer
 * ~Timer in title/tab~
   - Formatted in "helper" class to minutes:seconds.
 * ~Add users (unique ones by name)~
-* ~Circular "chart" visualisation of time~
+* ~Circular chart visualisation of time~
+  - ~Toggle play/pause on click~
 * "paused" state when timer has ended
   - Red/yellow/green
   - Show favicon color based on state
