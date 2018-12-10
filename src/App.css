@@ -3,7 +3,11 @@
 }
 
 .hide {
-  background: #222;
-  color: #888;
-  font-size: 11px;
+    background: #222;
+    color: #888;
+    font-size: 11px;
+}
+
+.pointer {
+    cursor: pointer;
 }

@@ -58,6 +58,18 @@ export default (state = defaultUserState, action) => {
                 ],
             };
 
+        case actions.CHANGE_USER_NAME:
+            let updatedUser = [...state.users].map(user => {
+                if (user.name === action.user.name) {
+                    user.name = action.name;
+                }
+                return user;
+            });
+
+            return {
+                users: [...updatedUser],
+            };
+
         case actions.TOGGLE_USER:
             users = [...state.users].map((user) => {
                 if (user.name === action.user.name) {

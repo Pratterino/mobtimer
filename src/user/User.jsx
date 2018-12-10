@@ -1,36 +1,69 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {toggleUser, removeUser} from "./userActions";
+import {toggleUser, changeName, removeUser} from "./userActions";
 import classNames from 'classnames';
-import './User.css';
+import './User.scss';
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faTimesCircle} from "@fortawesome/free-solid-svg-icons";
 
 class User extends Component {
-    removeUser = (user) => {
-        console.info("user: remove ", user);
-        this.props.removeUser(user);
+    constructor(props) {
+        super(props);
+        this.state = {
+            name: this.props.user.name,
+        }
+    }
+
+    onChange = (event) => {
+        this.setState({
+            name: event.target.value
+        });
+    };
+
+    updateName = (e) => {
+        e.preventDefault();
+        this.props.changeName(this.props.user, this.state.name);
+        this.enterEditMode(false);
+    };
+    enterEditMode = (boolean = true) => {
+        this.setState({editMode: boolean});
     };
 
     render() {
         // TODO: disabled should be able to be in user, why is it not updating if it is?
         const {name, image, active} = this.props.user;
-        const classes = classNames("user", {
+        const classes = classNames({
             disabled: this.props.disabled,
             active,
         });
 
-        const style = {backgroundImage: `url(${image})`};
+        const backgroundImage = {backgroundImage: `url(${image})`};
         return (
-            <div className={classes}>
-                <div
+            <div className={`user ${classes}`}>
+                <figure
                     className="user__image pointer"
                     onClick={this.props.toggleUser.bind(null, this.props.user)}
-                    style={style}
-                />
-                <br/>
+                    style={backgroundImage}
+                >
+                    <div className="user__remove">
+                        <FontAwesomeIcon
+                            icon={faTimesCircle}
+                            onClick={this.props.removeUser.bind(null, this.props.user)}
+                        />
+                    </div>
+                </figure>
+                <figcaption className="user__name">
+                    <div className="user__name--text" onClick={this.enterEditMode}>
+                        {this.state.editMode ?
+                            <input
 
-                <div className="user__name">{name}</div>
-                <button onClick={this.removeUser.bind(null, this.props.user)}>Remove</button>
+                                value={this.state.name}
+                                onChange={this.onChange}
+                                onBlur={this.updateName}
+                            /> : name}
+                    </div>
+                </figcaption>
             </div>
         );
     }
@@ -40,6 +73,7 @@ const mapStateToProps = state => ({});
 const mapDispatchToProps = dispatch => bindActionCreators({
     removeUser,
     toggleUser,
+    changeName,
 }, dispatch);
 
 

@@ -34,3 +34,11 @@ export const toggleUser = (user) => {
         user,
     }
 };
+
+export const changeName = (user, name) => {
+    return {
+        type: actionTypes.CHANGE_USER_NAME,
+        user,
+        name,
+    }
+};
