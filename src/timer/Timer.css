@@ -1,4 +1,11 @@
 .timer {
-    display: inline-flex;
     border: 2px solid brown;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.timer__time {
+    position: absolute;
+    font-size: 40px;
 }

@@ -26,8 +26,8 @@ class Timer extends Component {
                  height="180"
                  xmlns="http://www.w3.org/2000/svg">
                 <circle className="circle-chart__background"
-                        stroke="#efefef"
-                        strokeWidth="2"
+                        stroke="#f3f3f3"
+                        strokeWidth="3"
                         fill="none"
                         cx="16.91549431"
                         cy="16.91549431"
@@ -35,7 +35,7 @@ class Timer extends Component {
                 />
                 <circle className="circle-chart__circle"
                         stroke="#00acc1"
-                        strokeWidth="2"
+                        strokeWidth="3"
                         strokeDasharray={`${percentDone || 100},100`}
                         strokeLinecap="round"
                         fill="none"
@@ -52,7 +52,9 @@ class Timer extends Component {
         const parsedSeconds = this.addLeadingZeroToTime(seconds - parsedMinutes * 60);
 
         return (
-            <h2>{parsedMinutes}:{parsedSeconds}</h2>
+            <div className="timer__time">
+                {parsedMinutes}:{parsedSeconds}
+            </div>
         );
     };
 
@@ -65,12 +67,9 @@ class Timer extends Component {
                     onClick={this.props.pauseTimer}
                 >
                     {this.renderCircularProgressbar()}
+                    {this.renderTimeRemaining(timer.currentTime)}
                 </div>
-                {this.renderTimeRemaining(timer.currentTime)}
-                {timer.active ?
-                    <button onClick={this.props.stopTimer}>Pause timer</button> :
-                    <button onClick={this.props.startTimer.bind(null, settings)}>Start timer</button>
-                }
+                {timer.active ? "Pause timer" : "Start timer"}
             </div>
         );
     }
