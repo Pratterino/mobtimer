@@ -42,3 +42,10 @@ export const changeName = (user, name) => {
         name,
     }
 };
+
+export const updateUserOrder = (users) => {
+    return {
+        type: actionTypes.UPDATE_USER_ORDER,
+        users,
+    }
+};

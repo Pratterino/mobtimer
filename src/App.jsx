@@ -8,6 +8,7 @@ import {startTimer} from "./timer/timerActions"
 import {usersSelector} from "./user/userReducer";
 import Users from "./user/Users";
 import './App.css';
+import {DragDropContext} from "react-beautiful-dnd";
 
 class App extends Component {
     startCountDown = () => {

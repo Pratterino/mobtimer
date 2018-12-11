@@ -70,6 +70,11 @@ export default (state = defaultUserState, action) => {
                 users: [...updatedUser],
             };
 
+        case actions.UPDATE_USER_ORDER:
+            return {
+                users: [...action.users],
+            };
+
         case actions.TOGGLE_USER:
             users = [...state.users].map((user) => {
                 if (user.name === action.user.name) {
