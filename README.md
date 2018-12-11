@@ -4,7 +4,8 @@ Settings
 
 Timer
 * ~Timer in title/tab~
-  - Formatted in "helper" class to minutes:seconds.
+  - ~Formatted in "helper" class to minutes:seconds~
+  - ~window.title~
 * ~Add users (unique ones by name)~
   - case insensitive..
 * ~Circular chart visualisation of time~
