@@ -23,7 +23,7 @@ User
 * ~NEXT_USER skips disabled users~
 * ~Edit username~
 * Not be able remove an active user
-* Change order of users
+* ~Change order of users~
 * Not be able to disable all / i.e not the active one.
 
 User images
