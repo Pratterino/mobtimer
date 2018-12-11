@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import {usersSelector} from "./userReducer";
@@ -58,23 +58,16 @@ class Users extends Component {
     };
 
     getItemStyle = (isDragging, draggableStyle) => ({
-        // some basic styles to make the items look a bit nicer
         userSelect: 'none',
-        padding: this.grid * 2,
-        margin: `0 ${this.grid}px 0 0`,
-
-        // change background colour if dragging
-        background: isDragging ? 'lightgreen' : 'grey',
-
+        background: isDragging ? 'lightgreen' : 'transparent',
         // styles we need to apply on draggables
         ...draggableStyle,
     });
 
     // css
     getListStyle = isDraggingOver => ({
-        background: isDraggingOver ? 'lightblue' : 'lightgrey',
-        display: 'flex',
-        padding: this.grid,
+        background: isDraggingOver ? 'lightblue' : '',
+        display: 'inline-flex',
         overflow: 'auto',
     });
 
@@ -89,46 +82,49 @@ class Users extends Component {
 
     render() {
         return (
-            <DragDropContext onDragEnd={this.onDragEnd}>
-                <Droppable droppableId="droppable" direction="horizontal">
-                    {(provided, snapshot) => (
-                        <div
-                            ref={provided.innerRef}
-                            style={this.getListStyle(snapshot.isDraggingOver)}
-                            {...provided.droppableProps}
-                        >
-                            {this.state.users.map((user, index) => (
-                                <Draggable key={user.name} draggableId={user.name} index={index}>
-                                    {(provided, snapshot) => (
-                                        <div
-                                            ref={provided.innerRef}
-                                            {...provided.draggableProps}
-                                            {...provided.dragHandleProps}
-                                            style={this.getItemStyle(
-                                                snapshot.isDragging,
-                                                provided.draggableProps.style
-                                            )}
-                                        >
-                                            <User
-                                                key={user.name}
-                                                user={user}
-                                                disabled={user.disabled}
-                                            />
-                                        </div>
-                                    )}
-                                </Draggable>
-                            ))}
-                            {provided.placeholder}
-                            <form onSubmit={this.addUser}>
-                                <input placeholder="Name of new user" value={this.state.nameValue}
-                                       onChange={this.onChangeName}/>
-                                <input type="submit" value="Add user"/>
-                            </form>
-                            <button onClick={this.props.nextUser}>Next user</button>
-                        </div>
-                    )}
-                </Droppable>
-            </DragDropContext>
+            <Fragment>
+                <DragDropContext onDragEnd={this.onDragEnd}>
+                    <Droppable droppableId="droppable" direction="horizontal">
+                        {(provided, snapshot) => (
+                            <div
+                                className="draggable-users"
+                                ref={provided.innerRef}
+                                style={this.getListStyle(snapshot.isDraggingOver)}
+                                {...provided.droppableProps}
+                            >
+                                {this.state.users.map((user, index) => (
+                                    <Draggable key={user.name} draggableId={user.name} index={index}>
+                                        {(provided, snapshot) => (
+                                            <div
+                                                ref={provided.innerRef}
+                                                {...provided.draggableProps}
+                                                {...provided.dragHandleProps}
+                                                style={this.getItemStyle(
+                                                    snapshot.isDragging,
+                                                    provided.draggableProps.style
+                                                )}
+                                            >
+                                                <User
+                                                    key={user.name}
+                                                    user={user}
+                                                    disabled={user.disabled}
+                                                />
+                                            </div>
+                                        )}
+                                    </Draggable>
+                                ))}
+                                {provided.placeholder}
+                            </div>
+                        )}
+                    </Droppable>
+                </DragDropContext>
+                <form onSubmit={this.addUser}>
+                    <input placeholder="Name of new user" value={this.state.nameValue}
+                           onChange={this.onChangeName}/>
+                    <input type="submit" value="Add user"/>
+                </form>
+                <button onClick={this.props.nextUser}>Next user</button>
+            </Fragment>
         );
     }
 

@@ -3,16 +3,16 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {toggleUser, changeName, removeUser} from "./userActions";
 import classNames from 'classnames';
-import './User.scss';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faTimesCircle} from "@fortawesome/free-solid-svg-icons";
+import './User.scss';
 
 class User extends Component {
     constructor(props) {
         super(props);
         this.state = {
             name: this.props.user.name,
-        }
+        };
     }
 
     onChange = (event) => {
@@ -28,6 +28,9 @@ class User extends Component {
     };
     enterEditMode = (boolean = true) => {
         this.setState({editMode: boolean});
+        if (this.input) {
+            this.input.current.focus();
+        }
     };
 
     render() {
@@ -40,9 +43,9 @@ class User extends Component {
 
         const backgroundImage = {backgroundImage: `url(${image})`};
         return (
-            <div className={`user ${classes}`}>
+            <div className={`user`}>
                 <figure
-                    className="user__image pointer"
+                    className={`user__image pointer ${classes}`}
                     onClick={this.props.toggleUser.bind(null, this.props.user)}
                     style={backgroundImage}
                 >
@@ -57,7 +60,7 @@ class User extends Component {
                     <div className="user__name--text" onClick={this.enterEditMode}>
                         {this.state.editMode ?
                             <input
-
+                                ref={this.input}
                                 value={this.state.name}
                                 onChange={this.onChange}
                                 onBlur={this.updateName}

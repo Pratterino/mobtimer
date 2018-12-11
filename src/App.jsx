@@ -8,7 +8,6 @@ import {startTimer} from "./timer/timerActions"
 import {usersSelector} from "./user/userReducer";
 import Users from "./user/Users";
 import './App.css';
-import {DragDropContext} from "react-beautiful-dnd";
 
 class App extends Component {
     startCountDown = () => {
@@ -18,13 +17,15 @@ class App extends Component {
     render() {
         return (
             <div className="app">
+                {window.location.hostname === "localhost" &&
                 <div className="hide">
                     <h3>ReduxState</h3>
                     <pre>{JSON.stringify(this.props.test, null, 2)}</pre>
                     <hr/>
                 </div>
+                }
 
-                <h3>Users</h3>
+                <h3> Users </h3>
                 <Users/>
 
                 <hr/>

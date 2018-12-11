@@ -1,8 +1,9 @@
 .app {
-
+    text-align: center;
 }
 
 .hide {
+    text-align: left;
     background: #222;
     color: #888;
     font-size: 11px;
