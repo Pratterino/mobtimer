@@ -5,14 +5,29 @@ import _ from "lodash";
 const defaultUserState = {
     users: [{
         image: _.sample(userImages),
-        active: false,
+        active: true,
         disabled: false,
-        name: "Chris",
+        name: "Pär",
     }, {
         image: _.sample(userImages),
         active: false,
         disabled: false,
-        name: "Pär",
+        name: "Ninos",
+    }, {
+        image: _.sample(userImages),
+        active: false,
+        disabled: false,
+        name: "Gabriel",
+    }, {
+        image: _.sample(userImages),
+        active: false,
+        disabled: false,
+        name: "Roger",
+    }, {
+        image: _.sample(userImages),
+        active: false,
+        disabled: false,
+        name: "Anna",
     }],
 };
 

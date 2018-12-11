@@ -1,10 +1,11 @@
 import actions from "./../actionTypes";
 import store from "./../store";
+import {getParsedTimeRemaining} from "./../helper/TimerHelper";
 
 let interval;
 const defaultTimerState = {
     active: false,
-    sessionLength: 30,
+    sessionLength: 60 * 15,
     currentTime: null,
 };
 
@@ -47,11 +48,11 @@ const startTimerInterval = () => {
 export default (state = defaultTimerState, action) => {
     switch (action.type) {
         case actions.SECOND_DECREMENT_TIMER:
-            let time = state.currentTime - 1;
-            document.title = time;
+            let seconds = state.currentTime - 1;
+            document.title = getParsedTimeRemaining(seconds);
             return {
                 ...state,
-                currentTime: time,
+                currentTime: seconds,
             };
         case actions.START_TIMER:
             startTimerInterval();
@@ -75,7 +76,7 @@ export default (state = defaultTimerState, action) => {
             };
         case actions.PAUSE_TIMER:
             if (state.currentTime === null) {
-                // first time playing
+                // first seconds playing
             }
             if (state.active) {
                 stopTimerInterval();

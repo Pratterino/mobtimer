@@ -2,16 +2,13 @@ import React, {Component} from 'react';
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import {pauseTimer, startTimer, stopTimer} from "./timerActions";
+import {getParsedTimeRemaining} from "./../helper/TimerHelper";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faPause, faPlay} from '@fortawesome/free-solid-svg-icons'
 import "./Timer.scss";
 import "./TimerCircle.css";
 
 class Timer extends Component {
-    addLeadingZeroToTime = (time) => {
-        return time.toString().length === 1 ? `0${time}` : time;
-    };
-
     getPercentageLeftOfTime = () => {
         const {currentTime, sessionLength} = this.props.timer;
         return (currentTime / sessionLength) * 100;
@@ -67,13 +64,12 @@ class Timer extends Component {
     };
 
     renderTimeRemaining = (seconds) => {
-        const parsedMinutes = this.addLeadingZeroToTime(Math.floor(seconds / 60));
-        const parsedSeconds = this.addLeadingZeroToTime(seconds - parsedMinutes * 60);
+        const time = getParsedTimeRemaining(seconds);
 
         return (
             <div className="timer__time">
                 <div className="timer__time--numbers">
-                    {parsedMinutes}:{parsedSeconds}
+                    {time}
                 </div>
                 <div className="timer__time--icons">
                     <FontAwesomeIcon icon={this.props.timer.active ? faPause : faPlay}/>
