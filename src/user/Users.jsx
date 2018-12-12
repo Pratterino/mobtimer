@@ -25,18 +25,8 @@ class Users extends Component {
 
     addUser = (event) => {
         event.preventDefault();
-        this.props.addUser(this.state.nameValue);
-        this.setState({
-            nameValue: "",
-        });
+        this.props.addUser(event.target[0].value);
     };
-
-    onChangeName = (e) => {
-        this.setState({
-            nameValue: e.target.value,
-        });
-    };
-
 
     onDragEnd = (result) => {
         // dropped outside the list
@@ -59,14 +49,14 @@ class Users extends Component {
 
     getItemStyle = (isDragging, draggableStyle) => ({
         userSelect: 'none',
-        background: isDragging ? 'lightgreen' : 'transparent',
+        background: isDragging ? getComputedStyle(document.body).getPropertyValue('--highlight-color') : 'transparent',
         // styles we need to apply on draggables
         ...draggableStyle,
     });
 
     // css
     getListStyle = isDraggingOver => ({
-        background: isDraggingOver ? 'lightblue' : '',
+        background: isDraggingOver ? 'rgba(0,0,0,0.2)' : '',
         display: 'inline-flex',
         overflow: 'auto',
     });
@@ -77,7 +67,6 @@ class Users extends Component {
         result.splice(endIndex, 0, removed);
         return result;
     };
-
     // end css
 
     render() {
@@ -119,22 +108,13 @@ class Users extends Component {
                     </Droppable>
                 </DragDropContext>
                 <form onSubmit={this.addUser}>
-                    <input placeholder="Name of new user" value={this.state.nameValue}
-                           onChange={this.onChangeName}/>
+                    <input placeholder="Name of new user"/>
                     <input type="submit" value="Add user"/>
                 </form>
                 <button onClick={this.props.nextUser}>Next user</button>
             </Fragment>
         );
     }
-
-    /*
-    <User
-        key={user.name}
-        user={user}
-        disabled={user.disabled}
-    />
-    */
 }
 
 const mapStateToProps = state => ({

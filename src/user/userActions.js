@@ -29,6 +29,11 @@ export const nextUser = () => {
 };
 
 export const toggleUser = (user) => {
+    if (user.active) {
+        return {
+            type: actionTypes.NOT_ALLOWED,
+        }
+    }
     return {
         type: actionTypes.TOGGLE_USER,
         user,

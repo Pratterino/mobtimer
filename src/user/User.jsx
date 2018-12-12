@@ -49,12 +49,14 @@ class User extends Component {
                     onClick={this.props.toggleUser.bind(null, this.props.user)}
                     style={backgroundImage}
                 >
+                    {!active &&
                     <div className="user__remove">
                         <FontAwesomeIcon
                             icon={faTimesCircle}
                             onClick={this.props.removeUser.bind(null, this.props.user)}
                         />
                     </div>
+                    }
                 </figure>
                 <figcaption className="user__name">
                     <div className="user__name--text" onClick={this.enterEditMode}>

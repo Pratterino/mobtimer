@@ -1,3 +1,10 @@
+:root {
+  --color: #e0e2e4;
+  --background: #21282d;
+  --header-color: #e784a2;
+  --highlight-color: #85b5c7;
+}
+
 body {
   margin: 0;
   padding: 0;

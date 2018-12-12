@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import {pauseTimer, startTimer, stopTimer} from "./timerActions";
-import {getParsedTimeRemaining} from "./../helper/TimerHelper";
+import {getParsedTimeRemaining, lightenDarkenColor} from "./../helper/TimerHelper";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faPause, faPlay} from '@fortawesome/free-solid-svg-icons'
 import "./Timer.scss";
@@ -16,6 +16,8 @@ class Timer extends Component {
 
     renderCircularProgressbar = () => {
         const circleGradient = this.props.timer.active ? "active" : "inactive";
+        const headerColor = getComputedStyle(document.body).getPropertyValue('--header-color');
+        const luminance = 0.3;
 
         return (
             <svg className="circle-chart"
@@ -25,20 +27,20 @@ class Timer extends Component {
                  xmlns="http://www.w3.org/2000/svg">
                 <defs>
                     <linearGradient id="background" x1="0%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" stopColor="#f3f3f3" />
-                        <stop offset="100%" stopColor="#e8e8e8" />
+                        <stop offset="0%" stopColor={"#f3f3f3"} />
+                        <stop offset="100%" stopColor={lightenDarkenColor("#f3f3f3", luminance)} />
                     </linearGradient>
                     <linearGradient id="inactive" x1="0%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" stopColor="#d7686c" />
-                        <stop offset="100%" stopColor="#f9999f" />
+                        <stop offset="0%" stopColor={headerColor} />
+                        <stop offset="100%" stopColor={lightenDarkenColor(headerColor, luminance)} />
                     </linearGradient>
                     <linearGradient id="active" x1="0%" y1="0%" x2="0%" y2="100%">
                         <stop offset="0%" stopColor="#66cdaa" />
-                        <stop offset="100%" stopColor="#66cdaa" />
+                        <stop offset="100%" stopColor={lightenDarkenColor("#66cdaa", luminance)} />
                     </linearGradient>
                     <linearGradient id="paused" x1="0%" y1="0%" x2="0%" y2="100%">
                         <stop offset="0%" stopColor="#d7d283" />
-                        <stop offset="100%" stopColor="#d7d283" />
+                        <stop offset="100%" stopColor={lightenDarkenColor("#d7d283", luminance)} />
                     </linearGradient>
                 </defs>
                 <circle className="circle-chart__background"

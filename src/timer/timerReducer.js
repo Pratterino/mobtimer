@@ -49,7 +49,7 @@ export default (state = defaultTimerState, action) => {
     switch (action.type) {
         case actions.SECOND_DECREMENT_TIMER:
             let seconds = state.currentTime - 1;
-            document.title = getParsedTimeRemaining(seconds);
+            document.title = `${getParsedTimeRemaining(seconds)}`;
             return {
                 ...state,
                 currentTime: seconds,
