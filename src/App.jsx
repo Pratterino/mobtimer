@@ -3,7 +3,6 @@ import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
 
 import Timer from './timer/Timer';
-import Settings from './settings/Settings';
 import {startTimer} from "./timer/timerActions"
 import {usersSelector} from "./user/userReducer";
 import Users from "./user/Users";
@@ -21,19 +20,11 @@ class App extends Component {
                 <div className="hide">
                     <h3>ReduxState</h3>
                     <pre>{JSON.stringify(this.props.test, null, 2)}</pre>
-                    <hr/>
                 </div>
                 }
 
-                <h3> Users </h3>
                 <Users/>
 
-                <hr/>
-                <h3>Settings</h3>
-                <Settings/>
-
-                <hr/>
-                <h3>Timer</h3>
                 <Timer/>
             </div>
         );

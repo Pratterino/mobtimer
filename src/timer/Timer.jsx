@@ -83,7 +83,7 @@ class Timer extends Component {
     render() {
         const {settings, timer} = this.props;
         return (
-            <div>
+            <section className="Timer">
                 <div
                     className="timer pointer"
                     onClick={this.props.pauseTimer}
@@ -91,7 +91,7 @@ class Timer extends Component {
                     {this.renderCircularProgressbar()}
                     {this.renderTimeRemaining(timer.currentTime)}
                 </div>
-            </div>
+            </section>
         );
     }
 }

@@ -1,11 +1,14 @@
 import React, {Component, Fragment} from 'react';
-import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
+import {connect} from "react-redux";
+import {DragDropContext, Draggable, Droppable} from 'react-beautiful-dnd';
 import {usersSelector} from "./userReducer";
 import {addUser, nextUser, updateUserOrder} from "./userActions";
-import {DragDropContext, Draggable, Droppable} from 'react-beautiful-dnd';
+import Input from "./../Input";
 import User from "./User";
 import "./Users.scss";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faFastForward} from "@fortawesome/free-solid-svg-icons";
 
 class Users extends Component {
     constructor(props) {
@@ -67,6 +70,7 @@ class Users extends Component {
         result.splice(endIndex, 0, removed);
         return result;
     };
+
     // end css
 
     render() {
@@ -103,15 +107,22 @@ class Users extends Component {
                                     </Draggable>
                                 ))}
                                 {provided.placeholder}
+                                <form className="user__add" onSubmit={(e) => e.preventDefault()}>
+                                    <Input handleInputSubmit={(text) => this.props.addUser(text)}>Add user</Input>
+                                </form>
                             </div>
                         )}
                     </Droppable>
                 </DragDropContext>
-                <form onSubmit={this.addUser}>
-                    <input placeholder="Name of new user"/>
-                    <input type="submit" value="Add user"/>
-                </form>
-                <button onClick={this.props.nextUser}>Next user</button>
+
+                <section className="users__footer">
+                    <FontAwesomeIcon
+                        size={"2x"}
+                        className="pointer"
+                        onClick={this.props.nextUser}
+                        icon={faFastForward}
+                    />
+                </section>
             </Fragment>
         );
     }

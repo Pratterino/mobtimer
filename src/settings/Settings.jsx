@@ -4,9 +4,8 @@ import {connect} from "react-redux";
 import {addUser} from "./../user/userActions";
 
 class Settings extends Component {
-    addUser = (event) => {
-        event.preventDefault();
-        this.props.addUser(event.target[0].value);
+    addUser = (inputText) => {
+        this.props.addUser(inputText);
     };
 
     componentDidMount() {
@@ -16,9 +15,7 @@ class Settings extends Component {
     render() {
         return (
             <div>
-                <form onSubmit={this.addUser}>
-                    <input placeholder="Name of new user"/>
-                    <input type="submit" value="Add user"/>
+                <form onSubmit={(e) => e.preventDefault()}>
                 </form>
             </div>
         );

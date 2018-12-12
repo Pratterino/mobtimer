@@ -1,3 +1,21 @@
+$addUserSize: 180px;
 .draggable-users {
-  padding: 0 20px;
+  padding: 0 10px;
+  margin-left: $addUserSize;
+  align-items: center;
+  overflow: visible !important;
+
+  &:hover {
+    .user__add {
+      visibility: visible;
+    }
+  }
+}
+
+.user__add {
+  visibility: hidden;
+}
+
+.users__footer {
+  margin-top: 20px;
 }
