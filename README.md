@@ -15,6 +15,7 @@ Timer
   - Show favicon color based on state
 * Intermesso/Break after every n rounds
   - timebased? after around 60 min
+  * ~"<blink>" on tite when alarm-state.~
   
 User
 * Start with user [0] active.
