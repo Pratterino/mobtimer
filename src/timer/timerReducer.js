@@ -6,6 +6,8 @@ import {speak} from "./../helper/Speech";
 
 let interval;
 let speechTimeout;
+let titleToggleInterval;
+
 const defaultTimerState = {
     active: false,
     sessionLength: 60 * 15,
@@ -33,6 +35,9 @@ const stopTimerInterval = () => {
 };
 
 const startTimerInterval = () => {
+    clearTimeout(speechTimeout);
+    clearInterval(titleToggleInterval);
+
     interval = setInterval(() => {
         if (store.getState().timer.currentTime <= 0) {
             timerIsDone();
@@ -64,6 +69,19 @@ const timeoutToSpeech = (i = 0) => {
     console.info(`TIMER: SPEECH COUNTDOWN 60s, iteration ${i + 1}`)
 };
 
+const toggleTitleOnFinish = () => {
+    let interval = 0;
+    titleToggleInterval = setInterval(() => {
+        const users = store.getState().users.users;
+        const activeUser = getActiveUser(users);
+
+        document.title = (interval % 2) ? "⏰⏰⏰" : `${activeUser.name.toUpperCase()}`;
+        console.info(`TIMER: title iteration ${interval}`);
+        interval++;
+    }, 1000);
+    console.info(`TIMER: TITLE CHANGE!`)
+};
+
 export default (state = defaultTimerState, action) => {
     switch (action.type) {
         case actions.SECOND_DECREMENT_TIMER:
@@ -84,6 +102,7 @@ export default (state = defaultTimerState, action) => {
         case actions.FINISH_TIMER:
             // when a single timer cycle has completed
             stopTimerInterval();
+            toggleTitleOnFinish();
             timeoutToSpeech();
             return {
                 ...state,

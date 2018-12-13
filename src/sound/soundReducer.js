@@ -1,7 +1,7 @@
 import actions from "./../actionTypes";
 import elevatorSound from './../assets/elevator.mp3'
 // sounds
-import sound from './../assets/sounds/wakawaka.mp3'
+import sound from './../assets/sounds/lightsaber.mp3'
 import {Howl, Howler} from 'howler';
 
 const defaultSoundState = {
