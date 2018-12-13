@@ -1,8 +1,11 @@
 import actions from "./../actionTypes";
 import store from "./../store";
 import {getParsedTimeRemaining} from "./../helper/TimerHelper";
+import {getActiveUser} from "./../user/userReducer";
+import {speak} from "./../helper/Speech";
 
 let interval;
+let speechTimeout;
 const defaultTimerState = {
     active: false,
     sessionLength: 60 * 15,
@@ -42,7 +45,23 @@ const startTimerInterval = () => {
             type: actions.SECOND_DECREMENT_TIMER,
         });
     }, 1000);
-    console.info("TIMER: A SECOND PASSED")
+    console.info("TIMER: MOB SESSION STARTED!")
+};
+
+const timeoutToSpeech = (i = 0) => {
+    if (i >= 3) {
+        speak(`${i} minutes! I give up. I'll stop talking to you. Good bye, asshole`);
+        return clearTimeout(speechTimeout);
+    } else {
+        speechTimeout = setTimeout(() => {
+            const users = store.getState().users.users;
+            const activeUser = getActiveUser(users);
+            speak(`It's ${activeUser.name}'s time. You've been idle for an entire ${i >= 1 ? `${i + 1} minutes` : "minute"}`);
+            console.info("TIMER: SPEECH!");
+            return timeoutToSpeech(i + 1);
+        }, 60 * 1000);
+    }
+    console.info(`TIMER: SPEECH COUNTDOWN 60s, iteration ${i + 1}`)
 };
 
 export default (state = defaultTimerState, action) => {
@@ -56,13 +75,16 @@ export default (state = defaultTimerState, action) => {
             };
         case actions.START_TIMER:
             startTimerInterval();
+            clearTimeout(speechTimeout);
             return {
                 ...state,
                 currentTime: state.sessionLength,
                 active: true,
             };
         case actions.FINISH_TIMER:
+            // when a single timer cycle has completed
             stopTimerInterval();
+            timeoutToSpeech();
             return {
                 ...state,
                 currentTime: state.sessionLength,
@@ -70,19 +92,22 @@ export default (state = defaultTimerState, action) => {
             };
         case actions.STOP_TIMER:
             stopTimerInterval();
+            clearTimeout(speechTimeout);
             return {
                 ...state,
                 active: false,
             };
         case actions.PAUSE_TIMER:
             if (state.currentTime === null) {
-                // first seconds playing
+                // first time playing
             }
             if (state.active) {
                 stopTimerInterval();
             } else {
                 startTimerInterval();
             }
+
+            clearTimeout(speechTimeout);
 
             return {
                 ...state,
