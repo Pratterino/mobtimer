@@ -1,5 +1,7 @@
+const synth = window.speechSynthesis;
+synth.lang = 'en-US';
+synth.volume = 1;
+
 export const speak = (text) => {
-    const synth = window.speechSynthesis;
-    const utterThis = new SpeechSynthesisUtterance(text);
-    synth.speak(utterThis);
+    synth.speak(new SpeechSynthesisUtterance(text));
 };

@@ -61,7 +61,7 @@ const timeoutToSpeech = (i = 0) => {
         speechTimeout = setTimeout(() => {
             const users = store.getState().users.users;
             const activeUser = getActiveUser(users);
-            speak(`It's ${activeUser.name}'s time. You've been idle for an entire ${i >= 1 ? `${i + 1} minutes` : "minute"}`);
+            speak(`It's ${activeUser.name}'s time! You've been idle for an entire ${i >= 1 ? `${i + 1} minutes!` : "minute!"}`);
             console.info("TIMER: SPEECH!");
             return timeoutToSpeech(i + 1);
         }, 60 * 1000);
