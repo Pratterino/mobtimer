@@ -35,4 +35,4 @@ User images
 
 Sound
 * Elevator music when paused
-* Say upcoming username with Speech API 
+* ~Say upcoming username with Speech API~
