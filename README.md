@@ -7,7 +7,7 @@ Timer
   - ~Formatted in "helper" class to minutes:seconds~
   - ~window.title~
 * ~Add users (unique ones by name)~
-  - case insensitive..
+  - ~case insensitive..~
 * ~Circular chart visualisation of time~
   - ~Toggle play/pause on click~
 * "paused" state when timer has ended

@@ -55,7 +55,7 @@ export default (state = defaultUserState, action) => {
             users = [...state.users];
 
             // Username already in state.
-            if (users.filter(user => (user.name === action.user.name)).length) {
+            if (users.filter(user => (user.name.toLowerCase() === action.user.name.toLowerCase())).length) {
                 return {
                     ...state,
                 }
