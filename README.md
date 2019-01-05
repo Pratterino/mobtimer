@@ -2,6 +2,11 @@
 Settings
 * Themes
 
+Notifications
+* When NEXT_USER
+  - ~Click focuses on tab~
+  - Can begin next user from action button.
+  
 Timer
 * ~Timer in title/tab~
   - ~Formatted in "helper" class to minutes:seconds~
