@@ -3,6 +3,7 @@ import store from "./../store";
 import {getParsedTimeRemaining} from "./../helper/TimerHelper";
 import {getActiveUser} from "./../user/userReducer";
 import {speak} from "./../helper/Speech";
+import {showNotification} from "./../NotificationManager";
 
 let interval;
 let speechTimeout;
@@ -24,9 +25,14 @@ const timerIsDone = () => {
         type: actions.FINISH_TIMER,
     });
 
+    // todo: thunk it =>
     store.dispatch({
         type: actions.NEXT_USER,
     });
+
+    const users = store.getState().users.users;
+    const upNextUser = getActiveUser(users);
+    showNotification(upNextUser);
 };
 
 const stopTimerInterval = () => {
@@ -66,7 +72,7 @@ const timeoutToSpeech = (i = 0) => {
             return timeoutToSpeech(i + 1);
         }, 60 * 1000);
     }
-    console.info(`TIMER: SPEECH COUNTDOWN 60s, iteration ${i + 1}`)
+    console.info(`TIMER: SPEECH COUNTDOWN 60s, iteration ${i + 1}`);
 };
 
 const toggleTitleOnFinish = () => {

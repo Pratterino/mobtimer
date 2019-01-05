@@ -1,23 +1,17 @@
 import React, {Component} from "react";
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
-import {addUser} from "./../user/userActions";
+import {askForNotificationPermission} from "./../NotificationManager";
 
 class Settings extends Component {
-    addUser = (inputText) => {
-        this.props.addUser(inputText);
-    };
-
     componentDidMount() {
         window.document.body.className = this.props.settings.theme || "";
+        askForNotificationPermission();
     }
 
     render() {
         return (
-            <div>
-                <form onSubmit={(e) => e.preventDefault()}>
-                </form>
-            </div>
+            <div></div>
         );
     }
 }
@@ -25,9 +19,6 @@ class Settings extends Component {
 const mapStateToProps = state => ({
     settings: state.settings,
 });
-const mapDispatchToProps = dispatch => bindActionCreators({
-    addUser,
-}, dispatch);
-
+const mapDispatchToProps = dispatch => bindActionCreators({}, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Settings);

@@ -57,7 +57,6 @@ class Users extends Component {
         ...draggableStyle,
     });
 
-    // css
     getListStyle = isDraggingOver => ({
         background: isDraggingOver ? 'rgba(0,0,0,0.2)' : '',
         display: 'inline-flex',
@@ -70,8 +69,6 @@ class Users extends Component {
         result.splice(endIndex, 0, removed);
         return result;
     };
-
-    // end css
 
     render() {
         return (
@@ -117,10 +114,10 @@ class Users extends Component {
 
                 <section className="users__footer">
                     <FontAwesomeIcon
-                        size={"2x"}
+                        icon={faFastForward}
+                        size="2x"
                         className="pointer"
                         onClick={this.props.nextUser}
-                        icon={faFastForward}
                     />
                 </section>
             </Fragment>
