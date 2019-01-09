@@ -23,7 +23,6 @@ const _renderNotification = (user) => {
         console.log(e, e.action);
         try {
             window.focus();
-            closeNotification();
         } catch (e) {
             console.error(e);
         }
