@@ -2,29 +2,38 @@ import actions from "./../actionTypes";
 import {userImages} from "./userImages";
 import _ from "lodash";
 
+const images = userImages;
+
+const getRandomImageUrl = () => {
+    const index = Math.floor(Math.random() * images.length);
+    const image = images[index];
+    images.splice(index, 1);
+    return image;
+};
+
 const defaultUserState = {
     users: [{
-        image: _.sample(userImages),
+        image: getRandomImageUrl(),
         active: true,
         disabled: false,
         name: "Pär",
     }, {
-        image: _.sample(userImages),
+        image: getRandomImageUrl(),
         active: false,
         disabled: false,
         name: "Ninos",
     }, {
-        image: _.sample(userImages),
+        image: getRandomImageUrl(),
         active: false,
         disabled: false,
         name: "Gabriel",
     }, {
-        image: _.sample(userImages),
+        image: getRandomImageUrl(),
         active: false,
         disabled: false,
         name: "Roger",
     }, {
-        image: _.sample(userImages),
+        image: getRandomImageUrl(),
         active: false,
         disabled: false,
         name: "Anna",
