@@ -3,7 +3,7 @@ import store from "./../store";
 import {getParsedTimeRemaining} from "./../helper/TimerHelper";
 import {getActiveUser} from "./../user/userReducer";
 import {speak} from "./../helper/Speech";
-import {showNotification} from "./../NotificationManager";
+import {showNotification, closeNotification} from "./../NotificationManager";
 
 let interval;
 let speechTimeout;
@@ -56,7 +56,8 @@ const startTimerInterval = () => {
             type: actions.SECOND_DECREMENT_TIMER,
         });
     }, 1000);
-    console.info("TIMER: MOB SESSION STARTED!")
+    console.info("TIMER: MOB SESSION STARTED!");
+    closeNotification();
 };
 
 const timeoutToSpeech = (i = 0) => {

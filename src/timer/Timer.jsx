@@ -6,7 +6,7 @@ import {getParsedTimeRemaining, lightenDarkenColor} from "./../helper/TimerHelpe
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faPause, faPlay} from '@fortawesome/free-solid-svg-icons'
 import "./Timer.scss";
-import "./TimerCircle.css";
+import "./TimerCircle.scss";
 
 class Timer extends Component {
     getPercentageLeftOfTime = () => {
