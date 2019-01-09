@@ -5,7 +5,8 @@ Settings
 Notifications
 * When NEXT_USER
   - ~Click focuses on tab~
-  - Can begin next user from action button.
+  - ~Close notification when NEXT_USER.~
+  - action: Can begin next user from action button.
   
 Timer
 * ~Timer in title/tab~
