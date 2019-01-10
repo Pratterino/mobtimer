@@ -4,6 +4,7 @@ import {connect} from "react-redux";
 import {DragDropContext, Draggable, Droppable} from 'react-beautiful-dnd';
 import {usersSelector} from "./userReducer";
 import {addUser, nextUser, updateUserOrder} from "./userActions";
+import {resetTimer} from "./../timer/timerActions";
 import Input from "./../Input";
 import User from "./User";
 import "./Users.scss";
@@ -117,7 +118,10 @@ class Users extends Component {
                         icon={faFastForward}
                         size="2x"
                         className="pointer"
-                        onClick={this.props.nextUser}
+                        onClick={() => {
+                            this.props.nextUser();
+                            this.props.resetTimer();
+                        }}
                     />
                 </section>
             </Fragment>
@@ -132,6 +136,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => bindActionCreators({
     addUser,
     nextUser,
+    resetTimer,
     updateUserOrder,
 }, dispatch);
 

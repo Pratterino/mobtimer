@@ -11,3 +11,7 @@ export const pauseTimer = () => ({
 export const stopTimer = () => ({
     type: actionTypes.STOP_TIMER,
 });
+
+export const resetTimer = () => ({
+    type: actionTypes.RESET_TIMER,
+});

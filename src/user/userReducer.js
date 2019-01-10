@@ -126,6 +126,7 @@ export default (state = defaultUserState, action) => {
             });
 
             users[nextActiveUserIndex].active = true;
+            console.info(state);
 
 
             return {

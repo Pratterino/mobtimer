@@ -30,7 +30,7 @@ User
 * ~Remove a user~
 * ~Toggle inactive/active user~
 * ~NEXT_USER skips disabled users~
-  - RESET_TIME when next and time is active
+  - ~RESET_TIME when next and time is active~
 * ~Edit username~
 * ~Not be able remove an active user~
 * ~Change order of users~
