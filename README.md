@@ -1,6 +1,8 @@
 ### Features to-do
 Settings
 * Themes
+  - CSS themes.
+  - Välj vilket ljud
 
 Notifications
 * When NEXT_USER
@@ -43,3 +45,8 @@ User images
 Sound
 * Elevator music when paused
 * ~Say upcoming username with Speech API~
+
+
+Misc
+* Version control av appen
+  - Visa när ny version är tillgänglig. Uppmuntra reload.
