@@ -10,6 +10,10 @@ export const askForNotificationPermission = () => {
     }
 };
 
+export const hasAcceptedNotifications = () => {
+    return hasNotificationSupport() && Notification.permission === "granted";
+};
+
 const _renderNotification = (user) => {
     notification = new Notification('Mobtimer', {
         tag: "mobtimer-notification",

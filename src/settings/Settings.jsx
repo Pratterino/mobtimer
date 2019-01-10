@@ -1,7 +1,9 @@
 import React, {Component} from "react";
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
-import {askForNotificationPermission} from "./../NotificationManager";
+import {askForNotificationPermission, hasAcceptedNotifications} from "./../NotificationManager";
+import {Emojione} from "react-emoji-render";
+import "./Settings.scss";
 
 class Settings extends Component {
     componentDidMount() {
@@ -11,7 +13,14 @@ class Settings extends Component {
 
     render() {
         return (
-            <div></div>
+            <div className="settings">
+                {!hasAcceptedNotifications() && (
+                    <div className="settings__permissions">
+                        <Emojione
+                            text=":information_source: :point_up: Please accept Notifications to get notified when the next user is due!"
+                        />
+                    </div>)}
+            </div>
         );
     }
 }

@@ -1,0 +1,8 @@
+.settings {
+  background: var(--background);
+
+  .settings__permissions {
+    border: 1px solid var(--highlight-color);
+    color: red;
+  }
+}

@@ -10,14 +10,14 @@
     "classnames": "^2.2.6",
     "howler": "^2.0.15",
     "lodash": "latest",
+    "prop-types": "latest",
     "react": "^16.6.3",
     "react-beautiful-dnd": "^10.0.2",
     "react-dom": "^16.6.3",
     "react-redux": "^6.0.0",
     "react-scripts": "2.1.1",
     "redux": "^4.0.1",
-    "redux-thunk": "^2.3.0",
-    "prop-types": "latest"
+    "redux-thunk": "^2.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
