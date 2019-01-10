@@ -9,6 +9,7 @@ Notifications
   - ~Click focuses on tab~
   - ~Close notification when NEXT_USER.~
   - action: Can begin next user from action button.
+* ~Prompt to activate notifications in Settings view in case she has not~
   
 Timer
 * ~Timer in title/tab~
