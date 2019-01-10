@@ -2,23 +2,26 @@
 @import url('https://fonts.googleapis.com/css?family=Inconsolata');
 
 .Input {
-$width: 180px;
-$height: 40px;
+  $width: 180px;
+  $height: 40px;
 
   * {
     margin: 0;
     padding: 0;
   }
 
-  .cbox,
   .input-container {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
   }
 
-  .input-container {
-    flex-direction: column;
+  label {
+    position: absolute;
+    left: 0;
+    top: -24px;
+    color: var(--header-color);
   }
 
   .parent {
@@ -26,79 +29,15 @@ $height: 40px;
     height: $height;
     position: relative;
 
-    .add,
-    .cbox,
     .message {
       position: absolute;
-    }
-
-    .add,
-    .message {
       color: var(--header-color);
-    }
-
-    .add {
-      top: -3px;
-      left: 25px;
-      transition: 0.6s height 0.3s;
-      letter-spacing: 1px;
-    }
-  }
-
-  .message,
-  .cbox {
-    outline: none;
-  }
-
-  .cbox {
-    top: -10px;
-    left: -10px;
-    width: 30px;
-    height: 30px;
-    background: var(--header-color);
-    border-radius: 100%;
-    -webkit-appearance: none;
-    z-index: 3;
-
-    &:before,
-    &:after {
-      position: absolute;
-      content: '';
-      width: 20px;
-      height: 2px;
-      background: #E8E8E8;
-      transition: 0.4s height, 0.4s width;
-    }
-
-    &:after {
-      transform: rotate(90deg);
-    }
-
-    &:checked {
-      ~ .message {
-        width: $width;
-        height: $height;
-        transition: 0.3s width, 0.3s height;
-      }
-
-      &:before,
-      &:after {
-        transform: rotate(360deg);
-        transition: 0.4s height, 0.3s width;
-      }
-
-      ~ .add {
-        font-size: 13px;
-        transform: translateY(-16px);
-        transition: 0.3s height, 0.3s width;
-      }
     }
   }
 
   .message {
     left: 0;
-    height: 0;
-    width: 0;
+    width: inherit;
     background: none;
     border: 2px solid var(--header-color);
     transition: 0.4s width 0.2s, 0.1s;
