@@ -1,18 +1,18 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import {applyMiddleware, compose, createStore} from 'redux';
-import {Provider} from "react-redux";
-import thunk from "redux-thunk";
-import App from './App';
+import {createStore} from 'redux';
 import rootReducer from './rootReducer';
 import './index.css';
+import {persistReducer, persistStore} from 'redux-persist'
+import storage from 'redux-persist/lib/storage';
+import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
 
-const store = createStore(
-    rootReducer,
-    compose(
-        applyMiddleware(thunk),
-        window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : f => f
-    )
-);
+const persistConfig = {
+    key: 'root',
+    storage,
+    stateReconciler: autoMergeLevel2,
+};
 
-export default store;
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
+export const store = createStore(persistedReducer);
+export const persistor = persistStore(store);

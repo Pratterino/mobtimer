@@ -1,8 +1,8 @@
 import React, {Component} from "react";
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
-import {askForNotificationPermission, hasAcceptedNotifications} from "./../NotificationManager";
 import {Emojione} from "react-emoji-render";
+import {askForNotificationPermission, hasAcceptedNotifications} from "./../NotificationManager";
 import "./Settings.scss";
 
 class Settings extends Component {

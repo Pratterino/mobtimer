@@ -1,5 +1,5 @@
 import actions from "./../actionTypes";
-import store from "./../store";
+import {store} from "./../store";
 import {getParsedTimeRemaining} from "./../helper/TimerHelper";
 import {getActiveUser} from "./../user/userReducer";
 import {speak} from "./../helper/Speech";
