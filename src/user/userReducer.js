@@ -12,32 +12,14 @@ const getRandomImageUrl = () => {
 };
 
 const defaultUserState = {
-    users: [{
-        image: getRandomImageUrl(),
-        active: true,
-        disabled: false,
-        name: "Pär",
-    }, {
-        image: getRandomImageUrl(),
-        active: false,
-        disabled: false,
-        name: "Ninos",
-    }, {
-        image: getRandomImageUrl(),
-        active: false,
-        disabled: false,
-        name: "Gabriel",
-    }, {
-        image: getRandomImageUrl(),
-        active: false,
-        disabled: false,
-        name: "Roger",
-    }, {
-        image: getRandomImageUrl(),
-        active: false,
-        disabled: false,
-        name: "Anna",
-    }],
+    users: [
+        {
+            image: getRandomImageUrl(),
+            active: true,
+            disabled: false,
+            name: "Jane Doe",
+        }
+    ],
 };
 
 const getNextActiveUserIndex = (users) => {
