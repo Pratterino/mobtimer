@@ -4,9 +4,9 @@ export const hasNotificationSupport = () => {
     return "Notification" in window;
 };
 
-export const askForNotificationPermission = () => {
+export const askForNotificationPermission = (callback) => {
     if (hasNotificationSupport()) {
-        Notification.requestPermission();
+        Notification.requestPermission().then((response) => callback(response));
     }
 };
 

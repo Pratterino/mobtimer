@@ -1,8 +1,32 @@
 .settings {
-  background: var(--background);
+  $button_size: 30px;
+  padding: var(--base-padding);
+  background: var(--header-color);
 
-  .settings__permissions {
-    border: 1px solid var(--highlight-color);
-    color: red;
+  h3 {
+    color: var(--link-color-darker);
+  }
+
+  a, a:focus, a:visited {
+    text-decoration: none;
+    color: #fff;
+    background-color: var(--link-color-darker);
+    border: 1px solid #faebd7;
+    text-align: center;
+    letter-spacing: .5px;
+    transition: background-color .2s ease-out;
+    cursor: pointer;
+    border-right: none;
+    border-top: none;
+    border-radius: 4px;
+    display: inline-block;
+    height: $button_size;
+    line-height: $button_size;
+    padding: 0 12px;
+    text-transform: uppercase;
+
+    &:active {
+      border: none;
+    }
   }
 }

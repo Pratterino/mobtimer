@@ -21,6 +21,9 @@ const actions = {
     PLAY_FINISHED_SOUND: "PLAY_FINISHED_SOUND",
     STOP_ALL_SOUNDS: "STOP_ALL_SOUNDS",
     PLAY_ELEVATOR_SOUND: "PLAY_ELEVATOR_SOUND",
+
+    // settings
+    CLEAR_STATE: "CLEAR_STATE",
 };
 
 export default actions;

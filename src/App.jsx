@@ -6,6 +6,7 @@ import Timer from './timer/Timer';
 import {startTimer} from "./timer/timerActions"
 import {usersSelector} from "./user/userReducer";
 import Users from "./user/Users";
+import Notifications from "./notifications/Notifications";
 import Settings from "./settings/Settings";
 import './App.css';
 
@@ -23,7 +24,10 @@ class App extends Component {
                     <pre>{JSON.stringify(this.props.test, null, 2)}</pre>
                 </div>
                 }
+                <Notifications/>
+
                 <Settings/>
+
 
                 <Users/>
 

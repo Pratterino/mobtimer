@@ -1,25 +1,19 @@
 import React, {Component} from "react";
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
-import {Emojione} from "react-emoji-render";
-import {askForNotificationPermission, hasAcceptedNotifications} from "./../NotificationManager";
 import "./Settings.scss";
+import {clearState} from "./../settings/settingsActions";
 
 class Settings extends Component {
     componentDidMount() {
         window.document.body.className = this.props.settings.theme || "";
-        askForNotificationPermission();
     }
 
     render() {
         return (
             <div className="settings">
-                {!hasAcceptedNotifications() && (
-                    <div className="settings__permissions">
-                        <Emojione
-                            text=":information_source: :point_up: Please accept Notifications to get notified when the next user is due!"
-                        />
-                    </div>)}
+                <h3>Application</h3>
+                <a className="button" onClick={this.props.clearState}>Reset application</a>
             </div>
         );
     }
@@ -28,6 +22,8 @@ class Settings extends Component {
 const mapStateToProps = state => ({
     settings: state.settings,
 });
-const mapDispatchToProps = dispatch => bindActionCreators({}, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({
+    clearState,
+}, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Settings);

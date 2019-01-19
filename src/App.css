@@ -1,25 +1,25 @@
 html, body {
-    background: #20002c; /* fallback for old browsers */
-    background: var(--background);
+  background: #20002c; /* fallback for old browsers */
+  background: var(--background);
 }
 
 .app {
-    color: var(--color);
-    text-align: center;
+  color: var(--color);
+  text-align: center;
 }
 
 h1, h2, h3, h4 {
-    color: var(--header-color);
-    font-weight: bold;
+  color: var(--header-color);
+  font-weight: bold;
 }
 
 .hide {
-    text-align: left;
-    background: #222;
-    color: #888;
-    font-size: 11px;
+  text-align: left;
+  background: #222;
+  color: #888;
+  font-size: 11px;
 }
 
 .pointer {
-    cursor: pointer;
+  cursor: pointer;
 }
