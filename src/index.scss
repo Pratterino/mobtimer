@@ -16,6 +16,7 @@ body {
   sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: var(--background);
 }
 
 #bg-image {
@@ -26,7 +27,8 @@ body {
   z-index: -10;
   position: absolute;
   background-image: url("https://images.unsplash.com/photo-1528920304568-7aa06b3dda8b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80");
-  filter: grayscale(90%);
+  filter: grayscale(95%);
+  opacity: .3;
 
   #bg-overlay {
     position: absolute;
