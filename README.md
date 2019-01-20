@@ -4,6 +4,10 @@ Settings
   - CSS themes.
   - Välj vilket ljud
 
+* localStorage
+  - ~Remember users/redux state on refresh~
+  - Bug: green color on timer after refresh/rehydrate of state.
+  
 Notifications
 * When NEXT_USER
   - ~Click focuses on tab~
