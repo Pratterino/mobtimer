@@ -1,6 +1,6 @@
 html, body {
   background: #20002c; /* fallback for old browsers */
-  background: var(--background);
+  background: sticky var(--background);
   height: 100%;
 }
 
