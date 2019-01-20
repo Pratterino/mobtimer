@@ -26,7 +26,7 @@ class Input extends Component {
                         <label
                             className="add"
                             htmlFor="input-name"
-                        >Add name</label>
+                        >Add user</label>
                         <input
                             name="input-name"
                             value={this.state.text}

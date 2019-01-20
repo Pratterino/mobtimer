@@ -26,6 +26,7 @@ class User extends Component {
         this.props.changeName(this.props.user, this.state.name);
         this.enterEditMode(false);
     };
+
     enterEditMode = (boolean = true) => {
         this.setState({editMode: boolean});
         if (this.input) {
@@ -35,11 +36,8 @@ class User extends Component {
 
     render() {
         // TODO: disabled should be able to be in user, why is it not updating if it is?
-        const {name, image, active} = this.props.user;
-        const classes = classNames({
-            disabled: this.props.disabled,
-            active,
-        });
+        const {name, image, disabled, active} = this.props.user;
+        const classes = classNames({active, disabled});
 
         const backgroundImage = {backgroundImage: `url(${image})`};
         return (

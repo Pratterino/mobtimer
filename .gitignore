@@ -7,6 +7,7 @@
 /coverage
 
 # production
+/secret
 /build
 
 # misc
