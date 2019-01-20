@@ -43,7 +43,8 @@ class User extends Component {
 
         const backgroundImage = {backgroundImage: `url(${image})`};
         return (
-            <div className={`user`}>
+            <div className="user">
+                {active && <div className="user__crown"/>}
                 <figure
                     className={`user__image pointer ${classes}`}
                     onClick={this.props.toggleUser.bind(null, this.props.user)}

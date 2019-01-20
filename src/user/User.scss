@@ -3,11 +3,30 @@ $imageSize: 80px;
 .user {
   display: inline-block;
   text-align: center;
+  position: relative;
 
   &:hover {
     .user__remove {
       visibility: visible;
     }
+
+    .user__crown {
+      transform: rotate(0deg);
+      left: 40px;
+    }
+  }
+
+  .user__crown {
+    background: url(../assets/images/crown.png) no-repeat;
+    background-size: cover;
+    height: 50px;
+    width: 90px;
+    top: -19px;
+    left: 19px;
+    transform: rotate(-22deg);
+    position: absolute;
+    z-index: 2;
+    transition: all .5s;
   }
 
   .user__image {

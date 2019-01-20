@@ -12,18 +12,17 @@ Notifications
 * When NEXT_USER
   - ~Click focuses on tab~
   - ~Close notification when NEXT_USER.~
-  - action: Can begin next user from action button.
 * ~Prompt to activate notifications in Settings view in case she has not~
   
 Timer
 * ~Timer in title/tab~
   - ~Formatted in "helper" class to minutes:seconds~
-  - ~window.title~
+  - ~window.title updates every second~
 * ~Add users (unique ones by name)~
-  - ~case insensitive..~
+  - ~bug: should not be case sensitive..~
 * ~Circular chart visualisation of time~
   - ~Toggle play/pause on click~
-* "paused" state when timer has ended
+* timer visual states
   - Red/yellow/green
   - Show favicon color based on state
 * Intermesso/Break after every n rounds
@@ -40,6 +39,7 @@ User
 * ~Not be able remove an active user~
 * ~Change order of users~
 * ~Not be able to disable all / i.e not the active one~
+* ~Crown on active user~
 
 User images
 * ~Random user images (hardcoded)~
