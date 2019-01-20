@@ -24,6 +24,7 @@ const actions = {
 
     // settings
     CLEAR_STATE: "CLEAR_STATE",
+    UPDATE_SESSION_LENGTH: "UPDATE_SESSION_LENGTH",
 };
 
 export default actions;

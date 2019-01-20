@@ -18,6 +18,8 @@ h1, h2, h3, h4 {
   background: #222;
   color: #888;
   font-size: 11px;
+  z-index: 999999999;
+  position: sticky;
 }
 
 .pointer {

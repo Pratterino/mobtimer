@@ -147,6 +147,15 @@ export default (state = defaultTimerState, action) => {
                 currentTime: state.sessionLength,
                 active: false,
             };
+
+        case actions.UPDATE_SESSION_LENGTH:
+            stopTimerInterval();
+            clearTimeout(speechTimeout);
+
+            return {
+                ...state,
+                sessionLength: action.sessionLength,
+            };
         default:
             return state;
     }

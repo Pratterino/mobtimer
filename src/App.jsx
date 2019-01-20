@@ -24,10 +24,10 @@ class App extends Component {
                     <pre>{JSON.stringify(this.props.test, null, 2)}</pre>
                 </div>
                 }
-                <Notifications/>
 
                 <Settings/>
 
+                <Notifications/>
 
                 <Users/>
 
