@@ -1,8 +1,11 @@
 .notifications {
   background: var(--background);
+  position: absolute;
+  top: 0;
+  left: 0;
 
   .notifications__permissions {
-    border: 1px solid var(--highlight-color);
+    margin-left: 90px;
     color: red;
   }
 }

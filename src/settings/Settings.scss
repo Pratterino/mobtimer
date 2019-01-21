@@ -45,7 +45,7 @@
   display: flex;
   justify-content: space-evenly;
 
-  transform: translateY(-105%);
+  transform: translateY(-120%);
   transition: transform 400ms ease-in, margin-bottom 400ms ease-in;
 
   &.slideIn {
@@ -54,7 +54,7 @@
   }
 
   &.slideOut {
-    transform: translateY(-105%);
+    transform: translateY(-120%);
   }
 
   h3 {

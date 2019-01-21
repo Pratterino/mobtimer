@@ -25,9 +25,9 @@ class App extends Component {
                 </div>
                 }
 
-                <Settings/>
-
                 <Notifications/>
+
+                <Settings/>
 
                 <Users/>
 
