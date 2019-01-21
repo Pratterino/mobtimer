@@ -30,7 +30,7 @@ class Settings extends Component {
                 <div className={`settings ${this.state.show ? 'slideIn' : 'slideOut'}`}>
                     <div className="settings__group">
                         <h3>Application</h3>
-                        <a onClick={clearState}>Reset application</a>
+                        <a className="button" onClick={clearState}>Reset application</a>
                     </div>
 
                     <div className="settings__group">
@@ -42,6 +42,11 @@ class Settings extends Component {
                             min="1"
                             defaultValue={timer.sessionLength / 60}
                             onChange={this.handleTimerNumberChange}/>
+                    </div>
+
+                    <div className="settings__group">
+                        <h3>Links</h3>
+                        <a href="https://github.com/Pratterino/mobtimer" target="__blank" style={{textTransform: "lowercase"}}>https://github.com/Pratterino/mobtimer</a>
                     </div>
                 </div>
                 <div className={`settings__hamburger pointer ${this.state.show ? 'change' : ''}`} onClick={this.toggleSettings}>
