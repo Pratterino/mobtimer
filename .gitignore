@@ -23,5 +23,3 @@ yarn-error.log*
 
 # intellij
 /.idea
-
-/public/.htaccess
