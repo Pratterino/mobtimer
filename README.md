@@ -1,4 +1,4 @@
-### Features to-do
+### Features (striked ones) / to-do (un-striked)
 Settings
 * Themes
   - CSS themes.
