@@ -3,7 +3,6 @@ import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
 
 import Timer from './timer/Timer';
-import {startTimer} from "./timer/timerActions"
 import {usersSelector} from "./user/userReducer";
 import Users from "./user/Users";
 import Notifications from "./notifications/Notifications";
@@ -11,10 +10,6 @@ import Settings from "./settings/Settings";
 import './App.css';
 
 class App extends Component {
-    startCountDown = () => {
-        this.props.startTimer();
-    };
-
     render() {
         return (
             <div className="app">
@@ -43,9 +38,9 @@ const mapStateToProps = state => ({
     users: usersSelector(state),
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators({
-    startTimer,
-}, dispatch);
 
+const mapDispatchToProps = dispatch => bindActionCreators({}, dispatch);
+
+export const unwrapped = App;
 export default connect(mapStateToProps, mapDispatchToProps)(App);
 
