@@ -7,7 +7,8 @@ import {usersSelector} from "./user/userReducer";
 import Users from "./user/Users";
 import Notifications from "./notifications/Notifications";
 import Settings from "./settings/Settings";
-import './App.css';
+import {getParsedTimeRemaining} from "./helper/TimerHelper";
+import './App.scss';
 
 class App extends Component {
     render() {
@@ -27,6 +28,15 @@ class App extends Component {
                 <Users/>
 
                 <Timer/>
+
+                <footer>
+                    <div className="footer__item">
+                        <h4>Today's overall mob time</h4>
+                        <p>
+                            {getParsedTimeRemaining(this.props.timer.metadata.todaysSessionLength)}
+                        </p>
+                    </div>
+                </footer>
             </div>
         );
     }

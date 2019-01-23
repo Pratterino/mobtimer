@@ -2,7 +2,6 @@
 Settings
 * Themes
   - CSS themes.
-  - Välj vilket ljud
 
 * localStorage
   - ~Remember users/redux state on refresh~
@@ -27,7 +26,11 @@ Timer
   - Show favicon color based on state
 * Intermesso/Break after every n rounds
   - timebased? after around 60 min
-  * ~"blink" on tite when alarm-state.~
+* ~"blink" on tite when alarm-state.~
+* Metadata
+  - ~Overall mobtime of todays session~
+  - Number of cycles
+  - propose a break after nth round/time?
   
 User
 * Start with user [0] active.
@@ -45,11 +48,13 @@ User images
 * ~Random user images (hardcoded)~
   - Unsplashed API
 * ~NEXT_USER after timer ends~
+* Unique image of every user.
 * Set timer time in Settings
 
 Sound
 * Elevator music when paused
 * ~Say upcoming username with Speech API~
+* Choose which sound to use
 
 
 Misc

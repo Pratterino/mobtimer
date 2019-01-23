@@ -13,6 +13,10 @@ const defaultTimerState = {
     active: false,
     sessionLength: 60 * 15,
     currentTime: null,
+    metadata: {
+        todaysSessionLength: 0,
+        todaysDate: new Date().getDate(),
+    }
 };
 
 const timerIsDone = () => {
@@ -97,6 +101,18 @@ export default (state = defaultTimerState, action) => {
             return {
                 ...state,
                 currentTime: seconds,
+                metadata: {
+                    ...state.metadata,
+                    todaysSessionLength: state.metadata.todaysSessionLength + 1,
+                },
+            };
+        case actions.RESET_TODAYS_SESSION_LENGTH:
+            return {
+                ...state,
+                metadata: {
+                    ...state.metadata,
+                    todaysSessionLength: 0,
+                },
             };
         case actions.START_TIMER:
             startTimerInterval();
@@ -105,6 +121,10 @@ export default (state = defaultTimerState, action) => {
                 ...state,
                 currentTime: state.sessionLength,
                 active: true,
+                metadata: {
+                    ...state.metadata,
+                    todaysDate: new Date().getDate(),
+                },
             };
         case actions.FINISH_TIMER:
             // when a single timer cycle has completed
@@ -123,7 +143,7 @@ export default (state = defaultTimerState, action) => {
                 ...state,
                 active: false,
             };
-        case actions.PAUSE_TIMER:
+        case actions.PLAY_PAUSE_TIMER:
             if (state.currentTime === null) {
                 // first time playing
             }
@@ -139,6 +159,10 @@ export default (state = defaultTimerState, action) => {
                 ...state,
                 currentTime: state.currentTime || state.sessionLength,
                 active: !state.active,
+                metadata: {
+                    ...state.metadata,
+                    todaysDate: new Date().getDate(),
+                },
             };
         case actions.RESET_TIMER:
             stopTimerInterval();

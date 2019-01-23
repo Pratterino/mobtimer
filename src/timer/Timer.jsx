@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
-import {pauseTimer, startTimer, stopTimer} from "./timerActions";
+import {playPauseTimer, startTimer, stopTimer} from "./timerActions";
 import {getParsedTimeRemaining, lightenDarkenColor} from "./../helper/TimerHelper";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faPause, faPlay} from '@fortawesome/free-solid-svg-icons'
@@ -86,7 +86,7 @@ class Timer extends Component {
             <section className="Timer">
                 <div
                     className="timer pointer"
-                    onClick={this.props.pauseTimer}
+                    onClick={this.props.playPauseTimer.bind(null, this.props.timer)}
                 >
                     {this.renderCircularProgressbar()}
                     {this.renderTimeRemaining(timer.currentTime)}
@@ -101,7 +101,7 @@ const mapStateToProps = state => ({
 });
 const mapDispatchToProps = dispatch => bindActionCreators({
     stopTimer,
-    pauseTimer,
+    playPauseTimer,
     startTimer,
 }, dispatch);
 
