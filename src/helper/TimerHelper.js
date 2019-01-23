@@ -3,8 +3,19 @@ const addLeadingZeroToTime = (time) => {
 };
 
 export const getParsedTimeRemaining = (seconds) => {
-    const parsedMinutes = addLeadingZeroToTime(Math.floor(seconds / 60));
-    const parsedSeconds = addLeadingZeroToTime(seconds - parsedMinutes * 60);
+    var sec_num = parseInt(seconds, 10); // don't forget the second param
+    var hours   = Math.floor(sec_num / 3600);
+    var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
+    var seconds = sec_num - (hours * 3600) - (minutes * 60);
+
+    const parsedHours = addLeadingZeroToTime(hours);
+    const parsedMinutes = addLeadingZeroToTime(minutes);
+    const parsedSeconds = addLeadingZeroToTime(seconds);
+
+    if (parsedHours > 0) {
+        return `${parsedHours}:${parsedMinutes}:${parsedSeconds}`;
+    }
+
     return `${parsedMinutes}:${parsedSeconds}`;
 };
 
@@ -22,6 +33,5 @@ export const lightenDarkenColor = (hex, lum = 0) => {
         c = Math.round(Math.min(Math.max(0, c + (c * lum)), 255)).toString(16);
         rgb += ("00" + c).substr(c.length);
     }
-
     return rgb;
 };

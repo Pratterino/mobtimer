@@ -17,7 +17,7 @@ class Timer extends Component {
     renderCircularProgressbar = () => {
         const circleGradient = this.props.timer.active ? "active" : "inactive";
         const headerColor = getComputedStyle(document.body).getPropertyValue('--header-color');
-        const luminance = 0.3;
+        const luminance = 0.5;
 
         return (
             <svg className="circle-chart"

@@ -12,7 +12,7 @@ let titleToggleInterval;
 const defaultTimerState = {
     active: false,
     sessionLength: 60 * 15,
-    currentTime: null,
+    currentTime: 0,
     metadata: {
         todaysSessionLength: 0,
         todaysDate: new Date().getDate(),
