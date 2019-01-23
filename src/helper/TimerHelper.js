@@ -5,8 +5,8 @@ const addLeadingZeroToTime = (time) => {
 export const getParsedTimeRemaining = (seconds) => {
     const sec_num = parseInt(seconds, 10); // don't forget the second param
     const hour = Math.floor(sec_num / 3600);
-    const minute = Math.floor((sec_num - (hours * 3600)) / 60);
-    const second = sec_num - (hours * 3600) - (minutes * 60);
+    const minute = Math.floor((sec_num - (hour * 3600)) / 60);
+    const second = sec_num - (hour * 3600) - (minute * 60);
 
     const parsedHours = addLeadingZeroToTime(hour);
     const parsedMinutes = addLeadingZeroToTime(minute);
