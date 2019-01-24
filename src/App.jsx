@@ -31,7 +31,7 @@ class App extends Component {
 
                 <footer>
                     <div className="footer__item">
-                        <h4>Today's overall mob time</h4>
+                        <h4>Today's total mob time</h4>
                         <p>
                             {getParsedTimeRemaining(this.props.timer.metadata.todaysSessionLength)}
                         </p>
