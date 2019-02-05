@@ -3,12 +3,9 @@ import PropTypes from 'prop-types';
 import './Input.scss';
 
 class Input extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            text: "",
-        };
-    }
+    state = {
+        text: "",
+    };
 
     handleSubmit = (e) => {
         e.preventDefault();
