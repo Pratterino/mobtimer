@@ -7,6 +7,9 @@ Settings
   - ~Remember users/redux state on refresh~
   - Bug: green color on timer after refresh/rehydrate of state.
   
+CSS
+* Mobile should look acceptable.
+
 Notifications
 * When NEXT_USER
   - ~Click focuses on tab~
