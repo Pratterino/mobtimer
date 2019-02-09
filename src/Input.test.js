@@ -21,20 +21,24 @@ describe("Input", () => {
 
     describe('handleSubmit', () => {
         it('should call handleInputSubmit', () => {
-            let mockFunction = jest.fn();
+            const inputText = "test";
+            const mockFunction = jest.fn();
             let e = {preventDefault: mockFunction};
 
+            wrapper.setState({text: inputText});
             wrapper.instance().handleSubmit(e);
 
             expect(mockFunction).toHaveBeenCalledTimes(1);
             expect(handleInputSubmit).toHaveBeenCalledTimes(1);
+            expect(handleInputSubmit).toHaveBeenCalledWith(inputText);
+
             expect(wrapper.instance().state).toEqual({text: ""});
         });
     });
 
     describe('render', () => {
         it('should match snapshot', () => {
-            //expect(wrapper).toMatchSnapshot();
+            expect(wrapper).toMatchSnapshot();
         });
     });
 });
