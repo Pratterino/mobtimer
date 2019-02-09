@@ -44,5 +44,6 @@ class Input extends Component {
 Input.propTypes = {
     handleInputSubmit: PropTypes.func.isRequired,
 };
+
 export default Input;
 

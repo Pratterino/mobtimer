@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {toggleUser, changeName, removeUser} from "./userActions";
@@ -8,12 +9,10 @@ import {faTimesCircle} from "@fortawesome/free-solid-svg-icons";
 import './User.scss';
 
 class User extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            name: this.props.user.name,
-        };
-    }
+    state = {
+        name: this.props.user.name,
+        editMode: false,
+    };
 
     onChange = (event) => {
         this.setState({
@@ -80,5 +79,15 @@ const mapDispatchToProps = dispatch => bindActionCreators({
     changeName,
 }, dispatch);
 
+User.propTypes = {
+    user: PropTypes.shape({
+        name: PropTypes.string,
+    }),
+    removeUser: PropTypes.func.isRequired,
+    toggleUser: PropTypes.func.isRequired,
+    changeName: PropTypes.func.isRequired,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(User);
+
+export const unwrapped = User;

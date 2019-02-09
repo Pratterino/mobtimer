@@ -1,292 +1,31 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Input render should match snapshot 1`] = `
-ShallowWrapper {
-  Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Input
-    handleInputSubmit={
-      [MockFunction] {
-        "calls": Array [
-          Array [
-            "test",
-          ],
-        ],
-        "results": Array [
-          Object {
-            "isThrow": false,
-            "value": undefined,
-          },
-        ],
-      }
-    }
-  />,
-  Symbol(enzyme.__renderer__): Object {
-    "batchedUpdates": [Function],
-    "checkPropTypes": [Function],
-    "getNode": [Function],
-    "render": [Function],
-    "simulateError": [Function],
-    "simulateEvent": [Function],
-    "unmount": [Function],
-  },
-  Symbol(enzyme.__node__): Object {
-    "instance": null,
-    "key": undefined,
-    "nodeType": "host",
-    "props": Object {
-      "children": <div
-        className="input-container"
+<form
+  className="Input"
+  onSubmit={[Function]}
+>
+  <div
+    className="input-container"
+  >
+    <div
+      className="parent"
+    >
+      <label
+        className="add"
+        htmlFor="input-name"
       >
-        <div
-          className="parent"
-        >
-          <label
-            className="add"
-            htmlFor="input-name"
-          >
-            Add user
-          </label>
-          <input
-            autoComplete="off"
-            className="message"
-            name="input-name"
-            onChange={[Function]}
-            type="text"
-            value=""
-          />
-        </div>
-      </div>,
-      "className": "Input",
-      "onSubmit": [Function],
-    },
-    "ref": null,
-    "rendered": Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "host",
-      "props": Object {
-        "children": <div
-          className="parent"
-        >
-          <label
-            className="add"
-            htmlFor="input-name"
-          >
-            Add user
-          </label>
-          <input
-            autoComplete="off"
-            className="message"
-            name="input-name"
-            onChange={[Function]}
-            type="text"
-            value=""
-          />
-        </div>,
-        "className": "input-container",
-      },
-      "ref": null,
-      "rendered": Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": Array [
-            <label
-              className="add"
-              htmlFor="input-name"
-            >
-              Add user
-            </label>,
-            <input
-              autoComplete="off"
-              className="message"
-              name="input-name"
-              onChange={[Function]}
-              type="text"
-              value=""
-            />,
-          ],
-          "className": "parent",
-        },
-        "ref": null,
-        "rendered": Array [
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": "Add user",
-              "className": "add",
-              "htmlFor": "input-name",
-            },
-            "ref": null,
-            "rendered": "Add user",
-            "type": "label",
-          },
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "autoComplete": "off",
-              "className": "message",
-              "name": "input-name",
-              "onChange": [Function],
-              "type": "text",
-              "value": "",
-            },
-            "ref": null,
-            "rendered": null,
-            "type": "input",
-          },
-        ],
-        "type": "div",
-      },
-      "type": "div",
-    },
-    "type": "form",
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "host",
-      "props": Object {
-        "children": <div
-          className="input-container"
-        >
-          <div
-            className="parent"
-          >
-            <label
-              className="add"
-              htmlFor="input-name"
-            >
-              Add user
-            </label>
-            <input
-              autoComplete="off"
-              className="message"
-              name="input-name"
-              onChange={[Function]}
-              type="text"
-              value=""
-            />
-          </div>
-        </div>,
-        "className": "Input",
-        "onSubmit": [Function],
-      },
-      "ref": null,
-      "rendered": Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": <div
-            className="parent"
-          >
-            <label
-              className="add"
-              htmlFor="input-name"
-            >
-              Add user
-            </label>
-            <input
-              autoComplete="off"
-              className="message"
-              name="input-name"
-              onChange={[Function]}
-              type="text"
-              value=""
-            />
-          </div>,
-          "className": "input-container",
-        },
-        "ref": null,
-        "rendered": Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": Array [
-              <label
-                className="add"
-                htmlFor="input-name"
-              >
-                Add user
-              </label>,
-              <input
-                autoComplete="off"
-                className="message"
-                name="input-name"
-                onChange={[Function]}
-                type="text"
-                value=""
-              />,
-            ],
-            "className": "parent",
-          },
-          "ref": null,
-          "rendered": Array [
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": "Add user",
-                "className": "add",
-                "htmlFor": "input-name",
-              },
-              "ref": null,
-              "rendered": "Add user",
-              "type": "label",
-            },
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "autoComplete": "off",
-                "className": "message",
-                "name": "input-name",
-                "onChange": [Function],
-                "type": "text",
-                "value": "",
-              },
-              "ref": null,
-              "rendered": null,
-              "type": "input",
-            },
-          ],
-          "type": "div",
-        },
-        "type": "div",
-      },
-      "type": "form",
-    },
-  ],
-  Symbol(enzyme.__options__): Object {
-    "adapter": ReactSixteenAdapter {
-      "options": Object {
-        "enableComponentDidUpdateOnSetState": true,
-        "legacyContextMode": "parent",
-        "lifecycles": Object {
-          "componentDidUpdate": Object {
-            "onSetState": true,
-          },
-          "getChildContext": Object {
-            "calledByRenderer": false,
-          },
-          "getDerivedStateFromProps": true,
-          "getSnapshotBeforeUpdate": true,
-          "setState": Object {
-            "skipsComponentDidUpdateOnNullish": true,
-          },
-        },
-      },
-    },
-  },
-}
+        Add user
+      </label>
+      <input
+        autoComplete="off"
+        className="message"
+        name="input-name"
+        onChange={[Function]}
+        type="text"
+        value=""
+      />
+    </div>
+  </div>
+</form>
 `;
