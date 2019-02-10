@@ -2,6 +2,10 @@ const addLeadingZeroToTime = (time) => {
     return time.toString().length === 1 ? `0${time}` : time;
 };
 
+export const changeFavicon = (imageUrl) => {
+    document.querySelector("link[rel*='icon']").href = imageUrl;
+};
+
 export const getParsedTimeRemaining = (seconds) => {
     const sec_num = parseInt(seconds, 10); // don't forget the second param
     const hour = Math.floor(sec_num / 3600);

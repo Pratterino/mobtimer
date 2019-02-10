@@ -1,6 +1,7 @@
+import _ from "lodash";
 import actions from "./../actionTypes";
 import {userImages} from "./userImages";
-import _ from "lodash";
+import {changeFavicon} from "./../helper/TimerHelper";
 
 const images = userImages;
 
@@ -109,7 +110,7 @@ export default (state = defaultUserState, action) => {
 
             users[nextActiveUserIndex].active = true;
             console.info(state);
-
+            changeFavicon(users[nextActiveUserIndex].image);
 
             return {
                 users: [...users],

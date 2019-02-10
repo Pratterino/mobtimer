@@ -4,6 +4,7 @@ import {getParsedTimeRemaining} from "./../helper/TimerHelper";
 import {getActiveUser} from "./../user/userReducer";
 import {speak} from "./../helper/Speech";
 import {showNotification, closeNotification} from "./../NotificationManager";
+import {changeFavicon} from "./../helper/TimerHelper";
 
 let interval;
 let speechTimeout;
@@ -36,6 +37,7 @@ const timerIsDone = () => {
 
     const users = store.getState().users.users;
     const upNextUser = getActiveUser(users);
+
     showNotification(upNextUser);
 };
 
@@ -86,8 +88,8 @@ const toggleTitleOnFinish = () => {
         const users = store.getState().users.users;
         const activeUser = getActiveUser(users);
 
+        changeFavicon(activeUser.image);
         document.title = (interval % 2) ? "⏰⏰⏰" : `${activeUser.name.toUpperCase()}`;
-        console.info(`TIMER: title iteration ${interval}`);
         interval++;
     }, 1000);
     console.info(`TIMER: TITLE CHANGE!`)
