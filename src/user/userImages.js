@@ -10,6 +10,11 @@ export const userImages = [
     // famous females
     "https://media.giphy.com/media/26BkMUTMmscNygY2k/giphy.gif",
     "https://media.giphy.com/media/3ohhwkOxoNg56LQvvO/giphy.gif",
+    "https://media.giphy.com/media/KaXENSCPjqnK0/giphy.gif",
+    "https://media.giphy.com/media/l3vReaybWbUGEGXM4/giphy.gif",
+
+    //cbb
+    "https://media.giphy.com/media/ul1N76AMrZgwU/giphy.gif",
 
     // animals
     "https://www.drusillas.co.uk/images/whats-on-card/redpanda-profile-400x400-984.jpg",
@@ -18,12 +23,17 @@ export const userImages = [
     "https://www.wpcc.org.uk/images/nature/mammals/header-squirrel.jpg",
     "https://www.gvi.co.uk/wp-content/uploads/2016/05/2-1.png",
     "https://keyassets-p2.timeincuk.net/wp/prod/wp-content/uploads/sites/29/2015/01/iStock_000005542321_Medium.jpg",
+    "https://media.giphy.com/media/l0HlGd1H6XkdlfjZS/giphy.gif",
+    "https://media.giphy.com/media/3o6Zt7LhVoifX4ZpVm/giphy.gif",
+    "https://media.giphy.com/media/3o7btMUhSRJdn6yPVS/giphy.gif",
 
     // characters
     "https://media.giphy.com/media/EJmocpLzsUAzm/giphy.gif",
     "https://www.funstockretro.co.uk/news/wp-content/uploads/2016/09/earthwormjim.png",
     "https://media.giphy.com/media/edMIP488DQ2d2/giphy.gif",
     "https://media.giphy.com/media/lOGoKhNgS3J16/giphy.gif",
+    "https://media.giphy.com/media/3og0IwGidh5DYVDnzi/giphy.gif",
+    "https://media.giphy.com/media/xUA7aTM6JBmolQBkdi/giphy.gif",
     "https://media.giphy.com/media/bjtY9tonevcSQ/giphy.gif",
 
     // misc
