@@ -1,0 +1,151 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Users componentWillReceiveProps should update local state 1`] = `
+Object {
+  "nameValue": "",
+  "users": Array [
+    Object {
+      "name": "Bob Ducca",
+    },
+    Object {
+      "name": "Dabney Coleperson",
+    },
+  ],
+}
+`;
+
+exports[`Users getItemStyle should return when dragging 1`] = `
+Object {
+  "background": "",
+  "boxSizing": "border-box",
+  "pointerEvents": "none",
+  "position": "fixed",
+  "transition": "opacity 0.2s cubic-bezier(0.2, 0, 0, 1)",
+  "userSelect": "none",
+  "zIndex": 5000,
+}
+`;
+
+exports[`Users getItemStyle should return when not dragging 1`] = `
+Object {
+  "background": "transparent",
+  "boxSizing": "border-box",
+  "pointerEvents": "none",
+  "position": "fixed",
+  "transition": "opacity 0.2s cubic-bezier(0.2, 0, 0, 1)",
+  "userSelect": "none",
+  "zIndex": 5000,
+}
+`;
+
+exports[`Users getListStyle should return when isDraggingOver 1`] = `
+Object {
+  "background": "rgba(0,0,0,0.2)",
+  "display": "inline-flex",
+  "overflow": "auto",
+}
+`;
+
+exports[`Users getListStyle should return when not isDraggingOver 1`] = `
+Object {
+  "background": "",
+  "display": "inline-flex",
+  "overflow": "auto",
+}
+`;
+
+exports[`Users reOrder move from 0 to 1 1`] = `
+Array [
+  Object {
+    "name": "Dabney Coleperson",
+  },
+  Object {
+    "name": "Bob Ducca",
+  },
+  Object {
+    "name": "Llarn Bleb-Raag",
+  },
+]
+`;
+
+exports[`Users reOrder move from 1 to 2 1`] = `
+Array [
+  Object {
+    "name": "Bob Ducca",
+  },
+  Object {
+    "name": "Llarn Bleb-Raag",
+  },
+  Object {
+    "name": "Dabney Coleperson",
+  },
+]
+`;
+
+exports[`Users reOrder move from 2 to 0 1`] = `
+Array [
+  Object {
+    "name": "Llarn Bleb-Raag",
+  },
+  Object {
+    "name": "Bob Ducca",
+  },
+  Object {
+    "name": "Dabney Coleperson",
+  },
+]
+`;
+
+exports[`Users render should match snapshot 1`] = `
+<Fragment>
+  <DragDropContext
+    onDragEnd={[Function]}
+  >
+    <Connect(Droppable)
+      direction="horizontal"
+      droppableId="droppable"
+      ignoreContainerClipping={false}
+      isCombineEnabled={false}
+      isDropDisabled={false}
+      type="DEFAULT"
+    >
+      <Component />
+    </Connect(Droppable)>
+  </DragDropContext>
+  <section
+    className="users__footer"
+  >
+    <FontAwesomeIcon
+      border={false}
+      className="pointer"
+      fixedWidth={false}
+      flip={null}
+      icon={
+        Object {
+          "icon": Array [
+            512,
+            512,
+            Array [],
+            "f050",
+            "M512 76v360c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12V284.1L276.5 440.6c-20.6 17.2-52.5 2.8-52.5-24.6V284.1L52.5 440.6C31.9 457.8 0 443.4 0 416V96c0-27.4 31.9-41.7 52.5-24.6L224 226.8V96c0-27.4 31.9-41.7 52.5-24.6L448 226.8V76c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12z",
+          ],
+          "iconName": "fast-forward",
+          "prefix": "fas",
+        }
+      }
+      inverse={false}
+      listItem={false}
+      mask={null}
+      onClick={[Function]}
+      pull={null}
+      pulse={false}
+      rotation={null}
+      size="2x"
+      spin={false}
+      symbol={false}
+      title=""
+      transform={null}
+    />
+  </section>
+</Fragment>
+`;

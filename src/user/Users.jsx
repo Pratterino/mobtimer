@@ -38,7 +38,7 @@ class Users extends Component {
             return;
         }
 
-        const users = this.reorder(
+        const users = this.reOrder(
             this.state.users,
             result.source.index,
             result.destination.index
@@ -64,7 +64,7 @@ class Users extends Component {
         overflow: 'auto',
     });
 
-    reorder = (list, startIndex, endIndex) => {
+    reOrder = (list, startIndex, endIndex) => {
         const result = Array.from(list);
         const [removed] = result.splice(startIndex, 1);
         result.splice(endIndex, 0, removed);
@@ -142,3 +142,4 @@ const mapDispatchToProps = dispatch => bindActionCreators({
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(Users);
+export const unwrapped = Users;
