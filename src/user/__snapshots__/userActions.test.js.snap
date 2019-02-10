@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`userActions should match snapshots should match addUser 1`] = `
+Object {
+  "type": "ADD_USER",
+  "user": Object {
+    "active": false,
+    "image": "imageUrl",
+    "name": "name",
+  },
+}
+`;
+
+exports[`userActions should match snapshots should match changeName 1`] = `
+Object {
+  "name": "Scott Barnes",
+  "type": "CHANGE_USER_NAME",
+  "user": Object {
+    "name": "Bob Ducca",
+  },
+}
+`;
+
+exports[`userActions should match snapshots should match nextUser 1`] = `
+Object {
+  "type": "NEXT_USER",
+}
+`;
+
+exports[`userActions should match snapshots should match removeUser 1`] = `
+Object {
+  "type": "REMOVE_USER",
+  "user": Object {
+    "name": "Bob Ducca",
+  },
+}
+`;
+
+exports[`userActions should match snapshots should match updateUserOrder 1`] = `
+Object {
+  "type": "UPDATE_USER_ORDER",
+  "users": Array [
+    Object {
+      "name": "Bob Ducca",
+    },
+    Object {
+      "name": "Bobby Duccas",
+    },
+  ],
+}
+`;
+
+exports[`userActions should match snapshots toggleUser when user is active 1`] = `
+Object {
+  "type": "NOT_ALLOWED",
+}
+`;
+
+exports[`userActions should match snapshots toggleUser when user is not active 1`] = `
+Object {
+  "type": "TOGGLE_USER",
+  "user": Object {
+    "active": false,
+    "name": "Bob Ducca",
+  },
+}
+`;
