@@ -35,7 +35,7 @@ const getNextActiveUserIndex = (users) => {
     return users.findIndex(user => user.name === nonDisabledUsers[nextActiveIndex].name)
 };
 
-export const getActiveUser = (users) => {
+const getActiveUser = (users) => {
     return users.filter(user => user.active === true)[0];
 };
 
@@ -123,4 +123,8 @@ export default (state = defaultUserState, action) => {
 
 export function usersSelector(state) {
     return state.users.users || defaultUserState;
+}
+
+export function activeUserSelector(state) {
+    return getActiveUser(usersSelector(state));
 }
