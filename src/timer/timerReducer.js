@@ -1,16 +1,15 @@
 import actions from "./../actionTypes";
 import {store} from "./../store";
 import {getParsedTimeRemaining} from "./../helper/TimerHelper";
-import {getActiveUser} from "./../user/userReducer";
+import {activeUserSelector} from "./../user/userReducer";
 import {speak} from "./../helper/Speech";
-import {showNotification, closeNotification} from "./../NotificationManager";
-import {changeFavicon} from "./../helper/TimerHelper";
+import {closeNotification, showNotification} from "./../NotificationManager";
 
 let interval;
 let speechTimeout;
 let titleToggleInterval;
 
-const defaultTimerState = {
+export const defaultTimerState = {
     active: false,
     sessionLength: 60 * 15,
     currentTime: 0,
@@ -35,8 +34,7 @@ const timerIsDone = () => {
         type: actions.NEXT_USER,
     });
 
-    const users = store.getState().users.users;
-    const upNextUser = getActiveUser(users);
+    const upNextUser = activeUserSelector(store.getState());
 
     showNotification(upNextUser);
 };
@@ -72,8 +70,8 @@ const timeoutToSpeech = (i = 0) => {
         return clearTimeout(speechTimeout);
     } else {
         speechTimeout = setTimeout(() => {
-            const users = store.getState().users.users;
-            const activeUser = getActiveUser(users);
+            const state = store.getState();
+            const activeUser = activeUserSelector(state);
             speak(`It's ${activeUser.name}'s time! You've been idle for an entire ${i >= 1 ? `${i + 1} minutes!` : "minute!"}`);
             console.info("TIMER: SPEECH!");
             return timeoutToSpeech(i + 1);
@@ -85,10 +83,9 @@ const timeoutToSpeech = (i = 0) => {
 const toggleTitleOnFinish = () => {
     let interval = 0;
     titleToggleInterval = setInterval(() => {
-        const users = store.getState().users.users;
-        const activeUser = getActiveUser(users);
+        const state = store.getState();
+        const activeUser = activeUserSelector(state);
 
-        changeFavicon(activeUser.image);
         document.title = (interval % 2) ? "⏰⏰⏰" : `${activeUser.name.toUpperCase()}`;
         interval++;
     }, 1000);
@@ -182,6 +179,7 @@ export default (state = defaultTimerState, action) => {
                 ...state,
                 sessionLength: action.sessionLength,
             };
+
         default:
             return state;
     }
