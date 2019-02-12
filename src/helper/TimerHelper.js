@@ -3,7 +3,10 @@ const addLeadingZeroToTime = (time) => {
 };
 
 export const changeFavicon = (imageUrl) => {
-    document.querySelector("link[rel*='icon']").href = imageUrl;
+    let selector = document.querySelector("link[rel*='icon']");
+    if (selector && selector.href) {
+        selector.href = imageUrl;
+    }
 };
 
 export const getParsedTimeRemaining = (seconds) => {

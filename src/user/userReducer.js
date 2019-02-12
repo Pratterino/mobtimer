@@ -12,7 +12,7 @@ const getRandomImageUrl = () => {
     return image;
 };
 
-const defaultUserState = {
+export const defaultUserState = {
     users: [
         {
             image: getRandomImageUrl(),
@@ -39,6 +39,10 @@ const getActiveUser = (users) => {
     return users.filter(user => user.active === true)[0];
 };
 
+const userExistInState = (users, name) => {
+    return !!users.filter(user => (user.name.toLowerCase() === name.toLowerCase())).length
+};
+
 export default (state = defaultUserState, action) => {
     let users;
 
@@ -47,7 +51,7 @@ export default (state = defaultUserState, action) => {
             users = [...state.users];
 
             // Username already in state.
-            if (users.filter(user => (user.name.toLowerCase() === action.user.name.toLowerCase())).length) {
+            if (userExistInState(state.users, action.user.name)) {
                 return {
                     ...state,
                 }
@@ -59,7 +63,11 @@ export default (state = defaultUserState, action) => {
             };
 
         case actions.REMOVE_USER:
-            // TODO: cant remove if active
+            if (action.user && action.user.active) {
+                return {
+                    users: [...state.users]
+                }
+            }
             return {
                 users: [
                     ..._.reject(
@@ -109,7 +117,6 @@ export default (state = defaultUserState, action) => {
             });
 
             users[nextActiveUserIndex].active = true;
-            console.info(state);
             changeFavicon(users[nextActiveUserIndex].image);
 
             return {
@@ -122,7 +129,7 @@ export default (state = defaultUserState, action) => {
 }
 
 export function usersSelector(state) {
-    return state.users.users || defaultUserState;
+    return state.users.users || defaultUserState.users;
 }
 
 export function activeUserSelector(state) {

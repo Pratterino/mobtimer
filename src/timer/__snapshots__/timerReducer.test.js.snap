@@ -17,7 +17,7 @@ Object {
   "active": false,
   "currentTime": 40,
   "metadata": Object {
-    "todaysDate": 11,
+    "todaysDate": 12,
     "todaysSessionLength": 0,
   },
   "sessionLength": 900,
@@ -29,7 +29,7 @@ Object {
   "active": true,
   "currentTime": 50,
   "metadata": Object {
-    "todaysDate": 11,
+    "todaysDate": 12,
     "todaysSessionLength": 0,
   },
   "sessionLength": 900,
