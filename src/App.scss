@@ -40,14 +40,11 @@ footer {
   .footer__item {
     flex: 1;
     text-align: right;
-    line-height: normal;
 
-    p {
+    h4, p {
       text-align: right;
-      flex-direction: column;
-      align-self: flex-end;
-      flex-wrap: wrap;
-      align-content: space-between;
+      padding: 2px;
+      margin: 0;
     }
   }
 }
