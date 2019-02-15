@@ -204,8 +204,10 @@ describe("timerReducer", () => {
                     currentTime: 40,
                     active: true,
                 });
+
                 let newState = timerReducer(state, action);
-                expect(newState).toMatchSnapshot();
+                expect(newState.metadata.todaysDate).toBe(new Date().getDate());
+                expect(newState.active).toBe(false);
             });
 
             it('when not active', () => {
@@ -213,8 +215,11 @@ describe("timerReducer", () => {
                     currentTime: 50,
                     active: false,
                 });
+                state.metadata.todaysDate = 12;
+
                 let newState = timerReducer(state, action);
-                expect(newState).toMatchSnapshot();
+                expect(newState.metadata.todaysDate).toBe(new Date().getDate());
+                expect(newState.active).toBe(true);
             });
         });
     });
