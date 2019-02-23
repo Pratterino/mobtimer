@@ -1,10 +1,35 @@
 :root {
-  --color: #f3f3f3;
+  --text-color: #f3f3f3;
   --background: #21282d;
   --header-color: #e784a2;
   --link-color-darker: #ef4276;
   --highlight-color: #85b5c7;
   --base-padding: 10px;
+
+  --active-timer-color: #66cdaa;
+  --stopped-timer-color: #e784a2;
+}
+
+.ladies-night-theme {
+  --background: #21282d;
+  --text-color: #f3f3f3;
+  --header-color: #e784a2;
+  --link-color-darker: #ef4276;
+  --highlight-color: #85b5c7;
+
+  --active-timer-color: #66cdaa;
+  --stopped-timer-color: #e784a2;
+}
+
+.sublime-theme {
+  --background: #CFBFAD;
+  --text-color: #BFA4A4;
+  --header-color: #FF007F;
+  --link-color-darker: #ef4276;
+  --highlight-color: #52E3F6;
+
+  --active-timer-color: #A7EC21;
+  --stopped-timer-color: #FF007F;
 }
 
 body {

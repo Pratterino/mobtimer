@@ -16,7 +16,8 @@ class Timer extends Component {
 
     renderCircularProgressbar = () => {
         const circleGradient = this.props.timer.active ? "active" : "inactive";
-        const headerColor = getComputedStyle(document.body).getPropertyValue('--header-color');
+        const activeColor = getComputedStyle(document.body).getPropertyValue('--active-timer-color');
+        const stopColor = getComputedStyle(document.body).getPropertyValue('--stopped-timer-color');
         const luminance = 0.5;
 
         return (
@@ -31,16 +32,12 @@ class Timer extends Component {
                         <stop offset="100%" stopColor={lightenDarkenColor("#f3f3f3", luminance)} />
                     </linearGradient>
                     <linearGradient id="inactive" x1="0%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" stopColor={headerColor} />
-                        <stop offset="100%" stopColor={lightenDarkenColor(headerColor, luminance)} />
+                        <stop offset="0%" stopColor={stopColor} />
+                        <stop offset="100%" stopColor={lightenDarkenColor(stopColor, luminance)} />
                     </linearGradient>
                     <linearGradient id="active" x1="0%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" stopColor="#66cdaa" />
-                        <stop offset="100%" stopColor={lightenDarkenColor("#66cdaa", luminance)} />
-                    </linearGradient>
-                    <linearGradient id="paused" x1="0%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" stopColor="#d7d283" />
-                        <stop offset="100%" stopColor={lightenDarkenColor("#d7d283", luminance)} />
+                        <stop offset="0%" stopColor={activeColor} />
+                        <stop offset="100%" stopColor={lightenDarkenColor(activeColor, luminance)} />
                     </linearGradient>
                 </defs>
                 <circle className="circle-chart__background"
@@ -105,5 +102,5 @@ const mapDispatchToProps = dispatch => bindActionCreators({
     startTimer,
 }, dispatch);
 
-
+export const UnwrappedTimer = Timer;
 export default connect(mapStateToProps, mapDispatchToProps)(Timer);

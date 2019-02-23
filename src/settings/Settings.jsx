@@ -45,10 +45,18 @@ class Settings extends Component {
                     </div>
 
                     <div className="settings__group">
+                        <h3>Theme</h3>
+                        <button onClick={() => {
+                            document.body.classList.toggle("sublime-theme");
+                        }}>Sublime</button>
+                    </div>
+
+                    <div className="settings__group">
                         <h3>Links</h3>
                         <a href="https://github.com/Pratterino/mobtimer" target="__blank" style={{textTransform: "lowercase"}}>https://github.com/Pratterino/mobtimer</a>
                     </div>
                 </div>
+
                 <div className={`settings__hamburger pointer ${this.state.show ? 'change' : ''}`} onClick={this.toggleSettings}>
                     <div className="bar1"/>
                     <div className="bar2"/>
