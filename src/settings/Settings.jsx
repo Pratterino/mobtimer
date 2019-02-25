@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
-import {clearState, updateSessionLengthTime} from "./../settings/settingsActions";
+import {clearState, updateSessionLengthTime, setTheme} from "./../settings/settingsActions";
 import {resetTimer} from "./../timer/timerActions";
 import "./Settings.scss";
 
@@ -19,12 +19,16 @@ class Settings extends Component {
         this.props.resetTimer();
     };
 
+    setTheme = (theme) => {
+        this.props.setTheme(theme);
+    };
+
     toggleSettings = () => {
         this.setState({show: !this.state.show});
     };
 
     render() {
-        const {clearState, timer} = this.props;
+        const {clearState, timer, devMode} = this.props;
         return (
             <React.Fragment>
                 <div className={`settings ${this.state.show ? 'slideIn' : 'slideOut'}`}>
@@ -44,20 +48,22 @@ class Settings extends Component {
                             onChange={this.handleTimerNumberChange}/>
                     </div>
 
-                    <div className="settings__group">
-                        <h3>Theme</h3>
-                        <button onClick={() => {
-                            document.body.classList.toggle("sublime-theme");
-                        }}>Sublime</button>
-                    </div>
+                    {devMode &&
+                        <div className="settings__group">
+                            <h3>Theme</h3>
+                            <button onClick={this.setTheme.bind(null, "sublime-theme")}>Sublime</button>
+                        </div>
+                    }
 
                     <div className="settings__group">
                         <h3>Links</h3>
-                        <a href="https://github.com/Pratterino/mobtimer" target="__blank" style={{textTransform: "lowercase"}}>https://github.com/Pratterino/mobtimer</a>
+                        <a href="https://github.com/Pratterino/mobtimer" target="__blank"
+                           style={{textTransform: "lowercase"}}>https://github.com/Pratterino/mobtimer</a>
                     </div>
                 </div>
 
-                <div className={`settings__hamburger pointer ${this.state.show ? 'change' : ''}`} onClick={this.toggleSettings}>
+                <div className={`settings__hamburger pointer ${this.state.show ? 'change' : ''}`}
+                     onClick={this.toggleSettings}>
                     <div className="bar1"/>
                     <div className="bar2"/>
                     <div className="bar3"/>
@@ -73,6 +79,7 @@ const mapStateToProps = state => ({
 });
 const mapDispatchToProps = dispatch => bindActionCreators({
     clearState,
+    setTheme,
     updateSessionLengthTime,
     resetTimer,
 }, dispatch);

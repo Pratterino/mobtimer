@@ -14,7 +14,7 @@ class App extends Component {
     render() {
         return (
             <div className="app">
-                {false && window.location.hostname === "localhost" &&
+                {this.props.devMode &&
                 <div className="hide">
                     <h3>ReduxState</h3>
                     <pre>{JSON.stringify(this.props.test, null, 2)}</pre>
@@ -44,6 +44,7 @@ class App extends Component {
 
 const mapStateToProps = state => ({
     test: state,
+    devMode: state.settings.devMode,
     timer: state.timer,
     users: usersSelector(state),
 });

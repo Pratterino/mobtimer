@@ -16,6 +16,7 @@ class Timer extends Component {
 
     renderCircularProgressbar = () => {
         const circleGradient = this.props.timer.active ? "active" : "inactive";
+        const backgroundColor = getComputedStyle(document.body).getPropertyValue('--background');
         const activeColor = getComputedStyle(document.body).getPropertyValue('--active-timer-color');
         const stopColor = getComputedStyle(document.body).getPropertyValue('--stopped-timer-color');
         const luminance = 0.5;
@@ -28,8 +29,8 @@ class Timer extends Component {
                  xmlns="http://www.w3.org/2000/svg">
                 <defs>
                     <linearGradient id="background" x1="0%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" stopColor={"#f3f3f3"} />
-                        <stop offset="100%" stopColor={lightenDarkenColor("#f3f3f3", luminance)} />
+                        <stop offset="0%" stopColor={backgroundColor} />
+                        <stop offset="100%" stopColor={lightenDarkenColor(backgroundColor, luminance)} />
                     </linearGradient>
                     <linearGradient id="inactive" x1="0%" y1="0%" x2="0%" y2="100%">
                         <stop offset="0%" stopColor={stopColor} />

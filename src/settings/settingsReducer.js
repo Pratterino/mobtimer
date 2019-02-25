@@ -2,7 +2,8 @@ import actions from "./../actionTypes";
 import {store} from "./../store";
 
 const defaultSettingsState = {
-    theme: "ladies-night",
+    theme: "ladies-night-theme",
+    devMode: window.location.hostname === "localhost",
 };
 
 export default (state = defaultSettingsState, action) => {
@@ -11,6 +12,16 @@ export default (state = defaultSettingsState, action) => {
             localStorage.clear();
             window.location.reload();
             break;
+
+        case actions.SET_THEME:
+            let theme = action.theme;
+
+            document.body.classList.toggle(theme);
+            return {
+                ...state,
+                theme: theme,
+            };
+
         default:
             return state;
     }
