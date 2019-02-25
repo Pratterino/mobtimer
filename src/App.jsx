@@ -14,7 +14,7 @@ class App extends Component {
     render() {
         return (
             <div className="app">
-                {this.props.devMode &&
+                {(this.props.devMode && false) &&
                 <div className="hide">
                     <h3>ReduxState</h3>
                     <pre>{JSON.stringify(this.props.test, null, 2)}</pre>

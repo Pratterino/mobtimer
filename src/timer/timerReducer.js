@@ -34,9 +34,13 @@ const timerIsDone = () => {
         type: actions.NEXT_USER,
     });
 
-    const upNextUser = activeUserSelector(store.getState());
+    showNextUserNotification();
+};
 
+const showNextUserNotification = () => {
+    const upNextUser = activeUserSelector(store.getState());
     showNotification(upNextUser);
+    console.info("NOTIFICATION: ", upNextUser);
 };
 
 const stopTimerInterval = () => {
@@ -67,13 +71,15 @@ const startTimerInterval = () => {
 const timeoutToSpeech = (i = 0) => {
     if (i >= 3) {
         speak(`${i} minutes! I give up. I'll stop talking to you. Good bye, asshole`);
+        showNextUserNotification();
         return clearTimeout(speechTimeout);
     } else {
         speechTimeout = setTimeout(() => {
             const state = store.getState();
             const activeUser = activeUserSelector(state);
+
+            showNextUserNotification();
             speak(`It's ${activeUser.name}'s time! You've been idle for an entire ${i >= 1 ? `${i + 1} minutes!` : "minute!"}`);
-            console.info("TIMER: SPEECH!");
             return timeoutToSpeech(i + 1);
         }, 60 * 1000);
     }
@@ -89,7 +95,6 @@ const toggleTitleOnFinish = () => {
         document.title = (interval % 2) ? "⏰⏰⏰" : `${activeUser.name.toUpperCase()}`;
         interval++;
     }, 1000);
-    console.info(`TIMER: TITLE CHANGE!`)
 };
 
 export default (state = defaultTimerState, action) => {

@@ -15,6 +15,7 @@ export const hasAcceptedNotifications = () => {
 };
 
 const _renderNotification = (user) => {
+    closeNotification();
     notification = new Notification('Mobtimer', {
         tag: "mobtimer-notification",
         body: `It's ${user.name}'s turn!`,
