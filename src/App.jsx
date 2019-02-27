@@ -17,7 +17,7 @@ class App extends Component {
         return (
             <ol>
                 {sortedLeaderboard.map((item, i) => (
-                    <li>{item[0]}, {getParsedTimeRemaining(item[1])}</li>
+                    <li>{item[0]} ({getParsedTimeRemaining(item[1])})</li>
                 ))}
             </ol>
         );
