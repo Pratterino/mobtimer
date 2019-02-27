@@ -70,14 +70,13 @@
   a, a:focus, a:visited {
     text-decoration: none;
     color: #fff;
-    background-color: var(--link-color-darker);
     border: 1px solid #faebd7;
     text-align: center;
     letter-spacing: .5px;
     transition: background-color .2s ease-out;
     cursor: pointer;
-    border-right: none;
-    border-top: none;
+    border-left-width: 2px;
+    border-bottom-width: 2px;
     border-radius: 4px;
     display: inline-block;
     height: $button_size;

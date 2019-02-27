@@ -5,6 +5,10 @@ html, body {
   min-height: 100vh;
 }
 
+input {
+  padding: 4px;
+}
+
 .app {
   color: var(--text-color);
   text-align: center;
@@ -30,6 +34,7 @@ h1, h2, h3, h4 {
 }
 
 footer {
+  user-select: none;
   box-sizing: border-box;
   position: absolute;
   bottom: 0;

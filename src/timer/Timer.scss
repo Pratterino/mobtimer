@@ -5,6 +5,7 @@ $pausedColor: #d7d283;
 
 .Timer {
   transform: translateY(50%);
+
   .timer {
     box-sizing: content-box;
     display: inline-flex;
@@ -12,6 +13,7 @@ $pausedColor: #d7d283;
     justify-content: center;
 
     .timer__time {
+      user-select: none;
       color: #f3f3f3;
       position: absolute;
       font-size: 40px;
