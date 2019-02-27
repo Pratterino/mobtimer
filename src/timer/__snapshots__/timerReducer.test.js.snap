@@ -4,6 +4,7 @@ exports[`timerReducer FINISH_TIMER should match snapshot 1`] = `
 Object {
   "active": false,
   "currentTime": 5000,
+  "leaderboard": Object {},
   "metadata": Object {
     "todaysDate": 1,
     "todaysSessionLength": 0,
@@ -16,6 +17,7 @@ exports[`timerReducer RESET_TIMER should match snapshot 1`] = `
 Object {
   "active": false,
   "currentTime": 5000,
+  "leaderboard": Object {},
   "metadata": Object {
     "todaysDate": 1,
     "todaysSessionLength": 0,
@@ -28,6 +30,7 @@ exports[`timerReducer STOP_TIMER should match snapshot 1`] = `
 Object {
   "active": false,
   "currentTime": 0,
+  "leaderboard": Object {},
   "metadata": Object {
     "todaysDate": 1,
     "todaysSessionLength": 0,
@@ -40,6 +43,7 @@ exports[`timerReducer UPDATE_SESSION_LENGTH should update sessionLength and matc
 Object {
   "active": false,
   "currentTime": 0,
+  "leaderboard": Object {},
   "metadata": Object {
     "todaysDate": 1,
     "todaysSessionLength": 0,

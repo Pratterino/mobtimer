@@ -1,19 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Users componentWillReceiveProps should update local state 1`] = `
-Object {
-  "nameValue": "",
-  "users": Array [
-    Object {
-      "name": "Bob Ducca",
-    },
-    Object {
-      "name": "Dabney Coleperson",
-    },
-  ],
-}
-`;
-
 exports[`Users getItemStyle should return when dragging 1`] = `
 Object {
   "background": "",

@@ -40,6 +40,9 @@ describe("timerReducer", () => {
 
             action = {
                 type: actions.SECOND_DECREMENT_TIMER,
+                user: {
+                    name: "Ulla"
+                },
             };
         });
 
