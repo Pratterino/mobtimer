@@ -46,9 +46,13 @@ footer {
     flex: 1;
     text-align: left;
 
-    h4, p {
+    h4, p, ol {
       padding: 2px;
       margin: 0;
+    }
+
+    ol {
+      margin-left: 16px;
     }
   }
 }

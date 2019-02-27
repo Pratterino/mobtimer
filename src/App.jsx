@@ -54,16 +54,17 @@ class App extends Component {
 
                 <footer>
                     <div className="footer__item">
-                        <div className="text-left">
-                            <h4>Today's leaderboard</h4>
-                            {this.renderLeaderboard()}
-                        </div>
+                        <h4>Today's leaderboard</h4>
+                        {this.renderLeaderboard()}
                     </div>
 
                     <div className="footer__item">
-                        <h4>Today's total mob time</h4>
+                        <h4>Today's active mob time</h4>
                         <p>{getParsedTimeRemaining(this.props.timer.metadata.todaysSessionLength)}</p>
                     </div>
+
+                    <div className="footer__item"></div>
+                    <div className="footer__item"></div>
                 </footer>
             </div>
         );

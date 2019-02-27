@@ -25,8 +25,8 @@ class Timer extends Component {
         return (
             <svg className="circle-chart"
                  viewBox="0 0 33.83098862 33.83098862"
-                 width="180"
-                 height="180"
+                 width="220"
+                 height="220"
                  xmlns="http://www.w3.org/2000/svg">
                 <defs>
                     <linearGradient id="background-shadow" x1="0%" y1="0%" x2="0%" y2="100%">
