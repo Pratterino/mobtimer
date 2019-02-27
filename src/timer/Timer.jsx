@@ -16,6 +16,7 @@ class Timer extends Component {
 
     renderCircularProgressbar = () => {
         const circleGradient = this.props.timer.active ? "active" : "inactive";
+        const backgroundShadowColor = "rgba(25, 25, 25, 0.5)";
         const backgroundColor = getComputedStyle(document.body).getPropertyValue('--background');
         const activeColor = getComputedStyle(document.body).getPropertyValue('--active-timer-color');
         const stopColor = getComputedStyle(document.body).getPropertyValue('--stopped-timer-color');
@@ -28,19 +29,30 @@ class Timer extends Component {
                  height="180"
                  xmlns="http://www.w3.org/2000/svg">
                 <defs>
+                    <linearGradient id="background-shadow" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stopColor={backgroundShadowColor}/>
+                    </linearGradient>
                     <linearGradient id="background" x1="0%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" stopColor={backgroundColor} />
-                        <stop offset="100%" stopColor={lightenDarkenColor(backgroundColor, luminance)} />
+                        <stop offset="0%" stopColor={backgroundColor}/>
+                        <stop offset="100%" stopColor={lightenDarkenColor(backgroundColor, luminance)}/>
                     </linearGradient>
                     <linearGradient id="inactive" x1="0%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" stopColor={stopColor} />
-                        <stop offset="100%" stopColor={lightenDarkenColor(stopColor, luminance)} />
+                        <stop offset="0%" stopColor={stopColor}/>
+                        <stop offset="100%" stopColor={lightenDarkenColor(stopColor, luminance)}/>
                     </linearGradient>
                     <linearGradient id="active" x1="0%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" stopColor={activeColor} />
-                        <stop offset="100%" stopColor={lightenDarkenColor(activeColor, luminance)} />
+                        <stop offset="0%" stopColor={activeColor}/>
+                        <stop offset="100%" stopColor={lightenDarkenColor(activeColor, luminance)}/>
                     </linearGradient>
                 </defs>
+                <circle className="circle-chart__background-shadow"
+                        stroke="url(#background-shadow)"
+                        strokeWidth="4"
+                        fill="none"
+                        cx="16.91549431"
+                        cy="16.91549431"
+                        r="15.91549431"
+                />
                 <circle className="circle-chart__background"
                         stroke="url(#background)"
                         strokeWidth="3"

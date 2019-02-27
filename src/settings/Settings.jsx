@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
-import {clearState, updateSessionLengthTime, setTheme} from "./../settings/settingsActions";
+import {clearState, setTheme, updateSessionLengthTime} from "./../settings/settingsActions";
 import {resetTimer} from "./../timer/timerActions";
 import "./Settings.scss";
 
@@ -28,7 +28,7 @@ class Settings extends Component {
     };
 
     render() {
-        const {clearState, timer, devMode} = this.props;
+        const {clearState, timer, settings} = this.props;
         return (
             <React.Fragment>
                 <div className={`settings ${this.state.show ? 'slideIn' : 'slideOut'}`}>
@@ -48,7 +48,7 @@ class Settings extends Component {
                             onChange={this.handleTimerNumberChange}/>
                     </div>
 
-                    {devMode &&
+                    {settings.devMode &&
                         <div className="settings__group">
                             <h3>Theme</h3>
                             <button onClick={this.setTheme.bind(null, "sublime-theme")}>Sublime</button>
