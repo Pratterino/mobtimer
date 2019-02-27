@@ -2,14 +2,22 @@ import actionTypes from "./../actionTypes";
 import {userImages} from "./userImages";
 import _ from "lodash";
 
-export const addUser = (name) => ({
-    type: actionTypes.ADD_USER,
-    user: {
-        name,
-        active: false,
-        image: _.sample(userImages),
-    },
-});
+export const addUser = (name) => {
+    if (!name || !name.length) {
+        return {
+            type: actionTypes.NOT_ALLOWED,
+        }
+    }
+
+    return ({
+        type: actionTypes.ADD_USER,
+        user: {
+            name,
+            active: false,
+            image: _.sample(userImages),
+        },
+    });
+};
 
 export const removeUser = (user) => ({
     type: actionTypes.REMOVE_USER,
@@ -32,11 +40,18 @@ export const toggleUser = (user) => {
     }
 };
 
-export const changeName = (user, name) => ({
-    type: actionTypes.CHANGE_USER_NAME,
-    user,
-    name,
-});
+export const changeName = (user, name = "") => {
+    if (!name || !name.length) {
+        return {
+            type: actionTypes.NOT_ALLOWED,
+        }
+    }
+    return ({
+        type: actionTypes.CHANGE_USER_NAME,
+        user,
+        name,
+    });
+};
 
 export const updateUserOrder = (users) => ({
     type: actionTypes.UPDATE_USER_ORDER,
