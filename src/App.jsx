@@ -11,6 +11,29 @@ import {getParsedTimeRemaining} from "./helper/TimerHelper";
 import './App.scss';
 
 class App extends Component {
+    renderLeaderboard = () => {
+        const {leaderboard} = this.props.timer;
+        let sortedLeaderboard = this.sortProperties(leaderboard);
+        return (
+            <ol>
+                {sortedLeaderboard.map((item, i) => (
+                    <li>{item[0]}, {getParsedTimeRemaining(item[1])}</li>
+                ))}
+            </ol>
+        );
+    };
+
+    sortProperties = (obj) => {
+        const sortable = [];
+        for (const key in obj) {
+            if (obj.hasOwnProperty(key)) {
+                sortable.push([key, obj[key]]);
+            }
+        }
+        sortable.sort((a, b) => b[1] - a[1]);
+        return sortable;
+    };
+
     render() {
         return (
             <div className="app">
@@ -31,10 +54,15 @@ class App extends Component {
 
                 <footer>
                     <div className="footer__item">
+                        <div className="text-left">
+                            <h4>Today's leaderboard</h4>
+                            {this.renderLeaderboard()}
+                        </div>
+                    </div>
+
+                    <div className="footer__item">
                         <h4>Today's total mob time</h4>
-                        <p>
-                            {getParsedTimeRemaining(this.props.timer.metadata.todaysSessionLength)}
-                        </p>
+                        <p>{getParsedTimeRemaining(this.props.timer.metadata.todaysSessionLength)}</p>
                     </div>
                 </footer>
             </div>

@@ -16,7 +16,8 @@ export const defaultTimerState = {
     metadata: {
         todaysSessionLength: 0,
         todaysDate: new Date().getDate(),
-    }
+    },
+    leaderboard: {},
 };
 
 const timerIsDone = () => {
@@ -53,7 +54,8 @@ const startTimerInterval = () => {
     clearInterval(titleToggleInterval);
 
     interval = setInterval(() => {
-        if (store.getState().timer.currentTime <= 0) {
+        let state = store.getState();
+        if (state.timer.currentTime <= 0) {
             timerIsDone();
             store.dispatch({
                 type: actions.RESET_TIMER,
@@ -62,6 +64,7 @@ const startTimerInterval = () => {
         }
         store.dispatch({
             type: actions.SECOND_DECREMENT_TIMER,
+            user: activeUserSelector(state),
         });
     }, 1000);
     console.info("TIMER: MOB SESSION STARTED!");
@@ -102,6 +105,7 @@ export default (state = defaultTimerState, action) => {
         case actions.SECOND_DECREMENT_TIMER:
             let seconds = state.currentTime - 1;
             document.title = `${getParsedTimeRemaining(seconds)}`;
+            let leaderboardCurrentUserSeconds = state.leaderboard[action.user.name] || 0;
             return {
                 ...state,
                 currentTime: seconds,
@@ -109,7 +113,12 @@ export default (state = defaultTimerState, action) => {
                     ...state.metadata,
                     todaysSessionLength: state.metadata.todaysSessionLength + 1,
                 },
+                leaderboard: {
+                    ...state.leaderboard,
+                    [action.user.name]: leaderboardCurrentUserSeconds + 1
+                },
             };
+
         case actions.RESET_TODAYS_SESSION_LENGTH:
             return {
                 ...state,
@@ -117,7 +126,9 @@ export default (state = defaultTimerState, action) => {
                     ...state.metadata,
                     todaysSessionLength: 0,
                 },
+                leaderboard: defaultTimerState.leaderboard,
             };
+
         case actions.START_TIMER:
             startTimerInterval();
             clearTimeout(speechTimeout);
@@ -130,6 +141,7 @@ export default (state = defaultTimerState, action) => {
                     todaysDate: new Date().getDate(),
                 },
             };
+
         case actions.FINISH_TIMER:
             // when a single timer cycle has completed
             stopTimerInterval();
@@ -140,6 +152,7 @@ export default (state = defaultTimerState, action) => {
                 currentTime: state.sessionLength,
                 active: false,
             };
+
         case actions.STOP_TIMER:
             stopTimerInterval();
             clearTimeout(speechTimeout);
@@ -147,6 +160,7 @@ export default (state = defaultTimerState, action) => {
                 ...state,
                 active: false,
             };
+
         case actions.PLAY_PAUSE_TIMER:
             if (state.currentTime === null) {
                 // first time playing
@@ -168,6 +182,7 @@ export default (state = defaultTimerState, action) => {
                     todaysDate: new Date().getDate(),
                 },
             };
+
         case actions.RESET_TIMER:
             stopTimerInterval();
             return {
