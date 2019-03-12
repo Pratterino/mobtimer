@@ -8,6 +8,7 @@ import Users from "./user/Users";
 import Notifications from "./notifications/Notifications";
 import Settings from "./settings/Settings";
 import {getParsedTimeRemaining} from "./helper/TimerHelper";
+import SoundSelector from "./sound/SoundSelector";
 import './App.scss';
 
 class App extends Component {
@@ -37,7 +38,7 @@ class App extends Component {
     render() {
         return (
             <div className="app">
-                {(this.props.devMode && false) &&
+                {(this.props.settings.devMode && true) &&
                 <div className="hide">
                     <h3>ReduxState</h3>
                     <pre>{JSON.stringify(this.props.test, null, 2)}</pre>
@@ -63,8 +64,11 @@ class App extends Component {
                         <p>{getParsedTimeRemaining(this.props.timer.metadata.todaysSessionLength)}</p>
                     </div>
 
-                    <div className="footer__item"></div>
-                    <div className="footer__item"></div>
+                    <div className="footer__item"/>
+                    <div className="footer__item">
+                        <h4>Finish sound</h4>
+                        <SoundSelector />
+                    </div>
                 </footer>
             </div>
         );
@@ -73,7 +77,7 @@ class App extends Component {
 
 const mapStateToProps = state => ({
     test: state,
-    devMode: state.settings.devMode,
+    settings: state.settings,
     timer: state.timer,
     users: usersSelector(state),
 });

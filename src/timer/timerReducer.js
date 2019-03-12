@@ -23,7 +23,7 @@ export const defaultTimerState = {
 const timerIsDone = () => {
     // ALARM
     store.dispatch({
-        type: actions.PLAY_FINISHED_SOUND,
+        type: actions.PLAY_FINISH_SOUND,
     });
 
     store.dispatch({

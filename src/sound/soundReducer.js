@@ -1,54 +1,41 @@
 import actions from "./../actionTypes";
-import elevatorSound from './../assets/elevator.mp3'
-// sounds
-import sound from './../assets/sounds/lightsaber.mp3'
+import {finishedSounds} from "./../sound/sounds";
 import {Howl, Howler} from 'howler';
 
+export const activeSoundSelector = (state) => {
+    console.info(state);
+    return state.sounds.filename;
+};
+
 const defaultSoundState = {
-    file: undefined,
+    filename: finishedSounds[0].filename,
 };
 
 // TODO: Preload these to evade lag before playing a sound
-let elevatorAudioManager = new Howl({
-    src: [elevatorSound],
-    loop: true,
-});
-let soundsAudioManager = new Howl({
-    src: [sound],
-    loop: false,
-});
-
-const playElevatorSound = () => {
-    elevatorAudioManager.play();
-};
-
-const playFinishedSound = () => {
-    soundsAudioManager.play();
+const playFinishedSound = (filename) => {
+    new Howl({
+        src: [require(`./../assets/sounds/${filename}`)],
+        loop: false,
+    }).play();
 };
 
 const stopAllSounds = () => {
     Howler.stop();
 };
 
-
 export default (state = defaultSoundState, action) => {
     switch (action.type) {
-        case actions.PLAY_FINISHED_SOUND:
-            playFinishedSound();
+        case actions.PLAY_FINISH_SOUND:
+            playFinishedSound(state.filename);
             console.info("sound: PLAY A SOUND");
             return {
                 ...state,
             };
-        case actions.STOP_ALL_SOUNDS:
-            console.info("sound: PLAY A SOUND");
+        case actions.ASSIGN_FINISH_SOUND:
+            console.info("sound: ASSIGNED A FINISH SOUND");
             return {
                 ...state,
-            };
-        case actions.PLAY_ELEVATOR_SOUND:
-            console.info("sound: PLAY ELEVATOR SOUND");
-            playElevatorSound();
-            return {
-                ...state,
+                filename: action.filename,
             };
         default:
             return state
