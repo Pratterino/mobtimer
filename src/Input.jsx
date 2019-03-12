@@ -21,7 +21,6 @@ class Input extends Component {
                 <div className="input-container">
                     <div className="parent">
                         <label
-                            className="add"
                             htmlFor="input-name"
                         >Add user</label>
                         <input

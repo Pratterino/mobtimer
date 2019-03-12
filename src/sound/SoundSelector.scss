@@ -1,0 +1,9 @@
+.sound-selector {
+  .sound-selector__play {
+    &:hover {
+      cursor: pointer;
+    }
+
+    display: inline-block;
+  }
+}

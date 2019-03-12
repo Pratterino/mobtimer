@@ -2,8 +2,10 @@ import React from "react";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import {finishedSounds} from "./../sound/sounds";
-import {setFinishedSound} from "./../sound/soundActions";
+import {playFinishedSound, setFinishedSound} from "./../sound/soundActions";
 import {activeSoundSelector} from "./../sound/soundReducer";
+import {Emojione} from "react-emoji-render";
+import "./SoundSelector.scss"
 
 class SoundSelector extends React.PureComponent {
     handleChange = (event) => {
@@ -22,10 +24,17 @@ class SoundSelector extends React.PureComponent {
 
     render() {
         return (
-            <select
-                onChange={this.handleChange}
-            >{this.renderOptions()}
-            </select>
+            <div className="sound-selector">
+                <select
+                    onChange={this.handleChange}
+                >{this.renderOptions()}
+                </select>
+                <div className="sound-selector__play" onClick={this.props.playFinishedSound}>
+                    <Emojione
+                        text=":arrow_forward:"
+                    />
+                </div>
+            </div>
         );
     }
 }
@@ -36,6 +45,7 @@ const mapStateToProps = state => ({
 
 
 const mapDispatchToProps = dispatch => bindActionCreators({
+    playFinishedSound,
     setFinishedSound,
 }, dispatch);
 export default connect(mapStateToProps, mapDispatchToProps)(SoundSelector);
