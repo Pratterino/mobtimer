@@ -12,6 +12,15 @@ const getRandomImageUrl = () => {
     return image;
 };
 
+const getARandomImageUrl = (currentImage) => {
+    const index = Math.floor(Math.random() * images.length);
+    const image = images[index];
+    if (image === currentImage) {
+        getRandomImageUrl();
+    }
+    return image;
+};
+
 export const defaultUserState = {
     users: [
         {
@@ -87,6 +96,18 @@ export default (state = defaultUserState, action) => {
 
             return {
                 users: [...updatedUser],
+            };
+
+        case actions.CHANGE_USER_IMAGE:
+            let updatedUserImage = [...state.users].map(user => {
+                if (user.name === action.user.name) {
+                    user.image = getARandomImageUrl(action.user.image);
+                }
+                return user;
+            });
+
+            return {
+                users: [...updatedUserImage],
             };
 
         case actions.UPDATE_USER_ORDER:

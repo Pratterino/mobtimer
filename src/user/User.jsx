@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {toggleUser, changeName, removeUser} from "./userActions";
+import {changeName, changeUserImage, removeUser, toggleUser} from "./userActions";
 import classNames from 'classnames';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faTimesCircle} from "@fortawesome/free-solid-svg-icons";
@@ -44,6 +44,7 @@ class User extends Component {
                 {active && <div className="user__crown"/>}
                 <figure
                     className={`user__image pointer ${classes}`}
+                    onDoubleClick={this.props.changeUserImage.bind(null, this.props.user)}
                     onClick={this.props.toggleUser.bind(null, this.props.user)}
                     style={backgroundImage}
                 >
@@ -77,6 +78,7 @@ const mapDispatchToProps = dispatch => bindActionCreators({
     removeUser,
     toggleUser,
     changeName,
+    changeUserImage,
 }, dispatch);
 
 User.propTypes = {
@@ -85,6 +87,7 @@ User.propTypes = {
     }),
     removeUser: PropTypes.func.isRequired,
     toggleUser: PropTypes.func.isRequired,
+    changeImage: PropTypes.func.isRequired,
     changeName: PropTypes.func.isRequired,
 };
 

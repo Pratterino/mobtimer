@@ -40,6 +40,18 @@ export const toggleUser = (user) => {
     }
 };
 
+export const changeUserImage = (user) => {
+    if (!user) {
+        return {
+            type: actionTypes.NOT_ALLOWED,
+        }
+    }
+    return ({
+        type: actionTypes.CHANGE_USER_IMAGE,
+        user,
+    });
+};
+
 export const changeName = (user, name = "") => {
     if (!name || !name.length) {
         return {
