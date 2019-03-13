@@ -7,4 +7,7 @@ export const finishedSounds = [{
 }, {
     displayName: "Chewbacca growl",
     filename: "chewbacca.mp3",
+}, {
+    displayName: "Hadouken!",
+    filename: "hadouken.mp3",
 }];
