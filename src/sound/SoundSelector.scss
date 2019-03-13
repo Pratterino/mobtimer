@@ -1,9 +1,10 @@
 .sound-selector {
   .sound-selector__play {
+    display: inline-block;
+    margin-left: var(--base-padding);
+
     &:hover {
       cursor: pointer;
     }
-
-    display: inline-block;
   }
 }

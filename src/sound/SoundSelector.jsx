@@ -4,8 +4,9 @@ import {bindActionCreators} from "redux";
 import {finishedSounds} from "./../sound/sounds";
 import {playFinishedSound, setFinishedSound} from "./../sound/soundActions";
 import {activeSoundSelector} from "./../sound/soundReducer";
-import {Emojione} from "react-emoji-render";
-import "./SoundSelector.scss"
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faPlay} from "@fortawesome/free-solid-svg-icons";
+import "./SoundSelector.scss";
 
 class SoundSelector extends React.PureComponent {
     handleChange = (event) => {
@@ -30,9 +31,7 @@ class SoundSelector extends React.PureComponent {
                 >{this.renderOptions()}
                 </select>
                 <div className="sound-selector__play" onClick={this.props.playFinishedSound}>
-                    <Emojione
-                        text=":arrow_forward:"
-                    />
+                    <FontAwesomeIcon size={"xs"} icon={faPlay}/>
                 </div>
             </div>
         );

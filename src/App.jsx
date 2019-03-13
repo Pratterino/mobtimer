@@ -38,7 +38,7 @@ class App extends Component {
     render() {
         return (
             <div className="app">
-                {(this.props.settings.devMode && true) &&
+                {(this.props.settings.devMode && false) &&
                 <div className="hide">
                     <h3>ReduxState</h3>
                     <pre>{JSON.stringify(this.props.test, null, 2)}</pre>
@@ -59,13 +59,14 @@ class App extends Component {
                         {this.renderLeaderboard()}
                     </div>
 
-                    <div className="footer__item">
+                    <div className="footer__item center">
                         <h4>Today's active mob time</h4>
                         <p>{getParsedTimeRemaining(this.props.timer.metadata.todaysSessionLength)}</p>
                     </div>
 
                     <div className="footer__item"/>
-                    <div className="footer__item">
+                    <div className="footer__item"/>
+                    <div className="footer__item center">
                         <h4>Finish sound</h4>
                         <SoundSelector />
                     </div>

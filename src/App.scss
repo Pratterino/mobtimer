@@ -39,12 +39,20 @@ footer {
   position: absolute;
   bottom: 0;
   display: flex;
+  justify-content: stretch;
+  flex-flow: row nowrap;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.06);
+  align-items: flex-start;
   width: 100%;
+  max-height: 150px;
   padding: var(--base-padding);
 
   .footer__item {
     flex: 1;
     text-align: left;
+    border: solid rgba(0, 0, 0, 0.15);
+    border-width: 0 1px 0 1px;
 
     h4, p, ol {
       padding: 2px;
@@ -52,7 +60,11 @@ footer {
     }
 
     ol {
-      margin-left: 16px;
+      margin-left: 20px;
     }
+  }
+
+  .center {
+    text-align: center;
   }
 }
