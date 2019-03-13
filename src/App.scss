@@ -3,6 +3,8 @@ html, body {
   background: sticky var(--background);
   height: 100%;
   min-height: 100vh;
+  overflow: hidden;
+  overflow-x: auto;
 }
 
 input {
@@ -45,7 +47,8 @@ footer {
   background: rgba(0, 0, 0, 0.06);
   align-items: flex-start;
   width: 100%;
-  max-height: 150px;
+  max-height: 200px;
+  overflow-y: auto;
   padding: var(--base-padding);
 
   .footer__item {
