@@ -1,18 +1,63 @@
-### Implemented features (striked) / to-do features (not striked)
+mobtimer
+========
+## Features backlog
+(create an Issue for feature requests, or to report a bug 🐜!)
 Settings
 * Themes
   - CSS themes. [DOING]
 
 * localStorage
-  - ~Remember users/redux state on refresh~
   - Bug: green color on timer after refresh/rehydrate of state.
+
+Sound
+ - Bug: Force to use english voice, it varies between sv and en right now. And also voice varies from computer to computer.
+
+CSS
+* Mobile should look acceptable.
+
+Notifications
+  
+Timer
+* Title/tab header
+  - Use hooks/useEffect to handle this title update instead
+* Timer visual states
+  - Show favicon color based on state
+* Intermesso/Break after every n rounds
+  - timebased? after around 60 min
+* Metadata
+  - Number of cycles
+  - propose a break after nth round/time?
+  
+Users
+* Start with user [0] active.
+
+Images
+* Random user images
+  - Unsplashed API
+* Unique image of every user.
+  - Bug: worked, but now now since rehydration of state. Needs to filter through users from state.
+
+Misc
+* Support
+  - Does not work on:
+    - IE
+    - Safari
+    
+* Version control av appen
+  - Visa när ny version är tillgänglig. Uppmuntra reload.
+  - Try out react hooks
+
+## Release log:
+### Version 1.0: 2018
+Settings
+* localStorage
+  - ~Remember users/redux state on refresh~
 
 Sound
 * ~Say upcoming username with Speech API~
 * ~Choose which sound to use~  
 
 CSS
-* Mobile should look acceptable.
 
 Notifications
 * When NEXT_USER
@@ -22,7 +67,6 @@ Notifications
   
 Timer
 * ~Timer in title/tab~
-  - Use hooks/useEffect to handle this title update instead
   - ~Formatted in "helper" class to minutes:seconds~
   - ~window.title updates every second~
 * ~Add users (unique ones by name)~
@@ -31,17 +75,13 @@ Timer
   - ~Toggle play/pause on click~
 * timer visual states
   - ~Red/green~
-  - Show favicon color based on state
 * Intermesso/Break after every n rounds
-  - timebased? after around 60 min
 * ~"blink" on title when alarm-state.~
+* Set timer session length
 * Metadata
   - ~Overall mobtime of todays session~
-  - Number of cycles
-  - propose a break after nth round/time?
   
 Users
-* Start with user [0] active.
 * ~Remove a user~
   - ~Not be able remove an active user~
 * ~Toggle inactive/active user~
@@ -55,18 +95,4 @@ Users
 
 Images
 * ~Random user images ("hardcoded" list of image-urls now)~
-  - Unsplashed API
 * ~NEXT_USER after timer ends~
-* Unique image of every user.
-* Set timer time in Settings
-
-
-Misc
-* Support
-  - Does not work on:
-    - IE
-    - Safari
-    
-* Version control av appen
-  - Visa när ny version är tillgänglig. Uppmuntra reload.
-  - Try out react hooks
