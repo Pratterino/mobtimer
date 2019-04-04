@@ -1,4 +1,4 @@
-### Features (striked ones) / to-do (un-striked)
+### Implemented features (striked) / to-do features (not striked)
 Settings
 * Themes
   - CSS themes.
@@ -48,18 +48,22 @@ User
 * ~Crown on active user~
 
 User images
-* ~Random user images (hardcoded)~
+* ~Random user images ("hardcoded" list of image-urls now)~
   - Unsplashed API
 * ~NEXT_USER after timer ends~
 * Unique image of every user.
 * Set timer time in Settings
 
 Sound
-* Elevator music when paused
 * ~Say upcoming username with Speech API~
-* Choose which sound to use
-
+* ~Choose which sound to use~
 
 Misc
+* Support
+  - Does not work on:
+    - IE
+    - Safari
+    
 * Version control av appen
   - Visa när ny version är tillgänglig. Uppmuntra reload.
+  - Try out react hooks
