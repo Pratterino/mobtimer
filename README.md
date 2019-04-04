@@ -1,6 +1,7 @@
 mobtimer
-The second. The best. The most stable one (yet). 
 ========
+The second. The best. The most stable one (yet). 
+
 ## Features backlog
 (create an Issue for feature requests, or to report a bug 🐜!)
 
