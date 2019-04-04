@@ -15,6 +15,7 @@ describe("User", () => {
                 removeUser={jest.fn()}
                 toggleUser={jest.fn()}
                 changeName={changeNameSpy}
+                changeUserImage={jest.fn()}
                 {...props}
             />
         );

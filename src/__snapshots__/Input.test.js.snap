@@ -12,7 +12,6 @@ exports[`Input render should match snapshot 1`] = `
       className="parent"
     >
       <label
-        className="add"
         htmlFor="input-name"
       >
         Add user
