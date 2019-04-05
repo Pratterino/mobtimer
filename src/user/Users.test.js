@@ -134,7 +134,7 @@ describe("Users", () => {
             };
 
             let itemStyle = wrapper.instance().getItemStyle(true, draggableStyle);
-            expect(itemStyle.background).toBe("");
+            expect(itemStyle.background).toBe("var(--highlight-color)");
             expect(itemStyle).toMatchSnapshot();
         });
 

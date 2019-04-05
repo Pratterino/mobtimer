@@ -53,7 +53,7 @@ class Users extends Component {
 
     getItemStyle = (isDragging, draggableStyle) => ({
         userSelect: 'none',
-        background: isDragging ? getComputedStyle(document.body).getPropertyValue('--highlight-color') : 'transparent',
+        background: isDragging ? 'var(--highlight-color)' : 'transparent',
         // styles we need to apply on draggables
         ...draggableStyle,
     });

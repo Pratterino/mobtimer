@@ -14,9 +14,9 @@ function Timer(props) {
     const renderCircularProgressbar = () => {
         const circleGradient = props.timer.active ? "active" : "inactive";
         const backgroundShadowColor = "rgba(25, 25, 25, 0.5)";
-        const backgroundColor = getComputedStyle(document.body).getPropertyValue('--background');
-        const activeColor = getComputedStyle(document.body).getPropertyValue('--active-timer-color');
-        const stopColor = getComputedStyle(document.body).getPropertyValue('--stopped-timer-color');
+        const backgroundColor = "var(--background)";
+        const activeColor = 'var(--active-timer-color)';
+        const stopColor = 'var(--stopped-timer-color)';
         const luminance = 0.5;
 
         return (
@@ -101,7 +101,6 @@ function Timer(props) {
 }
 
 const mapStateToProps = state => ({
-    settings: state.settings,
     timer: state.timer,
 });
 const mapDispatchToProps = dispatch => bindActionCreators({

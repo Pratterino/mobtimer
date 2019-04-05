@@ -2,7 +2,7 @@
 
 exports[`Users getItemStyle should return when dragging 1`] = `
 Object {
-  "background": "",
+  "background": "var(--highlight-color)",
   "boxSizing": "border-box",
   "pointerEvents": "none",
   "position": "fixed",

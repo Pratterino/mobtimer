@@ -37,11 +37,11 @@ exports[`Timer render should match snapshot 1`] = `
         >
           <stop
             offset="0%"
-            stopColor="#ef4276"
+            stopColor="var(--background)"
           />
           <stop
             offset="100%"
-            stopColor="#ff63b1"
+            stopColor="#ffffff"
           />
         </linearGradient>
         <linearGradient
@@ -53,11 +53,11 @@ exports[`Timer render should match snapshot 1`] = `
         >
           <stop
             offset="0%"
-            stopColor="#ef4276"
+            stopColor="var(--stopped-timer-color)"
           />
           <stop
             offset="100%"
-            stopColor="#ff63b1"
+            stopColor="#ffffff"
           />
         </linearGradient>
         <linearGradient
@@ -69,11 +69,11 @@ exports[`Timer render should match snapshot 1`] = `
         >
           <stop
             offset="0%"
-            stopColor="#ef4276"
+            stopColor="var(--active-timer-color)"
           />
           <stop
             offset="100%"
-            stopColor="#ff63b1"
+            stopColor="#ffffff"
           />
         </linearGradient>
       </defs>
