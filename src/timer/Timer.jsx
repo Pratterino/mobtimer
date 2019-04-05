@@ -1,21 +1,18 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import {playPauseTimer, startTimer, stopTimer} from "./timerActions";
-import {getParsedTimeRemaining, lightenDarkenColor} from "./../helper/TimerHelper";
+import {getParsedTimeRemaining, getPercentageLeftOfTime, lightenDarkenColor} from "./../helper/TimerHelper";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faPause, faPlay} from '@fortawesome/free-solid-svg-icons'
 import "./Timer.scss";
 import "./TimerCircle.scss";
 
-class Timer extends Component {
-    getPercentageLeftOfTime = () => {
-        const {currentTime, sessionLength} = this.props.timer;
-        return (currentTime / sessionLength) * 100;
-    };
+function Timer(props) {
+    const {timer} = props;
 
-    renderCircularProgressbar = () => {
-        const circleGradient = this.props.timer.active ? "active" : "inactive";
+    const renderCircularProgressbar = () => {
+        const circleGradient = props.timer.active ? "active" : "inactive";
         const backgroundShadowColor = "rgba(25, 25, 25, 0.5)";
         const backgroundColor = getComputedStyle(document.body).getPropertyValue('--background');
         const activeColor = getComputedStyle(document.body).getPropertyValue('--active-timer-color');
@@ -64,7 +61,7 @@ class Timer extends Component {
                 <circle className={`circle-chart__circle`}
                         stroke={`url(#${circleGradient})`}
                         strokeWidth="3"
-                        strokeDasharray={`${this.getPercentageLeftOfTime() || 100},100`}
+                        strokeDasharray={`${getPercentageLeftOfTime() || 100},100`}
                         strokeLinecap="round"
                         fill="none"
                         cx="16.91549431"
@@ -75,7 +72,7 @@ class Timer extends Component {
         );
     };
 
-    renderTimeRemaining = (seconds) => {
+    const renderTimeRemaining = (seconds) => {
         const time = getParsedTimeRemaining(seconds);
 
         return (
@@ -84,29 +81,27 @@ class Timer extends Component {
                     {time}
                 </div>
                 <div className="timer__time--icons">
-                    <FontAwesomeIcon icon={this.props.timer.active ? faPause : faPlay}/>
+                    <FontAwesomeIcon icon={props.timer.active ? faPause : faPlay}/>
                 </div>
             </div>
         );
     };
 
-    render() {
-        const {settings, timer} = this.props;
-        return (
-            <section className="Timer">
-                <div
-                    className="timer pointer"
-                    onClick={this.props.playPauseTimer.bind(null, this.props.timer)}
-                >
-                    {this.renderCircularProgressbar()}
-                    {this.renderTimeRemaining(timer.currentTime)}
-                </div>
-            </section>
-        );
-    }
+    return (
+        <section className="Timer">
+            <div
+                className="timer pointer"
+                onClick={() => props.playPauseTimer(timer)}
+            >
+                {renderCircularProgressbar()}
+                {renderTimeRemaining(timer.currentTime)}
+            </div>
+        </section>
+    );
 }
 
 const mapStateToProps = state => ({
+    settings: state.settings,
     timer: state.timer,
 });
 const mapDispatchToProps = dispatch => bindActionCreators({
@@ -115,5 +110,5 @@ const mapDispatchToProps = dispatch => bindActionCreators({
     startTimer,
 }, dispatch);
 
-export const UnwrappedTimer = Timer;
+export const unwrapped = Timer;
 export default connect(mapStateToProps, mapDispatchToProps)(Timer);

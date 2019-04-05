@@ -1,13 +1,17 @@
-const addLeadingZeroToTime = (time) => {
+export const addLeadingZeroToTime = (time) => {
     return time.toString().length === 1 ? `0${time}` : time;
 };
 
 export const changeFavicon = (imageUrl) => {
     let selector = document.querySelector("link[rel*='icon']");
     if (selector && selector.href) {
-        selector.href = imageUrl;
+        selector.setAttribute("href", imageUrl);
     }
 };
+
+export function getPercentageLeftOfTime(currentTime, sessionLength) {
+    return (currentTime / sessionLength) * 100;
+}
 
 export const getParsedTimeRemaining = (seconds) => {
     const sec_num = parseInt(seconds, 10); // don't forget the second param

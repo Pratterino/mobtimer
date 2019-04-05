@@ -1,20 +1,18 @@
 import React from 'react';
-import {UnwrappedTimer} from './Timer';
+import {getPercentageLeftOfTime, unwrapped as UnwrappedTimer} from './Timer';
 import {shallow} from 'enzyme';
 
-xdescribe("Timer", () => {
+describe("Timer", () => {
     let wrapper;
 
     const renderComponent = (props) => {
-        const timerState = {
-            active: false,
-            currentTime: 100,
-            sessionLength: 100,
-        };
-
         wrapper = shallow(
             <UnwrappedTimer
-                timer={timerState}
+                timer={{
+                    active: false,
+                    currentTime: 100,
+                    sessionLength: 100,
+                }}
                 stopTimer={jest.fn()}
                 playPauseTimer={jest.fn()}
                 startTimer={jest.fn()}
@@ -24,51 +22,16 @@ xdescribe("Timer", () => {
     };
 
     beforeEach(() => {
+        jest.spyOn(window, 'getComputedStyle').mockImplementation(() => {
+            return {getPropertyValue: () => "#ef4276"};
+        });
         renderComponent();
-    });
-
-    describe('getPercentageLeftOfTime', () => {
-        it('should be 100 percent', () => {
-            renderComponent({
-                timer: {
-                    currentTime: 80,
-                    sessionLength: 80,
-                },
-            });
-
-            let percentageLeftOfTime = wrapper.instance().getPercentageLeftOfTime();
-            expect(percentageLeftOfTime).toBe(100);
-        });
-
-        it('should be 50 percent', () => {
-            renderComponent({
-                timer: {
-                    currentTime: 40,
-                    sessionLength: 80,
-                },
-            });
-
-            let percentageLeftOfTime = wrapper.instance().getPercentageLeftOfTime();
-            expect(percentageLeftOfTime).toBe(50);
-        });
-
-        it('should be 0 percent', () => {
-            renderComponent({
-                timer: {
-                    currentTime: 0,
-                    sessionLength: 80,
-                },
-            });
-
-            let percentageLeftOfTime = wrapper.instance().getPercentageLeftOfTime();
-            expect(percentageLeftOfTime).toBe(0);
-        });
     });
 
     describe('renderCircularProgressbar', () => {});
 
-    describe('renderTimeRemaining', () => {
-    });
+    describe('renderTimeRemaining', () => {});
+
 
     describe('render', () => {
         it('should match snapshot', () => {

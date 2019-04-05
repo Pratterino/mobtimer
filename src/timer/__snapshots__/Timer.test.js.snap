@@ -1,3 +1,155 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Timer render should match snapshot 1`] = `undefined`;
+exports[`Timer render should match snapshot 1`] = `
+<section
+  className="Timer"
+>
+  <div
+    className="timer pointer"
+    onClick={[Function]}
+  >
+    <svg
+      className="circle-chart"
+      height="220"
+      viewBox="0 0 33.83098862 33.83098862"
+      width="220"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <defs>
+        <linearGradient
+          id="background-shadow"
+          x1="0%"
+          x2="0%"
+          y1="0%"
+          y2="100%"
+        >
+          <stop
+            offset="0%"
+            stopColor="rgba(25, 25, 25, 0.5)"
+          />
+        </linearGradient>
+        <linearGradient
+          id="background"
+          x1="0%"
+          x2="0%"
+          y1="0%"
+          y2="100%"
+        >
+          <stop
+            offset="0%"
+            stopColor="#ef4276"
+          />
+          <stop
+            offset="100%"
+            stopColor="#ff63b1"
+          />
+        </linearGradient>
+        <linearGradient
+          id="inactive"
+          x1="0%"
+          x2="0%"
+          y1="0%"
+          y2="100%"
+        >
+          <stop
+            offset="0%"
+            stopColor="#ef4276"
+          />
+          <stop
+            offset="100%"
+            stopColor="#ff63b1"
+          />
+        </linearGradient>
+        <linearGradient
+          id="active"
+          x1="0%"
+          x2="0%"
+          y1="0%"
+          y2="100%"
+        >
+          <stop
+            offset="0%"
+            stopColor="#ef4276"
+          />
+          <stop
+            offset="100%"
+            stopColor="#ff63b1"
+          />
+        </linearGradient>
+      </defs>
+      <circle
+        className="circle-chart__background-shadow"
+        cx="16.91549431"
+        cy="16.91549431"
+        fill="none"
+        r="15.91549431"
+        stroke="url(#background-shadow)"
+        strokeWidth="4"
+      />
+      <circle
+        className="circle-chart__background"
+        cx="16.91549431"
+        cy="16.91549431"
+        fill="none"
+        r="15.91549431"
+        stroke="url(#background)"
+        strokeWidth="3"
+      />
+      <circle
+        className="circle-chart__circle"
+        cx="16.91549431"
+        cy="16.91549431"
+        fill="none"
+        r="15.91549431"
+        stroke="url(#inactive)"
+        strokeDasharray="100,100"
+        strokeLinecap="round"
+        strokeWidth="3"
+      />
+    </svg>
+    <div
+      className="timer__time"
+    >
+      <div
+        className="timer__time--numbers"
+      >
+        01:40
+      </div>
+      <div
+        className="timer__time--icons"
+      >
+        <FontAwesomeIcon
+          border={false}
+          className=""
+          fixedWidth={false}
+          flip={null}
+          icon={
+            Object {
+              "icon": Array [
+                448,
+                512,
+                Array [],
+                "f04b",
+                "M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z",
+              ],
+              "iconName": "play",
+              "prefix": "fas",
+            }
+          }
+          inverse={false}
+          listItem={false}
+          mask={null}
+          pull={null}
+          pulse={false}
+          rotation={null}
+          size={null}
+          spin={false}
+          symbol={false}
+          title=""
+          transform={null}
+        />
+      </div>
+    </div>
+  </div>
+</section>
+`;
