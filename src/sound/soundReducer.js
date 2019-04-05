@@ -3,7 +3,6 @@ import {finishedSounds} from "./../sound/sounds";
 import {Howl, Howler} from 'howler';
 
 export const activeSoundSelector = (state) => {
-    console.info(state);
     return state.sounds.filename;
 };
 

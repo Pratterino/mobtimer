@@ -61,7 +61,7 @@ function Timer(props) {
                 <circle className={`circle-chart__circle`}
                         stroke={`url(#${circleGradient})`}
                         strokeWidth="3"
-                        strokeDasharray={`${getPercentageLeftOfTime() || 100},100`}
+                        strokeDasharray={`${getPercentageLeftOfTime(timer.currentTime, timer.sessionLength) || 100},100`}
                         strokeLinecap="round"
                         fill="none"
                         cx="16.91549431"
