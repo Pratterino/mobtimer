@@ -83,7 +83,9 @@ Array [
 `;
 
 exports[`Users render should match snapshot 1`] = `
-<Fragment>
+<div
+  className="Users"
+>
   <DragDropContext
     onDragEnd={[Function]}
   >
@@ -129,9 +131,9 @@ exports[`Users render should match snapshot 1`] = `
       size="2x"
       spin={false}
       symbol={false}
-      title=""
+      title="Next user!"
       transform={null}
     />
   </section>
-</Fragment>
+</div>
 `;

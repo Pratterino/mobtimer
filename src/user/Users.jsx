@@ -1,4 +1,4 @@
-import React, {Component, Fragment} from 'react';
+import React, {Component} from 'react';
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
 import {DragDropContext, Draggable, Droppable} from 'react-beautiful-dnd';
@@ -73,7 +73,7 @@ class Users extends Component {
 
     render() {
         return (
-            <Fragment>
+            <div className="Users">
                 <DragDropContext onDragEnd={this.onDragEnd}>
                     <Droppable droppableId="droppable" direction="horizontal">
                         {(provided, snapshot) => (
@@ -117,6 +117,7 @@ class Users extends Component {
                     <FontAwesomeIcon
                         icon={faFastForward}
                         size="2x"
+                        title="Next user!"
                         className="pointer"
                         onClick={() => {
                             this.props.nextUser();
@@ -124,7 +125,7 @@ class Users extends Component {
                         }}
                     />
                 </section>
-            </Fragment>
+            </div>
         );
     }
 }
