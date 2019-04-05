@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import PropTypes from "prop-types";
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
 import {clearState, setTheme, updateSessionLengthTime} from "./../settings/settingsActions";
@@ -77,6 +78,7 @@ const mapStateToProps = state => ({
     settings: state.settings,
     timer: state.timer,
 });
+
 const mapDispatchToProps = dispatch => bindActionCreators({
     clearState,
     setTheme,
@@ -84,4 +86,9 @@ const mapDispatchToProps = dispatch => bindActionCreators({
     resetTimer,
 }, dispatch);
 
+Settings.propTypes = {
+    timer: PropTypes.object.isRequired,
+};
+
+export const unwrapped = Settings;
 export default connect(mapStateToProps, mapDispatchToProps)(Settings);

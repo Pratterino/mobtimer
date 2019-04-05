@@ -1,0 +1,145 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Settings render should match snapshot 1`] = `
+<Fragment>
+  <div
+    className="settings slideOut"
+  >
+    <div
+      className="settings__group"
+    >
+      <h3>
+        Application
+      </h3>
+      <a
+        className="button"
+      >
+        Reset application
+      </a>
+    </div>
+    <div
+      className="settings__group"
+    >
+      <h3>
+        Timer
+      </h3>
+      <label
+        htmlFor="sessionLength"
+      >
+        Session length in minutes
+      </label>
+      <input
+        defaultValue={15}
+        min="1"
+        name="sessionLength"
+        onChange={[Function]}
+        type="number"
+      />
+    </div>
+    <div
+      className="settings__group"
+    >
+      <h3>
+        Links
+      </h3>
+      <a
+        href="https://github.com/Pratterino/mobtimer"
+        style={
+          Object {
+            "textTransform": "lowercase",
+          }
+        }
+        target="__blank"
+      >
+        https://github.com/Pratterino/mobtimer
+      </a>
+    </div>
+  </div>
+  <div
+    className="settings__hamburger pointer "
+    onClick={[Function]}
+  >
+    <div
+      className="bar1"
+    />
+    <div
+      className="bar2"
+    />
+    <div
+      className="bar3"
+    />
+  </div>
+</Fragment>
+`;
+
+exports[`Settings render should match snapshot when devMode 1`] = `
+<Fragment>
+  <div
+    className="settings slideOut"
+  >
+    <div
+      className="settings__group"
+    >
+      <h3>
+        Application
+      </h3>
+      <a
+        className="button"
+      >
+        Reset application
+      </a>
+    </div>
+    <div
+      className="settings__group"
+    >
+      <h3>
+        Timer
+      </h3>
+      <label
+        htmlFor="sessionLength"
+      >
+        Session length in minutes
+      </label>
+      <input
+        defaultValue={15}
+        min="1"
+        name="sessionLength"
+        onChange={[Function]}
+        type="number"
+      />
+    </div>
+    <div
+      className="settings__group"
+    >
+      <h3>
+        Links
+      </h3>
+      <a
+        href="https://github.com/Pratterino/mobtimer"
+        style={
+          Object {
+            "textTransform": "lowercase",
+          }
+        }
+        target="__blank"
+      >
+        https://github.com/Pratterino/mobtimer
+      </a>
+    </div>
+  </div>
+  <div
+    className="settings__hamburger pointer "
+    onClick={[Function]}
+  >
+    <div
+      className="bar1"
+    />
+    <div
+      className="bar2"
+    />
+    <div
+      className="bar3"
+    />
+  </div>
+</Fragment>
+`;
