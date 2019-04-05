@@ -8,12 +8,12 @@ describe('Settings', () => {
     const renderComponent = (props) => (
         wrapper = shallow(
             <UnwrappedSettings
-                show
                 settings={{
                     devMode: false,
+                    theme: "",
                 }}
                 timer={{
-                    sessionLength: 900
+                    sessionLength: 900,
                 }}
                 {...props}
             />
@@ -30,7 +30,7 @@ describe('Settings', () => {
         });
 
         it('should match snapshot when devMode', () => {
-            renderComponent({devMode: true});
+            renderComponent({settings: {devMode: true}});
             expect(wrapper).toMatchSnapshot();
         });
     })
