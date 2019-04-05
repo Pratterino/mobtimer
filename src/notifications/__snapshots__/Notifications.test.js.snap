@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Notifications render should match snapshot 1`] = `
+<div
+  className="notifications"
+>
+  <div
+    className="notifications__permissions"
+  >
+    <Emojione
+      text=":information_source: :point_up: Please accept Notifications to get notified when the next user is due!"
+    />
+  </div>
+</div>
+`;
