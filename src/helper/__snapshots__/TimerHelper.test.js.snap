@@ -1,5 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`TimerHelper getParsedTimeRemaining should return a parsed time with hours, minutes and seconds when hour in seconds passed 1`] = `"02:18:00"`;
+
 exports[`TimerHelper getParsedTimeRemaining should return a parsed time with minutes and seconds when minutes in seconds passed 1`] = `"15:12"`;
 
 exports[`TimerHelper getParsedTimeRemaining should return a parsed time with minutes and seconds when only seconds in seconds passed 1`] = `"00:30"`;
