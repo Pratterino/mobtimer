@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ThemeButton render should match snapshot 1`] = `
+<div
+  className="theme-button"
+>
+  <button
+    className="theme-button__button"
+    onClick={[Function]}
+    onMouseLeave={[Function]}
+    onMouseOver={[Function]}
+  />
+</div>
+`;
