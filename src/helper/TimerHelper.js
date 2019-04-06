@@ -30,6 +30,10 @@ export const getParsedTimeRemaining = (seconds) => {
     return `${parsedMinutes}:${parsedSeconds}`;
 };
 
+export function getValueFromCSSVariable(variable) {
+    return getComputedStyle(document.body).getPropertyValue(variable);
+}
+
 export const lightenDarkenColor = (hex, lum = 0) => {
     // validate hex string
     hex = String(hex).replace(/[^0-9a-f]/gi, '');

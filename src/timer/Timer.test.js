@@ -1,5 +1,5 @@
 import React from 'react';
-import {getPercentageLeftOfTime, unwrapped as UnwrappedTimer} from './Timer';
+import {unwrapped as UnwrappedTimer} from './Timer';
 import {shallow} from 'enzyme';
 
 describe("Timer", () => {
@@ -22,16 +22,10 @@ describe("Timer", () => {
     };
 
     beforeEach(() => {
-        jest.spyOn(window, 'getComputedStyle').mockImplementation(() => {
-            return {getPropertyValue: () => "#ef4276"};
-        });
         renderComponent();
     });
 
-    describe('renderCircularProgressbar', () => {});
-
     describe('renderTimeRemaining', () => {});
-
 
     describe('render', () => {
         it('should match snapshot', () => {

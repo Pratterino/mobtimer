@@ -8,105 +8,15 @@ exports[`Timer render should match snapshot 1`] = `
     className="timer pointer"
     onClick={[Function]}
   >
-    <svg
-      className="circle-chart"
-      height="220"
-      viewBox="0 0 33.83098862 33.83098862"
-      width="220"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <defs>
-        <linearGradient
-          id="background-shadow"
-          x1="0%"
-          x2="0%"
-          y1="0%"
-          y2="100%"
-        >
-          <stop
-            offset="0%"
-            stopColor="rgba(25, 25, 25, 0.5)"
-          />
-        </linearGradient>
-        <linearGradient
-          id="background"
-          x1="0%"
-          x2="0%"
-          y1="0%"
-          y2="100%"
-        >
-          <stop
-            offset="0%"
-            stopColor="var(--background)"
-          />
-          <stop
-            offset="100%"
-            stopColor="#ffffff"
-          />
-        </linearGradient>
-        <linearGradient
-          id="inactive"
-          x1="0%"
-          x2="0%"
-          y1="0%"
-          y2="100%"
-        >
-          <stop
-            offset="0%"
-            stopColor="var(--stopped-timer-color)"
-          />
-          <stop
-            offset="100%"
-            stopColor="#ffffff"
-          />
-        </linearGradient>
-        <linearGradient
-          id="active"
-          x1="0%"
-          x2="0%"
-          y1="0%"
-          y2="100%"
-        >
-          <stop
-            offset="0%"
-            stopColor="var(--active-timer-color)"
-          />
-          <stop
-            offset="100%"
-            stopColor="#ffffff"
-          />
-        </linearGradient>
-      </defs>
-      <circle
-        className="circle-chart__background-shadow"
-        cx="16.91549431"
-        cy="16.91549431"
-        fill="none"
-        r="15.91549431"
-        stroke="url(#background-shadow)"
-        strokeWidth="4"
-      />
-      <circle
-        className="circle-chart__background"
-        cx="16.91549431"
-        cy="16.91549431"
-        fill="none"
-        r="15.91549431"
-        stroke="url(#background)"
-        strokeWidth="3"
-      />
-      <circle
-        className="circle-chart__circle"
-        cx="16.91549431"
-        cy="16.91549431"
-        fill="none"
-        r="15.91549431"
-        stroke="url(#inactive)"
-        strokeDasharray="100,100"
-        strokeLinecap="round"
-        strokeWidth="3"
-      />
-    </svg>
+    <TimerCircle
+      timer={
+        Object {
+          "active": false,
+          "currentTime": 100,
+          "sessionLength": 100,
+        }
+      }
+    />
     <div
       className="timer__time"
     >
