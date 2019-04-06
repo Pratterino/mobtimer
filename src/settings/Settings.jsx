@@ -2,7 +2,8 @@ import React, {useEffect, useState} from "react";
 import PropTypes from "prop-types";
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
-import {clearState, setTheme, updateSessionLengthTime} from "./../settings/settingsActions";
+import ThemeSelector from "./../themeselector/ThemeSelector";
+import {clearState, updateSessionLengthTime} from "./../settings/settingsActions";
 import {resetTimer} from "./../timer/timerActions";
 import "./Settings.scss";
 
@@ -46,12 +47,11 @@ function Settings(props) {
                         onChange={handleTimerNumberChange}/>
                 </div>
 
-                {settings.devMode &&
                 <div className="settings__group">
                     <h3>Theme</h3>
-                    <button onClick={() => setTheme("sublime-theme")}>Sublime</button>
+                    <p className="settings__group-subtitle">(Current: {props.settings.theme})</p>
+                    <ThemeSelector/>
                 </div>
-                }
 
                 <div className="settings__group">
                     <h3>Links</h3>
@@ -77,7 +77,6 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => bindActionCreators({
     clearState,
-    setTheme,
     updateSessionLengthTime,
     resetTimer,
 }, dispatch);

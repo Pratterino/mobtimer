@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ThemeSelector render should match snapshot 1`] = `
+<div
+  className="theme-selector"
+>
+  <Connect(ThemeButton)
+    className="theme-selector__button"
+    key="ladies-night-theme"
+    setTempTheme={[Function]}
+    theme="ladies-night-theme"
+  />
+  <Connect(ThemeButton)
+    className="theme-selector__button"
+    key="sublime-theme"
+    setTempTheme={[Function]}
+    theme="sublime-theme"
+  />
+</div>
+`;

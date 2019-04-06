@@ -1,0 +1,10 @@
+.theme-button {
+  display: inline-block;
+  margin: 2px;
+
+  .theme-button__button {
+    &:hover {
+      cursor: help;
+    }
+  }
+}

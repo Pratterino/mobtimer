@@ -1,3 +1,5 @@
+$marginHeader: 10px;
+
 .settings__hamburger {
   position: absolute;
   right: 0;
@@ -23,6 +25,7 @@
     > div {
       background-color: #333;
     }
+
     .bar1 {
       -webkit-transform: rotate(-45deg) translate(-9px, 6px);
       transform: rotate(-45deg) translate(-9px, 6px);
@@ -66,6 +69,7 @@
   }
 
   h3 {
+    margin: $marginHeader 0;
     color: #faebd7;
     text-decoration: underline;
     text-decoration-color: var(--link-color-darker);
@@ -81,6 +85,12 @@
 
     border-left-width: 0;
     border-right-width: 0;
+
+    .settings__group-subtitle {
+      font-size: 10pt;
+      color: var(--text-color);
+      margin-top: -$marginHeader;
+    }
   }
 
   a, a:focus, a:visited {

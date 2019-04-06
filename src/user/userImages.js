@@ -15,6 +15,7 @@ export const userImages = [
 
     //cbb
     "https://media.giphy.com/media/ul1N76AMrZgwU/giphy.gif",
+    "https://i.gifer.com/YHpe.gif",
 
     // animals
     "https://www.drusillas.co.uk/images/whats-on-card/redpanda-profile-400x400-984.jpg",
