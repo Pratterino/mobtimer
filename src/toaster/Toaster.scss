@@ -1,0 +1,21 @@
+.Toaster {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 5px;
+
+  .toaster-item {
+    border-radius: 4px;
+    text-align: left;
+    transform: translateX(-150%);
+    margin: 8px;
+    padding: 4px;
+    background: var(--highlight-color);
+    transition: ease-in-out 1s;
+    transition-timing-function: cubic-bezier(0, 0, 1, 1);
+
+    &.show {
+      transform: translateX(0%);
+    }
+  }
+}

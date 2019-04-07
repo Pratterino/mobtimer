@@ -9,6 +9,7 @@ import Notifications from "./notifications/Notifications";
 import Settings from "./settings/Settings";
 import {getParsedTimeRemaining} from "./helper/TimerHelper";
 import SoundSelector from "./sound/SoundSelector";
+import Toaster from "./toaster/Toaster";
 import './App.scss';
 
 class App extends Component {
@@ -45,6 +46,10 @@ class App extends Component {
                 </div>
                 }
 
+                {(this.props.settings.devMode) &&
+                <Toaster/>
+                }
+
                 <Notifications/>
 
                 <Settings/>
@@ -68,7 +73,7 @@ class App extends Component {
                     <div className="footer__item"/>
                     <div className="footer__item center">
                         <h4>Finish sound</h4>
-                        <SoundSelector />
+                        <SoundSelector/>
                     </div>
                 </footer>
             </div>
