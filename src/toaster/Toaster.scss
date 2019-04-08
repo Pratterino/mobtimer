@@ -1,4 +1,6 @@
 $toasterColor: #e2e2e2;
+$toasterColor: #e2e2e2;
+$hoverColor: #5093c1;
 
 .Toaster {
   position: absolute;
@@ -16,6 +18,19 @@ $toasterColor: #e2e2e2;
     transition-timing-function: cubic-bezier(0, 0, 1, 1);
     min-width: 300px;
     max-width: 350px;
+    box-shadow: -3px 6px 12px 0px rgba(0, 0, 0, 0.4);
+
+    &:hover {
+      box-shadow: -3px 6px 16px 2px rgba(0, 0, 0, 0.6);
+
+      .toaster-item__progressbar {
+        background: $hoverColor;
+      }
+
+      .toaster-item__header {
+        color: $hoverColor;
+      }
+    }
 
     &.show {
       transform: translateX(0%);
@@ -26,7 +41,7 @@ $toasterColor: #e2e2e2;
       padding: 2px;
       text-align: left;
       font-size: 10pt;
-      color: rgba(0, 0, 0, 0.2);
+      color: rgba(0, 0, 0, 0.3);
       border: 0 solid rgba(0, 0, 0, 0.2);
       border-bottom-width: 1px;
     }
@@ -39,6 +54,7 @@ $toasterColor: #e2e2e2;
     }
 
     .toaster-item__progressbar {
+      transition: ease-in-out 0.25s;
       position: relative;
       height: 1px;
       width: 100%;
