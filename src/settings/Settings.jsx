@@ -5,6 +5,8 @@ import {connect} from "react-redux";
 import ThemeSelector from "./../themeselector/ThemeSelector";
 import {clearState, updateSessionLengthTime} from "./../settings/settingsActions";
 import {resetTimer} from "./../timer/timerActions";
+import {faBeer, faDonate, faHeart} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import "./Settings.scss";
 
 function Settings(props) {
@@ -33,7 +35,13 @@ function Settings(props) {
             <div className={`settings ${isOpen ? 'slideIn' : 'slideOut'}`}>
                 <div className="settings__group">
                     <h3>Application</h3>
-                    <a className="button" onClick={clearState}>Reset application</a>
+                    <li>
+                        <a className="button" onClick={clearState}>Reset application state</a>
+                    </li>
+                    <li>
+                    <a href="https://github.com/Pratterino/mobtimer"
+                       target="__blank">https://github.com/Pratterino/mobtimer</a>
+                    </li>
                 </div>
 
                 <div className="settings__group">
@@ -54,9 +62,17 @@ function Settings(props) {
                 </div>
 
                 <div className="settings__group">
-                    <h3>Links</h3>
-                    <a href="https://github.com/Pratterino/mobtimer" target="__blank"
-                       style={{textTransform: "lowercase"}}>https://github.com/Pratterino/mobtimer</a>
+                    <h3></h3>
+
+                    <a href="https://paypal.me/pratterino" target="__blank">
+                        Donate a beer <FontAwesomeIcon icon={faDonate}/> => <FontAwesomeIcon icon={faBeer}/>
+                    </a>
+                    <p className="left">
+                        If you enjoy this mob timer and want to support it.<br/>
+                        A small donation would be really really appreciated! <FontAwesomeIcon icon={faHeart}/>
+                    </p>
+
+
                 </div>
             </div>
 

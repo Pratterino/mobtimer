@@ -43,9 +43,9 @@ $marginHeader: 10px;
 }
 
 .settings {
+  $button_size: 30px;
   z-index: 5;
   overflow-y: auto;
-  $button_size: 30px;
   padding: var(--base-padding);
   background: var(--header-color);
   display: flex;
@@ -55,6 +55,8 @@ $marginHeader: 10px;
   top: 0;
   flex-direction: column;
   justify-content: space-evenly;
+
+  list-style: none;
 
   transform: translateY(-120%);
   transition: transform 400ms ease-in, margin-bottom 400ms ease-in;
@@ -93,7 +95,12 @@ $marginHeader: 10px;
     }
   }
 
+  .left {
+    text-align: left;
+  }
+
   a, a:focus, a:visited {
+    margin: 4px;
     text-decoration: none;
     color: #fff;
     border: 1px solid #faebd7;
@@ -108,7 +115,6 @@ $marginHeader: 10px;
     height: $button_size;
     line-height: $button_size;
     padding: 0 12px;
-    text-transform: uppercase;
 
     &:active {
       border: none;
