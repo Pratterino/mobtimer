@@ -1,8 +1,9 @@
 import actionTypes from "./../actionTypes";
+import moment from "moment";
 
 function mapToToasterMessage(commit) {
     return {
-        date: new Date(commit.commit.committer.date),
+        date: moment(commit.commit.committer.date).toISOString(),
         message: commit.commit.message,
         sha: commit.sha,
     };
@@ -30,9 +31,10 @@ export const fetchReleaseCommits = () => (dispatch) =>{
             dispatch(releaseCommitsFetchSuccess(commits)));
 };
 
-export const removeToaster = (sha) => ({
+export const removeToaster = (commit) => ({
     type: actionTypes.REMOVE_TOASTER,
-    sha,
+    date: commit.date,
+    sha: commit.sha,
 });
 
 const releaseCommitsFetchSuccess = (commits) => ({

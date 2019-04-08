@@ -1,3 +1,5 @@
+$toasterColor: #e2e2e2;
+
 .Toaster {
   position: absolute;
   top: 0;
@@ -6,16 +8,49 @@
 
   .toaster-item {
     border-radius: 4px;
-    text-align: left;
     transform: translateX(-150%);
     margin: 8px;
     padding: 4px;
-    background: var(--highlight-color);
+    background: $toasterColor;
     transition: ease-in-out 1s;
     transition-timing-function: cubic-bezier(0, 0, 1, 1);
+    min-width: 300px;
+    max-width: 350px;
 
     &.show {
       transform: translateX(0%);
     }
+
+    .toaster-item__header {
+      box-sizing: border-box;
+      padding: 2px;
+      text-align: left;
+      font-size: 10pt;
+      color: rgba(0, 0, 0, 0.2);
+      border: 0 solid rgba(0, 0, 0, 0.2);
+      border-bottom-width: 1px;
+    }
+
+    .toaster-item__message {
+      margin: 4px 0;
+      padding: 2px;
+      text-align: left;
+      color: #6f6f6f;
+    }
+
+    .toaster-item__progressbar {
+      position: relative;
+      height: 1px;
+      width: 100%;
+      background: rgba(10, 10, 10, 0.15);
+    }
+  }
+
+  .toaster-item__remove {
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 8px;
   }
 }
