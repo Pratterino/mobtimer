@@ -3,6 +3,7 @@ import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
 import {Emojione} from "react-emoji-render";
 import {askForNotificationPermission, hasAcceptedNotifications} from "./../NotificationManager";
+import {fetchBackgroundImage} from "./../unsplashedActions";
 import "./Notifications.scss";
 
 class Notifications extends Component {
@@ -12,6 +13,7 @@ class Notifications extends Component {
 
     componentDidMount() {
         askForNotificationPermission(this.reRender);
+        fetchBackgroundImage()
     }
 
     render() {

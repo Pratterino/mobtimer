@@ -9,6 +9,7 @@ import Notifications from "./notifications/Notifications";
 import Settings from "./settings/Settings";
 import {getParsedTimeRemaining} from "./helper/TimerHelper";
 import SoundSelector from "./sound/SoundSelector";
+import {fetchBackgroundImage} from "./unsplashedActions";
 import './App.scss';
 
 class App extends Component {
@@ -34,6 +35,13 @@ class App extends Component {
         sortable.sort((a, b) => b[1] - a[1]);
         return sortable;
     };
+
+    componentDidMount() {
+        const background = document.querySelector("#bg-image");
+        console.info(background.style.backgroundImage);
+        const hej = fetchBackgroundImage()
+            .then(h => background.style.backgroundImage = `url(${h})`);
+    }
 
     render() {
         return (
@@ -68,7 +76,7 @@ class App extends Component {
                     <div className="footer__item"/>
                     <div className="footer__item center">
                         <h4>Finish sound</h4>
-                        <SoundSelector />
+                        <SoundSelector/>
                     </div>
                 </footer>
             </div>

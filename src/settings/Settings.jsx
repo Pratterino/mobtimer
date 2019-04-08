@@ -21,10 +21,6 @@ function Settings(props) {
         props.resetTimer();
     };
 
-    const setTheme = (theme) => {
-        props.setTheme(theme);
-    };
-
     const toggleSettings = () => {
         setIsOpen(!isOpen);
     };
@@ -62,17 +58,16 @@ function Settings(props) {
                 </div>
 
                 <div className="settings__group">
-                    <h3></h3>
+                    <h3>Help</h3>
 
                     <a href="https://paypal.me/pratterino" target="__blank">
                         Donate a beer <FontAwesomeIcon icon={faDonate}/> => <FontAwesomeIcon icon={faBeer}/>
                     </a>
-                    <p className="left">
+                    <p>
                         If you enjoy this mob timer and want to support it.<br/>
-                        A small donation would be really really appreciated! <FontAwesomeIcon icon={faHeart}/>
+                        A small donation would be really really appreciated!<br/>
                     </p>
-
-
+                    <FontAwesomeIcon icon={faHeart}/> <FontAwesomeIcon icon={faHeart}/> <FontAwesomeIcon icon={faHeart}/>
                 </div>
             </div>
 
