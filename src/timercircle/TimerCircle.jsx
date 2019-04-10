@@ -9,7 +9,7 @@ export function TimerCircle(props) {
     const stopColor = '--stopped-timer-color';
     const luminance = 0.5;
 
-    const [stopColors, setStopColors] = useState({
+    const [stopColors] = useState({
         background: lightenDarkenColor(getValueFromCSSVariable(backgroundColor), luminance),
         inactive: lightenDarkenColor(getValueFromCSSVariable(stopColor), luminance),
         active: lightenDarkenColor(getValueFromCSSVariable(activeColor), luminance),

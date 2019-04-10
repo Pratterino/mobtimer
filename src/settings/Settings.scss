@@ -99,13 +99,14 @@ $marginHeader: 10px;
     text-align: left;
   }
 
-  a, a:focus, a:visited {
+  a, a:focus, a:visited, button {
     margin: 4px;
     text-decoration: none;
     color: #fff;
     border: 1px solid #faebd7;
     text-align: center;
     letter-spacing: .5px;
+    background: transparent;
     transition: background-color .2s ease-out;
     cursor: pointer;
     border-left-width: 2px;

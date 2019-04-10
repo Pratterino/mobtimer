@@ -1,5 +1,4 @@
 import actions from "./../actionTypes";
-import {store} from "./../store";
 
 const defaultSettingsState = {
     theme: "ladies-night-theme",

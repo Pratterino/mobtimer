@@ -25,14 +25,14 @@ function Settings(props) {
         setIsOpen(!isOpen);
     };
 
-    const {clearState, timer, settings} = props;
+    const {clearState, timer} = props;
     return (
         <React.Fragment>
             <div className={`settings ${isOpen ? 'slideIn' : 'slideOut'}`}>
                 <div className="settings__group">
                     <h3>Application</h3>
                     <li>
-                        <a className="button" onClick={clearState}>Reset application state</a>
+                        <button className="button" onClick={clearState}>Reset application state</button>
                     </li>
                     <li>
                     <a href="https://github.com/Pratterino/mobtimer"

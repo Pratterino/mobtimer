@@ -13,6 +13,15 @@ import {fetchBackgroundImage} from "./unsplashedActions";
 import './App.scss';
 
 class App extends Component {
+    state = {
+        unsplashed: {
+            image: "https://images.unsplash.com/photo-1528920304568-7aa06b3dda8b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80",
+            username: 'Rob Bates',
+            userLink: 'https://unsplash.com/@inksurgeon',
+            unsplashedLink: 'https://unsplash.com/?utm_source=pratterino_mobtimer&utm_medium=referral',
+        }
+    };
+
     renderLeaderboard = () => {
         const {leaderboard} = this.props.timer;
         let sortedLeaderboard = this.sortProperties(leaderboard);
@@ -36,14 +45,22 @@ class App extends Component {
         return sortable;
     };
 
-    componentDidMount() {
+    setNewBackgroundImage = () => {
         const background = document.querySelector("#bg-image");
-        console.info(background.style.backgroundImage);
-        const hej = fetchBackgroundImage()
-            .then(h => background.style.backgroundImage = `url(${h})`);
+        fetchBackgroundImage().then(unsplashed => {
+            this.setState({unsplashed}, () => {
+                background.style.backgroundImage = `url(${this.state.unsplashed.image})`
+            });
+        });
+    };
+
+    componentDidMount() {
+        // TODO: Activate when API restrictions are passed.
+        //this.setNewBackgroundImage();
     }
 
     render() {
+        const {unsplashed} = this.state;
         return (
             <div className="app">
                 {(this.props.settings.devMode && false) &&
@@ -60,6 +77,9 @@ class App extends Component {
                 <Users/>
 
                 <Timer/>
+
+
+                <div className="unsplashed-credits">Photo by <a href={unsplashed.userLink}>{unsplashed.username}</a> on <a href={unsplashed.unsplashedLink}>Unsplash</a></div>
 
                 <footer>
                     <div className="footer__item">

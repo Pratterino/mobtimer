@@ -14,6 +14,20 @@ input {
   color: var(--text-color);
   text-align: center;
   min-height: 100vh;
+
+  .unsplashed-credits {
+    margin-right: 6px;
+    padding: 4px 8px;
+    font-size: .7em;
+    color: #666;
+    position: absolute;
+    bottom: 80px;
+    right: 0;
+    a {
+      color: #888;
+      text-decoration: underline;
+    }
+  }
 }
 
 h1, h2, h3, h4 {

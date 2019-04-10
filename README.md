@@ -1,6 +1,8 @@
-mobtimer
+mobtimer 
 ========
 The second. The best. The most stable one (yet). 
+
+[![CircleCI](https://circleci.com/gh/Pratterino/mobtimer/tree/master.svg?style=svg)](https://circleci.com/gh/Pratterino/mobtimer/tree/master)
 
 ## Features backlog
 (create an Issue for feature requests, or to report a bug 🐜!)

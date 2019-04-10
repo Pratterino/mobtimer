@@ -12,11 +12,11 @@ exports[`Settings render should match snapshot 1`] = `
         Application
       </h3>
       <li>
-        <a
+        <button
           className="button"
         >
           Reset application state
-        </a>
+        </button>
       </li>
       <li>
         <a
@@ -262,11 +262,11 @@ exports[`Settings render should match snapshot when devMode 1`] = `
         Application
       </h3>
       <li>
-        <a
+        <button
           className="button"
         >
           Reset application state
-        </a>
+        </button>
       </li>
       <li>
         <a

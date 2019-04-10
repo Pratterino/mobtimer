@@ -1,6 +1,6 @@
 import actions from "./../actionTypes";
 import {finishedSounds} from "./../sound/sounds";
-import {Howl, Howler} from 'howler';
+import {Howl} from 'howler';
 
 export const activeSoundSelector = (state) => {
     return state.sounds.filename;
@@ -16,10 +16,6 @@ const playFinishedSound = (filename) => {
         src: [require(`./../assets/sounds/${filename}`)],
         loop: false,
     }).play();
-};
-
-const stopAllSounds = () => {
-    Howler.stop();
 };
 
 export default (state = defaultSoundState, action) => {
