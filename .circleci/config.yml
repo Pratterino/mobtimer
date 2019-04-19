@@ -42,33 +42,33 @@ jobs:
           key: depens-{{ checksum "package.json" }}
       - run: npm run test
 
-  build:
-    <<: *defaults
-    steps:
-      - restore_cache:
-          key: source-{{ .Branch }}-{{ .Revision }}
-      - restore_cache:
-          key: depens-{{ checksum "package.json" }}
+  #build:
+  #  <<: *defaults
+  #  steps:
+  #    - restore_cache:
+  #        key: source-{{ .Branch }}-{{ .Revision }}
+  #    - restore_cache:
+  #        key: depens-{{ checksum "package.json" }}
 
-      - run: npm run build
+  #    - run: npm run build
 
-      - persist_to_workspace:
-          root: ~/repo
-          paths:
-            - build
-            - package.json
-  deploy:
-    <<: *defaults
-    steps:
-      - attach_workspace:
-          at: ~/repo
-      - store_artifacts:
-          path: ~/repo/build
-          destination: prod-dist
-      - run:
-          name: deploy app to sftp
-          command: |
-            scp -o StrictHostKeyChecking=no ./prod-dist $SSH_USERNAME@$SSH_HOST:/customers/1/0/8/mobtimer.com/httpd.www/test
+  #    - persist_to_workspace:
+  #        root: ~/repo
+  #        paths:
+  #          - build
+  #          - package.json
+  #deploy:
+  #  <<: *defaults
+  #  steps:
+  #    - attach_workspace:
+  #        at: ~/repo
+  #    - store_artifacts:
+  #        path: ~/repo/build
+  #        destination: prod-dist
+  #    - run:
+  #        name: deploy app to sftp
+  #        command: |
+  #          scp -o StrictHostKeyChecking=no ./prod-dist $SSH_USERNAME@$SSH_HOST:/customers/1/0/8/mobtimer.com/httpd.www/test
 workflows:
   version: 2
   test_build_and_deploy:
@@ -80,10 +80,10 @@ workflows:
       - test:
           requires:
             - install_dependencies
-      - build:
-          requires:
-            - install_dependencies
-      - deploy:
-          requires:
-            - build
-            - test
+      #- build:
+      #    requires:
+      #      - install_dependencies
+      #- deploy:
+      #    requires:
+      #      - build
+      #      - test
