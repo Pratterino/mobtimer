@@ -49,10 +49,12 @@ body {
   height: 100%;
   z-index: -10;
   position: absolute;
-  background-image: url("https://images.unsplash.com/photo-1528920304568-7aa06b3dda8b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80");
+  background: #000;
   background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url("./assets/images/bg-start.jpg");
   filter: grayscale(80%);
-  transition: filter 2s linear;
+  transition: filter 2s linear, background 4s ease-in-out;
 
   #bg-overlay {
     position: absolute;
