@@ -4,6 +4,7 @@ $imageSize: 80px;
   display: inline-block;
   text-align: center;
   position: relative;
+  text-shadow: 2px 2px 2px #000;
 
   &:hover {
     .user__remove {

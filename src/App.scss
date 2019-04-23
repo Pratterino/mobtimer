@@ -20,8 +20,8 @@ input {
     padding: 4px 8px;
     font-size: .7em;
     color: #666;
-    position: absolute;
     bottom: 80px;
+    text-align: right;
     right: 0;
     a {
       color: #888;
@@ -50,6 +50,7 @@ h1, h2, h3, h4 {
 }
 
 footer {
+  text-shadow: 2px 2px 2px #000;
   user-select: none;
   box-sizing: border-box;
   position: absolute;

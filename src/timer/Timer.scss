@@ -13,6 +13,7 @@ $pausedColor: #d7d283;
     justify-content: center;
 
     .timer__time {
+      text-shadow: 2px 2px 4px #000;
       user-select: none;
       color: #f3f3f3;
       position: absolute;
