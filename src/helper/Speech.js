@@ -1,7 +1,7 @@
 let synth;
 
 export const hasSpeechSupport = () => {
-    return "speechSynthesis" in window;
+    return 'speechSynthesis' in window;
 };
 
 const initSpeechSynthesis = () => {
@@ -12,10 +12,9 @@ const initSpeechSynthesis = () => {
     }
 };
 
-export const speak = (text) => {
+export const speak = text => {
     initSpeechSynthesis();
     if (hasSpeechSupport()) {
         synth.speak(new SpeechSynthesisUtterance(text));
     }
 };
-

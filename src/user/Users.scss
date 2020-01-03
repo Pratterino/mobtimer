@@ -1,19 +1,19 @@
 .Users {
-  $addUserSize: 180px;
-  margin-top: 10%;
+    $addUserSize: 180px;
+    margin-top: 10%;
 
-  .draggable-users {
-    padding: 0 10px;
-    margin-left: $addUserSize;
-    align-items: center;
-    overflow: visible !important;
-  }
+    .draggable-users {
+        padding: 0 10px;
+        margin-left: $addUserSize;
+        align-items: center;
+        overflow: visible !important;
+    }
 
-  .user__add {
-    color: yellow;
-  }
+    .user__add {
+        color: yellow;
+    }
 
-  .users__footer {
-    margin-top: 20px;
-  }
+    .users__footer {
+        margin-top: 20px;
+    }
 }

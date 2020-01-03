@@ -1,17 +1,16 @@
 import React from 'react';
-import timerReducer, {defaultTimerState} from "./timerReducer";
-import actions from "./../actionTypes";
+import timerReducer, { defaultTimerState } from './timerReducer';
+import actions from './../actionTypes';
 
-
-describe("timerReducer", () => {
-    const getDefaultState = (props) => ({
+describe('timerReducer', () => {
+    const getDefaultState = props => ({
         ...defaultTimerState,
         ...{
             metadata: {
                 ...defaultTimerState.metadata,
                 ...{
                     todaysDate: 1,
-                }
+                },
             },
         },
         ...props,
@@ -41,18 +40,18 @@ describe("timerReducer", () => {
             action = {
                 type: actions.SECOND_DECREMENT_TIMER,
                 user: {
-                    name: "Ulla"
+                    name: 'Ulla',
                 },
             };
         });
 
         it('should decrement currentTime and increment todaysSessionLength', () => {
-            let unknownState = timerReducer(state, {type: "UNKNOWN"});
+            let unknownState = timerReducer(state, { type: 'UNKNOWN' });
             let newState = timerReducer(state, action);
 
             expect(unknownState.currentTime).toBe(1050);
             expect(newState.currentTime).toBe(1049);
-            expect(document.title).toBe("17:29");
+            expect(document.title).toBe('17:29');
 
             expect(unknownState.metadata.todaysSessionLength).toBe(41);
             expect(newState.metadata.todaysSessionLength).toBe(42);
@@ -73,7 +72,7 @@ describe("timerReducer", () => {
         });
 
         it('should reset todaysSessionLength to zero', () => {
-            let unknownState = timerReducer(state, {type: "UNKNOWN"});
+            let unknownState = timerReducer(state, { type: 'UNKNOWN' });
             let newState = timerReducer(state, action);
 
             expect(unknownState.metadata.todaysSessionLength).toBe(500);
@@ -201,7 +200,7 @@ describe("timerReducer", () => {
             expect(newState.active).toBe(true);
         });
 
-        describe('should match snapshots', function () {
+        describe('should match snapshots', function() {
             it('when active', () => {
                 state = getDefaultState({
                     currentTime: 40,
@@ -293,9 +292,9 @@ describe("timerReducer", () => {
     });
 
     describe('DEFAULT', () => {
-        it('should return defaultState', function () {
+        it('should return defaultState', function() {
             const action = {
-                type: "ACTION MAN",
+                type: 'ACTION MAN',
             };
             let newState = timerReducer(undefined, action);
             expect(newState).toEqual(defaultTimerState);

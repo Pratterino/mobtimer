@@ -1,15 +1,15 @@
-import actionTypes from "./../actionTypes";
-import {store} from "./../store";
+import actionTypes from './../actionTypes';
+import { store } from './../store';
 
 export const startTimer = () => ({
     type: actionTypes.START_TIMER,
 });
 
-export const playPauseTimer = (timer) => {
+export const playPauseTimer = timer => {
     if (timer.metadata.todaysDate !== new Date().getDate()) {
         store.dispatch({
             type: actionTypes.RESET_TODAYS_SESSION_LENGTH,
-        })
+        });
     }
 
     return {

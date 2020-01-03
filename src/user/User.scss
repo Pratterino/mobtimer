@@ -1,83 +1,83 @@
 $imageSize: 80px;
 
 .user {
-  display: inline-block;
-  text-align: center;
-  position: relative;
-  text-shadow: 2px 2px 2px #000;
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    text-shadow: 2px 2px 2px #000;
 
-  &:hover {
-    .user__remove {
-      visibility: visible;
+    &:hover {
+        .user__remove {
+            visibility: visible;
+        }
+
+        .user__crown {
+            transform: rotate(0deg);
+            left: 40px;
+        }
     }
 
     .user__crown {
-      transform: rotate(0deg);
-      left: 40px;
-    }
-  }
-
-  .user__crown {
-    background: url(../assets/images/crown.png) no-repeat;
-    background-size: cover;
-    height: 50px;
-    width: 90px;
-    top: -19px;
-    left: 19px;
-    transform: rotate(-22deg);
-    position: absolute;
-    z-index: 2;
-    transition: all .5s;
-  }
-
-  .user__image {
-    border-radius: 45%;
-    width: $imageSize;
-    height: $imageSize;
-    text-indent: 0;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    border: 4px solid #111;
-
-    &.active {
-      border-radius: 45%;
-      border: 4px solid mediumspringgreen;
+        background: url(../assets/images/crown.png) no-repeat;
+        background-size: cover;
+        height: 50px;
+        width: 90px;
+        top: -19px;
+        left: 19px;
+        transform: rotate(-22deg);
+        position: absolute;
+        z-index: 2;
+        transition: all .5s;
     }
 
-    &.disabled {
-      filter: blur(1px);
-      opacity: 0.3;
-      border-radius: 45%;
-      border: 4px solid #888888;
+    .user__image {
+        border-radius: 45%;
+        width: $imageSize;
+        height: $imageSize;
+        text-indent: 0;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        border: 4px solid #111;
+
+        &.active {
+            border-radius: 45%;
+            border: 4px solid mediumspringgreen;
+        }
+
+        &.disabled {
+            filter: blur(1px);
+            opacity: 0.3;
+            border-radius: 45%;
+            border: 4px solid #888888;
+        }
     }
-  }
 
-  .user__name {
-    display: block;
-    position: relative;
-    bottom: 0;
-  }
-
-  .user__remove {
-    visibility: hidden;
-    margin: 0 $imageSize;
-    display: flex;
-
-    &:hover {
-      opacity: 0.6;
-      color: #f00;
+    .user__name {
+        display: block;
+        position: relative;
+        bottom: 0;
     }
-  }
 
-  .user__name--text:hover {
-    cursor: pointer;
-  }
+    .user__remove {
+        visibility: hidden;
+        margin: 0 $imageSize;
+        display: flex;
 
-  .user__name--text, .user__name--text > input {
-    width: 100%;
-    text-align: center;
-  }
+        &:hover {
+            opacity: 0.6;
+            color: #f00;
+        }
+    }
+
+    .user__name--text:hover {
+        cursor: pointer;
+    }
+
+    .user__name--text, .user__name--text > input {
+        width: 100%;
+        text-align: center;
+    }
 
 }
 

@@ -1,19 +1,23 @@
 import React from 'react';
-import {unwrapped as UnwrappedUsers} from './Users';
-import {shallow} from 'enzyme';
+import { unwrapped as UnwrappedUsers } from './Users';
+import { shallow } from 'enzyme';
 
-describe("Users", () => {
+describe('Users', () => {
     let wrapper;
     let addUserSpy;
-    const users = [{
-        name: "Bob Ducca",
-    }, {
-        name: "Dabney Coleperson",
-    }, {
-        name: "Llarn Bleb-Raag",
-    }];
+    const users = [
+        {
+            name: 'Bob Ducca',
+        },
+        {
+            name: 'Dabney Coleperson',
+        },
+        {
+            name: 'Llarn Bleb-Raag',
+        },
+    ];
 
-    const renderComponent = (props) => {
+    const renderComponent = props => {
         addUserSpy = jest.fn();
         wrapper = shallow(
             <UnwrappedUsers
@@ -23,7 +27,7 @@ describe("Users", () => {
                 resetTimer={jest.fn()}
                 updateUserOrder={jest.fn()}
                 {...props}
-            />
+            />,
         );
     };
 
@@ -42,7 +46,7 @@ describe("Users", () => {
         });
 
         it('should update local state', () => {
-            const newUsers = [...users, {name: "Jenny"}];
+            const newUsers = [...users, { name: 'Jenny' }];
 
             let newState = {
                 users: newUsers,
@@ -57,9 +61,11 @@ describe("Users", () => {
         it('should call setState', () => {
             const e = {
                 preventDefault: jest.fn(),
-                target: [{
-                    value: "Kurt",
-                }]
+                target: [
+                    {
+                        value: 'Kurt',
+                    },
+                ],
             };
             expect(wrapper.state('users')).toEqual(users);
             wrapper.instance().addUser(e);
@@ -77,9 +83,9 @@ describe("Users", () => {
             let user_2 = wrapper.state('users')[1];
             let user_3 = wrapper.state('users')[2];
 
-            expect(user_1.name).toEqual("Bob Ducca");
-            expect(user_2.name).toEqual("Dabney Coleperson");
-            expect(user_3.name).toEqual("Llarn Bleb-Raag");
+            expect(user_1.name).toEqual('Bob Ducca');
+            expect(user_2.name).toEqual('Dabney Coleperson');
+            expect(user_3.name).toEqual('Llarn Bleb-Raag');
         });
 
         it('should keep same order', () => {
@@ -97,9 +103,9 @@ describe("Users", () => {
             let user_2 = wrapper.state('users')[1];
             let user_3 = wrapper.state('users')[2];
 
-            expect(user_1.name).toEqual("Bob Ducca");
-            expect(user_2.name).toEqual("Dabney Coleperson");
-            expect(user_3.name).toEqual("Llarn Bleb-Raag");
+            expect(user_1.name).toEqual('Bob Ducca');
+            expect(user_2.name).toEqual('Dabney Coleperson');
+            expect(user_3.name).toEqual('Llarn Bleb-Raag');
         });
 
         it('should swap order', () => {
@@ -117,38 +123,38 @@ describe("Users", () => {
             let user_2 = wrapper.state('users')[1];
             let user_3 = wrapper.state('users')[2];
 
-            expect(user_1.name).toEqual("Dabney Coleperson");
-            expect(user_2.name).toEqual("Bob Ducca");
-            expect(user_3.name).toEqual("Llarn Bleb-Raag");
+            expect(user_1.name).toEqual('Dabney Coleperson');
+            expect(user_2.name).toEqual('Bob Ducca');
+            expect(user_3.name).toEqual('Llarn Bleb-Raag');
         });
     });
 
     describe('getItemStyle', () => {
         it('should return when dragging', () => {
             let draggableStyle = {
-                boxSizing: "border-box",
-                pointerEvents: "none",
-                position: "fixed",
-                transition: "opacity 0.2s cubic-bezier(0.2, 0, 0, 1)",
+                boxSizing: 'border-box',
+                pointerEvents: 'none',
+                position: 'fixed',
+                transition: 'opacity 0.2s cubic-bezier(0.2, 0, 0, 1)',
                 zIndex: 5000,
             };
 
             let itemStyle = wrapper.instance().getItemStyle(true, draggableStyle);
-            expect(itemStyle.background).toBe("var(--highlight-color)");
+            expect(itemStyle.background).toBe('var(--highlight-color)');
             expect(itemStyle).toMatchSnapshot();
         });
 
         it('should return when not dragging', () => {
             let draggableStyle = {
-                boxSizing: "border-box",
-                pointerEvents: "none",
-                position: "fixed",
-                transition: "opacity 0.2s cubic-bezier(0.2, 0, 0, 1)",
+                boxSizing: 'border-box',
+                pointerEvents: 'none',
+                position: 'fixed',
+                transition: 'opacity 0.2s cubic-bezier(0.2, 0, 0, 1)',
                 zIndex: 5000,
             };
 
             let itemStyle = wrapper.instance().getItemStyle(false, draggableStyle);
-            expect(itemStyle.background).toBe("transparent");
+            expect(itemStyle.background).toBe('transparent');
             expect(itemStyle).toMatchSnapshot();
         });
     });
@@ -157,14 +163,14 @@ describe("Users", () => {
         it('should return when isDraggingOver', () => {
             let listStyle = wrapper.instance().getListStyle(true);
 
-            expect(listStyle.background).toBe("rgba(0,0,0,0.2)");
+            expect(listStyle.background).toBe('rgba(0,0,0,0.2)');
             expect(listStyle).toMatchSnapshot();
         });
 
         it('should return when not isDraggingOver', () => {
             let listStyle = wrapper.instance().getListStyle(false);
 
-            expect(listStyle.background).toBe("");
+            expect(listStyle.background).toBe('');
             expect(listStyle).toMatchSnapshot();
         });
     });

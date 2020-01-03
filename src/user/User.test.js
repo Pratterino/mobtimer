@@ -1,23 +1,23 @@
 import React from 'react';
-import {unwrapped as UnwrappedUser} from './User';
-import {shallow} from 'enzyme';
+import { unwrapped as UnwrappedUser } from './User';
+import { shallow } from 'enzyme';
 
-describe("User", () => {
+describe('User', () => {
     let wrapper;
     let changeNameSpy;
 
-    const renderComponent = (props) => {
+    const renderComponent = props => {
         changeNameSpy = jest.fn();
 
         wrapper = shallow(
             <UnwrappedUser
-                user={{name: "John"}}
+                user={{ name: 'John' }}
                 removeUser={jest.fn()}
                 toggleUser={jest.fn()}
                 changeName={changeNameSpy}
                 changeUserImage={jest.fn()}
                 {...props}
-            />
+            />,
         );
     };
 
@@ -29,8 +29,8 @@ describe("User", () => {
         it('should setState', () => {
             const e = {
                 target: {
-                    value: "Kurt",
-                }
+                    value: 'Kurt',
+                },
             };
             expect(wrapper.state('name')).toEqual('John');
             wrapper.instance().onChange(e);

@@ -1,9 +1,9 @@
-import actions from "./../actionTypes";
-import {store} from "./../store";
-import {getParsedTimeRemaining} from "./../helper/TimerHelper";
-import {activeUserSelector} from "./../user/userReducer";
-import {speak} from "./../helper/Speech";
-import {closeNotification, showNotification} from "./../NotificationManager";
+import actions from './../actionTypes';
+import { store } from './../store';
+import { getParsedTimeRemaining } from './../helper/TimerHelper';
+import { activeUserSelector } from './../user/userReducer';
+import { speak } from './../helper/Speech';
+import { closeNotification, showNotification } from './../NotificationManager';
 
 let interval;
 let speechTimeout;
@@ -41,12 +41,12 @@ const timerIsDone = () => {
 const showNextUserNotification = () => {
     const upNextUser = activeUserSelector(store.getState());
     showNotification(upNextUser);
-    console.info("NOTIFICATION: ", upNextUser);
+    console.info('NOTIFICATION: ', upNextUser);
 };
 
 const stopTimerInterval = () => {
     clearInterval(interval);
-    console.info("TIMER: CLEARED INTERVAL")
+    console.info('TIMER: CLEARED INTERVAL');
 };
 
 const startTimerInterval = () => {
@@ -67,7 +67,7 @@ const startTimerInterval = () => {
             user: activeUserSelector(state),
         });
     }, 1000);
-    console.info("TIMER: MOB SESSION STARTED!");
+    console.info('TIMER: MOB SESSION STARTED!');
     closeNotification();
 };
 
@@ -82,7 +82,11 @@ const timeoutToSpeech = (i = 0) => {
             const activeUser = activeUserSelector(state);
 
             showNextUserNotification();
-            speak(`It's ${activeUser.name}'s time! You've been idle for an entire ${i >= 1 ? `${i + 1} minutes!` : "minute!"}`);
+            speak(
+                `It's ${activeUser.name}'s time! You've been idle for an entire ${
+                    i >= 1 ? `${i + 1} minutes!` : 'minute!'
+                }`,
+            );
             return timeoutToSpeech(i + 1);
         }, 60 * 1000);
     }
@@ -95,7 +99,7 @@ const toggleTitleOnFinish = () => {
         const state = store.getState();
         const activeUser = activeUserSelector(state);
 
-        document.title = (interval % 2) ? "⏰⏰⏰" : `${activeUser.name.toUpperCase()}`;
+        document.title = interval % 2 ? '⏰⏰⏰' : `${activeUser.name.toUpperCase()}`;
         interval++;
     }, 1000);
 };
@@ -105,7 +109,7 @@ export default (state = defaultTimerState, action) => {
         case actions.SECOND_DECREMENT_TIMER:
             let seconds = state.currentTime - 1;
             document.title = `${getParsedTimeRemaining(seconds)}`;
-            let leaderboardCurrentUserSeconds = state.leaderboard[action.user.name] || 0;
+            let leaderboardCurrentUserSeconds = state.leaderboard[action.user.name] || 0;
             return {
                 ...state,
                 currentTime: seconds,
@@ -115,7 +119,7 @@ export default (state = defaultTimerState, action) => {
                 },
                 leaderboard: {
                     ...state.leaderboard,
-                    [action.user.name]: leaderboardCurrentUserSeconds + 1
+                    [action.user.name]: leaderboardCurrentUserSeconds + 1,
                 },
             };
 
@@ -203,4 +207,4 @@ export default (state = defaultTimerState, action) => {
         default:
             return state;
     }
-}
+};

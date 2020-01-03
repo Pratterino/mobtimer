@@ -1,13 +1,13 @@
-import React, {useEffect, useState} from "react";
-import PropTypes from "prop-types";
-import {bindActionCreators} from "redux";
-import {connect} from "react-redux";
-import ThemeButton from "./../themebutton/ThemeButton";
-import "./ThemeSelector.scss";
+import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import ThemeButton from './../themebutton/ThemeButton';
+import './ThemeSelector.scss';
 
 function ThemeSelector(props) {
     const [tempTheme, setTempTheme] = useState(props.settings.theme);
-    const themes = ["ladies-night-theme", "sublime-theme"];
+    const themes = ['ladies-night-theme', 'sublime-theme'];
 
     useEffect(() => {
         window.document.body.className = tempTheme || props.settings.theme;
@@ -15,14 +15,9 @@ function ThemeSelector(props) {
 
     return (
         <div className="theme-selector">
-            {themes.map(theme =>
-                <ThemeButton
-                    theme={theme}
-                    key={theme}
-                    setTempTheme={setTempTheme}
-                    className="theme-selector__button"
-                />
-            )}
+            {themes.map(theme => (
+                <ThemeButton theme={theme} key={theme} setTempTheme={setTempTheme} className="theme-selector__button" />
+            ))}
         </div>
     );
 }
@@ -31,8 +26,7 @@ const mapStateToProps = state => ({
     settings: state.settings,
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators({
-}, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({}, dispatch);
 
 ThemeSelector.propTypes = {
     setTheme: PropTypes.func.isRequired,

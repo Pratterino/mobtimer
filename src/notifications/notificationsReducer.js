@@ -1,7 +1,5 @@
-import actions from "./../actionTypes";
-
 const defaultSettingsState = {
-    theme: "ladies-night",
+    theme: 'ladies-night',
 };
 
 export default (state = defaultSettingsState, action) => {
@@ -9,6 +7,4 @@ export default (state = defaultSettingsState, action) => {
         default:
             return state;
     }
-}
-
-
+};

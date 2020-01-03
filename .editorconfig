@@ -1,0 +1,13 @@
+root = true
+
+[*]
+charset = utf-8
+end_of_line = crlf
+indent_size = 4
+indent_style = space
+insert_final_newline = false
+max_line_length = 120
+tab_width = 4
+
+[{bowerrc, .eslintrc, .stylelintrc, jest.config, .babelrc, *.json, *.jsb3, *.jsb2}]
+indent_size = 2

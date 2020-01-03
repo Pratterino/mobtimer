@@ -1,10 +1,10 @@
-import React, {Component} from "react";
-import {bindActionCreators} from "redux";
-import {connect} from "react-redux";
-import {Emojione} from "react-emoji-render";
-import {askForNotificationPermission, hasAcceptedNotifications} from "./../NotificationManager";
-import {fetchBackgroundImage} from "./../unsplashedActions";
-import "./Notifications.scss";
+import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { Emojione } from 'react-emoji-render';
+import { askForNotificationPermission, hasAcceptedNotifications } from './../NotificationManager';
+import { fetchBackgroundImage } from './../unsplashedActions';
+import './Notifications.scss';
 
 class Notifications extends Component {
     reRender = () => {
@@ -13,7 +13,7 @@ class Notifications extends Component {
 
     componentDidMount() {
         askForNotificationPermission(this.reRender);
-        fetchBackgroundImage()
+        fetchBackgroundImage();
     }
 
     render() {
@@ -21,10 +21,9 @@ class Notifications extends Component {
             <div className="notifications">
                 {!hasAcceptedNotifications() && (
                     <div className="notifications__permissions">
-                        <Emojione
-                            text=":information_source: :point_up: Please accept Notifications to get notified when the next user is due!"
-                        />
-                    </div>)}
+                        <Emojione text=":information_source: :point_up: Please accept Notifications to get notified when the next user is due!" />
+                    </div>
+                )}
             </div>
         );
     }

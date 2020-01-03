@@ -1,88 +1,89 @@
 html, body {
-  background: #20002c; /* fallback for old browsers */
-  background: sticky var(--background);
-  height: 100%;
-  min-height: 100vh;
-  overflow: hidden;
+    background: #20002c; /* fallback for old browsers */
+    background: sticky var(--background);
+    height: 100%;
+    min-height: 100vh;
+    overflow: hidden;
 }
 
 input {
-  padding: 4px;
+    padding: 4px;
 }
 
 .app {
-  color: var(--text-color);
-  text-align: center;
-  min-height: 100vh;
+    color: var(--text-color);
+    text-align: center;
+    min-height: 100vh;
 
-  .unsplashed-credits {
-    margin-right: 6px;
-    padding: 4px 8px;
-    font-size: .7em;
-    color: #666;
-    bottom: 80px;
-    text-align: right;
-    right: 0;
-    a {
-      color: #888;
-      text-decoration: underline;
+    .unsplashed-credits {
+        margin-right: 6px;
+        padding: 4px 8px;
+        font-size: .7em;
+        color: #666;
+        bottom: 80px;
+        text-align: right;
+        right: 0;
+
+        a {
+            color: #888;
+            text-decoration: underline;
+        }
     }
-  }
 }
 
 h1, h2, h3, h4 {
-  color: var(--header-color);
-  font-weight: bold;
+    color: var(--header-color);
+    font-weight: bold;
 }
 
 .hide {
-  text-align: left;
-  background: #222;
-  color: #888;
-  font-size: 11px;
-  width: 90%;
-  z-index: 999999999;
-  position: sticky;
+    text-align: left;
+    background: #222;
+    color: #888;
+    font-size: 11px;
+    width: 90%;
+    z-index: 999999999;
+    position: sticky;
 }
 
 .pointer {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 footer {
-  text-shadow: 2px 2px 2px #000;
-  user-select: none;
-  box-sizing: border-box;
-  position: absolute;
-  bottom: 0;
-  display: flex;
-  justify-content: stretch;
-  flex-flow: row nowrap;
-  border: 2px solid rgba(0, 0, 0, 0.1);
-  background: rgba(0, 0, 0, 0.06);
-  align-items: flex-start;
-  width: 100%;
-  max-height: 200px;
-  overflow-y: auto;
-  padding: var(--base-padding);
+    text-shadow: 2px 2px 2px #000;
+    user-select: none;
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: stretch;
+    flex-flow: row nowrap;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    background: rgba(0, 0, 0, 0.06);
+    align-items: flex-start;
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+    padding: var(--base-padding);
 
-  .footer__item {
-    flex: 1;
-    text-align: left;
-    border: solid rgba(0, 0, 0, 0.15);
-    border-width: 0 1px 0 1px;
+    .footer__item {
+        flex: 1;
+        text-align: left;
+        border: solid rgba(0, 0, 0, 0.15);
+        border-width: 0 1px 0 1px;
 
-    h4, p, ol {
-      padding: 2px;
-      margin: 0;
+        h4, p, ol {
+            padding: 2px;
+            margin: 0;
+        }
+
+        ol {
+            margin-left: 20px;
+        }
     }
 
-    ol {
-      margin-left: 20px;
+    .center {
+        text-align: center;
     }
-  }
-
-  .center {
-    text-align: center;
-  }
 }

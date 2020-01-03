@@ -1,21 +1,21 @@
-import React, {Component} from 'react';
-import {bindActionCreators} from "redux";
-import {connect} from "react-redux";
-import {DragDropContext, Draggable, Droppable} from 'react-beautiful-dnd';
-import {usersSelector} from "./userReducer";
-import {addUser, nextUser, updateUserOrder} from "./userActions";
-import {resetTimer} from "./../timer/timerActions";
-import Input from "./../Input";
-import User from "./User";
-import "./Users.scss";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faFastForward} from "@fortawesome/free-solid-svg-icons";
+import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
+import { usersSelector } from './userReducer';
+import { addUser, nextUser, updateUserOrder } from './userActions';
+import { resetTimer } from './../timer/timerActions';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFastForward } from '@fortawesome/free-solid-svg-icons';
+import User from './User';
+import Input from './../Input';
+import './Users.scss';
 
 class Users extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            nameValue: "",
+            nameValue: '',
             users: this.props.users,
         };
         this.grid = 8;
@@ -23,26 +23,22 @@ class Users extends Component {
 
     componentWillReceiveProps(nextProps, nextContext) {
         if (nextProps.users !== this.state.users) {
-            this.setState({users: nextProps.users});
+            this.setState({ users: nextProps.users });
         }
     }
 
-    addUser = (event) => {
+    addUser = event => {
         event.preventDefault();
         this.props.addUser(event.target[0].value);
     };
 
-    onDragEnd = (result) => {
+    onDragEnd = result => {
         // dropped outside the list
         if (!result.destination) {
             return;
         }
 
-        const users = this.reOrder(
-            this.state.users,
-            result.source.index,
-            result.destination.index
-        );
+        const users = this.reOrder(this.state.users, result.source.index, result.destination.index);
 
         this.setState({
             users,
@@ -81,8 +77,7 @@ class Users extends Component {
                                 className="draggable-users"
                                 ref={provided.innerRef}
                                 style={this.getListStyle(snapshot.isDraggingOver)}
-                                {...provided.droppableProps}
-                            >
+                                {...provided.droppableProps}>
                                 {this.state.users.map((user, index) => (
                                     <Draggable key={user.name} draggableId={user.name} index={index}>
                                         {(provided, snapshot) => (
@@ -92,21 +87,16 @@ class Users extends Component {
                                                 {...provided.dragHandleProps}
                                                 style={this.getItemStyle(
                                                     snapshot.isDragging,
-                                                    provided.draggableProps.style
-                                                )}
-                                            >
-                                                <User
-                                                    key={user.name}
-                                                    user={user}
-                                                    disabled={user.disabled}
-                                                />
+                                                    provided.draggableProps.style,
+                                                )}>
+                                                <User key={user.name} user={user} disabled={user.disabled} />
                                             </div>
                                         )}
                                     </Draggable>
                                 ))}
                                 {provided.placeholder}
-                                <form className="user__add" onSubmit={(e) => e.preventDefault()}>
-                                    <Input handleInputSubmit={(text) => this.props.addUser(text)}>Add user</Input>
+                                <form className="user__add" onSubmit={e => e.preventDefault()}>
+                                    <Input handleInputSubmit={text => this.props.addUser(text)}>Add user</Input>
                                 </form>
                             </div>
                         )}
@@ -134,13 +124,17 @@ const mapStateToProps = state => ({
     timer: state.timer,
     users: usersSelector(state),
 });
-const mapDispatchToProps = dispatch => bindActionCreators({
-    addUser,
-    nextUser,
-    resetTimer,
-    updateUserOrder,
-}, dispatch);
-
+const mapDispatchToProps = dispatch => {
+    return bindActionCreators(
+        {
+            addUser,
+            nextUser,
+            resetTimer,
+            updateUserOrder,
+        },
+        dispatch,
+    );
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Users);
 export const unwrapped = Users;

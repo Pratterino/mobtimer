@@ -1,7 +1,7 @@
-import _ from "lodash";
-import actions from "./../actionTypes";
-import {userImages} from "./userImages";
-import {changeFavicon} from "./../helper/TimerHelper";
+import _ from 'lodash';
+import actions from './../actionTypes';
+import { userImages } from './userImages';
+import { changeFavicon } from './../helper/TimerHelper';
 
 const images = userImages;
 
@@ -12,7 +12,7 @@ const getRandomImageUrl = () => {
     return image;
 };
 
-const getARandomImageUrl = (currentImage) => {
+const getARandomImageUrl = currentImage => {
     const index = Math.floor(Math.random() * images.length);
     const image = images[index];
     if (image === currentImage) {
@@ -27,29 +27,29 @@ export const defaultUserState = {
             image: getRandomImageUrl(),
             active: true,
             disabled: false,
-            name: "Jane Doe",
-        }
+            name: 'Jane Doe',
+        },
     ],
 };
 
-const getNextActiveUserIndex = (users) => {
+const getNextActiveUserIndex = users => {
     const nonDisabledUsers = users.filter(user => !user.disabled);
 
-    const currentlyActiveIndex = _.findLastIndex(nonDisabledUsers, {active: true});
+    const currentlyActiveIndex = _.findLastIndex(nonDisabledUsers, { active: true });
     let nextActiveIndex = currentlyActiveIndex + 1;
 
     if (nextActiveIndex >= nonDisabledUsers.length) {
         nextActiveIndex = 0;
     }
-    return users.findIndex(user => user.name === nonDisabledUsers[nextActiveIndex].name)
+    return users.findIndex(user => user.name === nonDisabledUsers[nextActiveIndex].name);
 };
 
-const getActiveUser = (users) => {
+const getActiveUser = users => {
     return users.filter(user => user.active === true)[0];
 };
 
 const userExistInState = (users, name) => {
-    return !!users.filter(user => (user.name.toLowerCase() === name.toLowerCase())).length
+    return !!users.filter(user => user.name.toLowerCase() === name.toLowerCase()).length;
 };
 
 export default (state = defaultUserState, action) => {
@@ -63,7 +63,7 @@ export default (state = defaultUserState, action) => {
             if (userExistInState(state.users, action.user.name)) {
                 return {
                     ...state,
-                }
+                };
             } else {
                 users.push(action.user);
             }
@@ -74,16 +74,11 @@ export default (state = defaultUserState, action) => {
         case actions.REMOVE_USER:
             if (action.user && action.user.active) {
                 return {
-                    users: [...state.users]
-                }
+                    users: [...state.users],
+                };
             }
             return {
-                users: [
-                    ..._.reject(
-                        [...state.users],
-                        user => (user.name === action.user.name
-                        ))
-                ],
+                users: [..._.reject([...state.users], user => user.name === action.user.name)],
             };
 
         case actions.CHANGE_USER_NAME:
@@ -116,7 +111,7 @@ export default (state = defaultUserState, action) => {
             };
 
         case actions.TOGGLE_USER:
-            users = [...state.users].map((user) => {
+            users = [...state.users].map(user => {
                 if (user.name === action.user.name) {
                     user.disabled = !user.disabled;
                 }
@@ -147,7 +142,7 @@ export default (state = defaultUserState, action) => {
         default:
             return state;
     }
-}
+};
 
 export function usersSelector(state) {
     return state.users.users || defaultUserState.users;

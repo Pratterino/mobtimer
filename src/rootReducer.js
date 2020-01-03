@@ -1,4 +1,4 @@
-import {combineReducers} from 'redux';
+import { combineReducers } from 'redux';
 import timer from './timer/timerReducer';
 import settings from './settings/settingsReducer';
 import users from './user/userReducer';

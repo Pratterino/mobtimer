@@ -1,24 +1,24 @@
 import React from 'react';
-import {unwrapped as UnwrappedSettings} from './Settings';
-import {shallow} from "enzyme";
+import { unwrapped as UnwrappedSettings } from './Settings';
+import { shallow } from 'enzyme';
 
 describe('Settings', () => {
     let wrapper;
 
-    const renderComponent = (props) => (
+    const renderComponent = props => {
         wrapper = shallow(
             <UnwrappedSettings
                 settings={{
                     devMode: false,
-                    theme: "",
+                    theme: '',
                 }}
                 timer={{
                     sessionLength: 900,
                 }}
                 {...props}
-            />
-        )
-    );
+            />,
+        );
+    };
 
     beforeEach(() => {
         renderComponent();
@@ -30,8 +30,8 @@ describe('Settings', () => {
         });
 
         it('should match snapshot when devMode', () => {
-            renderComponent({settings: {devMode: true}});
+            renderComponent({ settings: { devMode: true } });
             expect(wrapper).toMatchSnapshot();
         });
-    })
+    });
 });

@@ -1,18 +1,13 @@
 import React from 'react';
 import Input from './Input';
-import {shallow} from 'enzyme';
+import { shallow } from 'enzyme';
 
-describe("Input", () => {
+describe('Input', () => {
     const handleInputSubmit = jest.fn();
     let wrapper;
 
-    const renderComponent = (props) => {
-        wrapper = shallow(
-            <Input
-                handleInputSubmit={handleInputSubmit}
-                {...props}
-            />
-        );
+    const renderComponent = props => {
+        wrapper = shallow(<Input handleInputSubmit={handleInputSubmit} {...props} />);
     };
 
     beforeEach(() => {
@@ -21,18 +16,18 @@ describe("Input", () => {
 
     describe('handleSubmit', () => {
         it('should call handleInputSubmit', () => {
-            const inputText = "test";
+            const inputText = 'test';
             const mockFunction = jest.fn();
-            let e = {preventDefault: mockFunction};
+            let e = { preventDefault: mockFunction };
 
-            wrapper.setState({text: inputText});
+            wrapper.setState({ text: inputText });
             wrapper.instance().handleSubmit(e);
 
             expect(mockFunction).toHaveBeenCalledTimes(1);
             expect(handleInputSubmit).toHaveBeenCalledTimes(1);
             expect(handleInputSubmit).toHaveBeenCalledWith(inputText);
 
-            expect(wrapper.instance().state).toEqual({text: ""});
+            expect(wrapper.instance().state).toEqual({ text: '' });
         });
     });
 

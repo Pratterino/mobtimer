@@ -1,6 +1,6 @@
 import React from 'react';
-import {unwrapped as UnwrappedNotifications} from './Notifications';
-import {shallow} from "enzyme";
+import { unwrapped as UnwrappedNotifications } from './Notifications';
+import { shallow } from 'enzyme';
 
 describe('Notifications', () => {
     let wrapper;
@@ -17,5 +17,5 @@ describe('Notifications', () => {
         it('should match snapshot', () => {
             expect(wrapper).toMatchSnapshot();
         });
-    })
+    });
 });

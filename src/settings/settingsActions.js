@@ -1,4 +1,4 @@
-import actionTypes from "./../actionTypes";
+import actionTypes from './../actionTypes';
 
 export const clearState = () => ({
     type: actionTypes.CLEAR_STATE,

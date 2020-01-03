@@ -1,8 +1,8 @@
-import actions from "./../actionTypes";
+import actions from './../actionTypes';
 
 const defaultSettingsState = {
-    theme: "ladies-night-theme",
-    devMode: window.location.hostname === "localhost",
+    theme: 'ladies-night-theme',
+    devMode: window.location.hostname === 'localhost',
 };
 
 export default (state = defaultSettingsState, action) => {

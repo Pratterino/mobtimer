@@ -1,9 +1,9 @@
-import React from "react";
-import PropTypes from "prop-types";
-import {bindActionCreators} from "redux";
-import {connect} from "react-redux";
-import {setTheme} from "./../settings/settingsActions";
-import "./ThemeButton.scss";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { setTheme } from './../settings/settingsActions';
+import './ThemeButton.scss';
 
 function ThemeButton(props) {
     return (
@@ -13,7 +13,8 @@ function ThemeButton(props) {
                 className="theme-button__button"
                 onMouseLeave={() => props.setTempTheme(null)}
                 onMouseOver={() => props.setTempTheme(props.theme)}
-                onClick={() => props.setTheme(props.theme)}>{props.theme}
+                onClick={() => props.setTheme(props.theme)}>
+                {props.theme}
             </button>
         </div>
     );
@@ -23,9 +24,13 @@ const mapStateToProps = state => ({
     settings: state.settings,
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators({
-    setTheme,
-}, dispatch);
+const mapDispatchToProps = dispatch =>
+    bindActionCreators(
+        {
+            setTheme,
+        },
+        dispatch,
+    );
 
 ThemeButton.propTypes = {
     setTheme: PropTypes.func.isRequired,

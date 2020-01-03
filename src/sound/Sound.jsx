@@ -1,11 +1,11 @@
-import React, {Component} from 'react';
-import {connect} from "react-redux";
-import {bindActionCreators} from "redux";
-import {playFinishedSound} from "./soundActions";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { playFinishedSound } from './soundActions';
 
 class Sound extends Component {
     render() {
-        const {timer} = this.props;
+        const { timer } = this.props;
         return (
             <div>
                 {timer.active ?
@@ -21,8 +21,9 @@ const mapStateToProps = state => ({
     sound: state.sound,
 });
 const mapDispatchToProps = dispatch => bindActionCreators({
-    playFinishedSound,
-}, dispatch);
-
+            playFinishedSound,
+        },
+        dispatch,
+    );
 
 export default connect(mapStateToProps, mapDispatchToProps)(Sound);
