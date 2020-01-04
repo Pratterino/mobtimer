@@ -27,13 +27,7 @@
         "start": "react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test",
-        "eject": "react-scripts eject",
-        "format": "prettier-eslint --write \"{,!(node_modules)/**/}*.{js,jsx}\""
-    },
-    "husky": {
-        "hooks": {
-            "pre-push": "yarn run format"
-        }
+        "eject": "react-scripts eject"
     },
     "jest": {
         "snapshotSerializers": [
@@ -53,14 +47,8 @@
         "enzyme": "^3.9.0",
         "enzyme-adapter-react-16": "^1.11.2",
         "enzyme-to-json": "^3.3.5",
-        "eslint-config-prettier": "^6.9.0",
-        "eslint-plugin-prettier": "^3.1.2",
-        "eslint-plugin-react": "^7.17.0",
-        "husky": "^3.1.0",
         "jest": "^24.9.0",
         "node-sass": "^4.11.0",
-        "prettier": "^1.19.1",
-        "prettier-eslint-cli": "^5.0.0",
         "redux-mock-store": "^1.5.3"
     }
 }

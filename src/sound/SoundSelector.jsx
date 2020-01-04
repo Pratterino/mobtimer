@@ -15,8 +15,8 @@ class SoundSelector extends React.PureComponent {
 
     renderOptions = () => {
         return finishedSounds.map(sound => (
-            <option key={sound.filename} value={sound.filename} selected={this.props.activeFilename === sound.filename}>
-                >{sound.displayName}
+            <option key={sound.filename} value={sound.filename}
+                    selected={this.props.activeFilename === sound.filename}>{sound.displayName}
             </option>
         ));
     };
@@ -26,7 +26,7 @@ class SoundSelector extends React.PureComponent {
             <div className="sound-selector">
                 <select onChange={this.handleChange}>{this.renderOptions()}</select>
                 <div className="sound-selector__play" onClick={this.props.playFinishedSound}>
-                    <FontAwesomeIcon size={'xs'} icon={faPlay} />
+                    <FontAwesomeIcon size={'xs'} icon={faPlay}/>
                 </div>
             </div>
         );

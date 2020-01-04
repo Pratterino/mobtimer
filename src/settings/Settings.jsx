@@ -72,7 +72,7 @@ function Settings(props) {
                         A small donation would be really really appreciated!
                         <br />
                     </p>
-                    <FontAwesomeIcon icon={faHeart} /> <FontAwesomeIcon icon={faHeart} /> icon={faHeart}/>
+                    <FontAwesomeIcon icon={faHeart} /> <FontAwesomeIcon icon={faHeart} />
                 </div>
             </div>
 
