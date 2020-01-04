@@ -2,7 +2,7 @@ import actions from './../actionTypes';
 import { finishedSounds } from './../sound/sounds';
 import { Howl } from 'howler';
 
-export const activeSoundSelector = (state) => {
+export const activeSoundSelector = state => {
     return state.sounds.filename;
 };
 
@@ -11,7 +11,7 @@ const defaultSoundState = {
 };
 
 // TODO: Preload these to evade lag before playing a sound
-const playFinishedSound = (filename) => {
+const playFinishedSound = filename => {
     new Howl({
         src: [require(`./../assets/sounds/${filename}`)],
         loop: false,

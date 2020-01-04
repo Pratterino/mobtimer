@@ -5,9 +5,7 @@ import { shallow } from 'enzyme';
 describe('Notifications', () => {
     let wrapper;
 
-    const renderComponent = (props) => (
-        wrapper = shallow(<UnwrappedNotifications {...props}/>)
-    );
+    const renderComponent = props => (wrapper = shallow(<UnwrappedNotifications {...props} />));
 
     beforeEach(() => {
         renderComponent();

@@ -1,4 +1,4 @@
-$transitionTime: .2s;
+$transitionTime: 0.2s;
 $activeColor: #66cdaa;
 $inactiveColor: #d7686c;
 $pausedColor: #d7d283;
@@ -20,7 +20,9 @@ $pausedColor: #d7d283;
             font-size: 50px;
         }
 
-        .paused, .inactive, .active {
+        .paused,
+        .inactive,
+        .active {
             transition: stroke $transitionTime ease-in-out;
         }
 

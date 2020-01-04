@@ -3,7 +3,7 @@
 }
 
 .circle-chart__circle {
-    animation: circle-chart-fill .2s ease-in-out reverse;
+    animation: circle-chart-fill 0.2s ease-in-out reverse;
     transform: rotate(-90deg);
     transform-origin: center;
 }
@@ -13,4 +13,3 @@
         stroke-dasharray: 100;
     }
 }
-

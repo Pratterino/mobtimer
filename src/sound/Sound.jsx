@@ -8,10 +8,11 @@ class Sound extends Component {
         const { timer } = this.props;
         return (
             <div>
-                {timer.active ?
-                    <button onClick={this.props.stopTimer}>Pause timer</button> :
+                {timer.active ? (
+                    <button onClick={this.props.stopTimer}>Pause timer</button>
+                ) : (
                     <button onClick={this.props.startTimer}>Start timer</button>
-                }
+                )}
             </div>
         );
     }
@@ -20,7 +21,9 @@ class Sound extends Component {
 const mapStateToProps = state => ({
     sound: state.sound,
 });
-const mapDispatchToProps = dispatch => bindActionCreators({
+const mapDispatchToProps = dispatch =>
+    bindActionCreators(
+        {
             playFinishedSound,
         },
         dispatch,

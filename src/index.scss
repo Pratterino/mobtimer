@@ -21,28 +21,28 @@
 }
 
 .sublime-theme {
-    --background: #CFBFAD;
-    --header-color: #FF007F;
+    --background: #cfbfad;
+    --header-color: #ff007f;
     --link-color-darker: #ef4276;
-    --highlight-color: #52E3F6;
+    --highlight-color: #52e3f6;
 
-    --active-timer-color: #A7EC21;
-    --stopped-timer-color: #FF007F;
+    --active-timer-color: #a7ec21;
+    --stopped-timer-color: #ff007f;
 }
 
 body {
     height: 100%;
     margin: 0;
     padding: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
+        'Droid Sans', 'Helvetica Neue', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background: var(--background);
 }
 
-#bg-image, #bg-image img {
+#bg-image,
+#bg-image img {
     top: 0;
     left: 0;
     width: 100%;
@@ -52,13 +52,13 @@ body {
     background: #000;
     background-size: cover;
     background-repeat: no-repeat;
-    background-image: url("./assets/images/bg-start.jpg");
+    background-image: url('./assets/images/bg-start.jpg');
     filter: grayscale(80%);
     transition: filter 2s linear, background 4s ease-in-out;
 
     #bg-overlay {
         position: absolute;
-        background: rgba(33, 40, 45, 0.70);
+        background: rgba(33, 40, 45, 0.7);
         width: 100%;
         height: 100%;
         z-index: -5;
@@ -66,6 +66,5 @@ body {
 }
 
 code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }

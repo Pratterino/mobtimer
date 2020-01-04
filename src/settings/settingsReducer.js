@@ -24,6 +24,4 @@ export default (state = defaultSettingsState, action) => {
         default:
             return state;
     }
-}
-
-
+};

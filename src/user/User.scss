@@ -27,7 +27,7 @@ $imageSize: 80px;
         transform: rotate(-22deg);
         position: absolute;
         z-index: 2;
-        transition: all .5s;
+        transition: all 0.5s;
     }
 
     .user__image {
@@ -74,11 +74,9 @@ $imageSize: 80px;
         cursor: pointer;
     }
 
-    .user__name--text, .user__name--text > input {
+    .user__name--text,
+    .user__name--text > input {
         width: 100%;
         text-align: center;
     }
-
 }
-
-

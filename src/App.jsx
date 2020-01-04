@@ -20,8 +20,7 @@ function App(props) {
         fetchBackgroundImage().then(unsplashed => setUnsplash(unsplashed));
     }, []);
 
-    useEffect(() => {
-    }, [unsplash]);
+    useEffect(() => {}, [unsplash]);
 
     const renderLeaderboard = () => {
         const { leaderboard } = props.timer;
@@ -58,10 +57,10 @@ function App(props) {
                     </div>
                 )}
 
-                <Notifications/>
-                <Settings/>
-                <Users/>
-                <Timer/>
+                <Notifications />
+                <Settings />
+                <Users />
+                <Timer />
 
                 <footer>
                     <div className="footer__item">
@@ -74,15 +73,15 @@ function App(props) {
                         <p>{getParsedTimeRemaining(props.timer.metadata.todaysSessionLength)}</p>
                     </div>
 
-                    <div className="footer__item"/>
+                    <div className="footer__item" />
                     <div className="footer__item center">
                         <h4>Finish sound</h4>
-                        <SoundSelector/>
+                        <SoundSelector />
                     </div>
                     <div className="footer__item">
                         <div className="unsplashed-credits">
-                            Photo by <a href={unsplash.userLink}>{unsplash.username}</a> on <a
-                            href={unsplash.unsplashedLink}>Unsplash</a>
+                            Photo by <a href={unsplash.userLink}>{unsplash.username}</a> on{' '}
+                            <a href={unsplash.unsplashedLink}>Unsplash</a>
                         </div>
                     </div>
                 </footer>
@@ -93,9 +92,9 @@ function App(props) {
                     src={unsplash.image}
                     alt="Image of a mountain landscape."
                     placeholder={({ imageProps, ref }) => (
-                        <img ref={ref} src={unsplash.imageSmall} alt={imageProps.alt}/>
+                        <img ref={ref} src={unsplash.imageSmall} alt={imageProps.alt} />
                     )}
-                    actual={({ imageProps }) => <img {...imageProps} alt=""/>}
+                    actual={({ imageProps }) => <img {...imageProps} alt="" />}
                 />
             </div>
         </>
