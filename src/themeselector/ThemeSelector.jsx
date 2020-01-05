@@ -5,13 +5,13 @@ import { connect } from 'react-redux';
 import ThemeButton from './../themebutton/ThemeButton';
 import './ThemeSelector.scss';
 
-function ThemeSelector(props) {
-    const [tempTheme, setTempTheme] = useState(props.settings.theme);
+function ThemeSelector({ settings }) {
+    const [tempTheme, setTempTheme] = useState(settings.theme);
     const themes = ['ladies-night-theme', 'sublime-theme'];
 
     useEffect(() => {
-        window.document.body.className = tempTheme || props.settings.theme;
-    }, [props.settings.theme, tempTheme]);
+        window.document.body.className = tempTheme || settings.theme;
+    }, [settings.theme, tempTheme]);
 
     return (
         <div className="theme-selector">
@@ -29,6 +29,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => bindActionCreators({}, dispatch);
 
 ThemeSelector.propTypes = {
+    settings: PropTypes.object.isRequired,
     setTheme: PropTypes.func.isRequired,
 };
 

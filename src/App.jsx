@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { LazyImage } from 'react-lazy-images';
 
 import Timer from './timer/Timer';
-import { usersSelector } from './user/userReducer';
 import Users from './user/Users';
 import Notifications from './notifications/Notifications';
 import Settings from './settings/Settings';
@@ -13,18 +12,15 @@ import SoundSelector from './sound/SoundSelector';
 import { fetchBackgroundImage } from './unsplashedActions';
 import './App.scss';
 
-function App(props) {
+function App({ timer, settings, test }) {
     const [unsplash, setUnsplash] = useState({});
 
     useEffect(() => {
         fetchBackgroundImage().then(unsplashed => setUnsplash(unsplashed));
     }, []);
 
-    useEffect(() => {}, [unsplash]);
-
     const renderLeaderboard = () => {
-        const { leaderboard } = props.timer;
-        let sortedLeaderboard = sortProperties(leaderboard);
+        const sortedLeaderboard = sortProperties(timer.leaderboard);
         return (
             <ol>
                 {sortedLeaderboard.map((item, i) => (
@@ -50,10 +46,10 @@ function App(props) {
     return (
         <>
             <div className="app">
-                {props.settings.devMode && false && (
+                {settings.devMode && false && (
                     <div className="hide">
                         <h3>ReduxState</h3>
-                        <pre>{JSON.stringify(props.test, null, 2)}</pre>
+                        <pre>{JSON.stringify(test, null, 2)}</pre>
                     </div>
                 )}
 
@@ -70,7 +66,7 @@ function App(props) {
 
                     <div className="footer__item center">
                         <h4>Today's active mob time</h4>
-                        <p>{getParsedTimeRemaining(props.timer.metadata.todaysSessionLength)}</p>
+                        <p>{getParsedTimeRemaining(timer.metadata.todaysSessionLength)}</p>
                     </div>
 
                     <div className="footer__item" />
@@ -105,7 +101,6 @@ const mapStateToProps = state => ({
     test: state,
     settings: state.settings,
     timer: state.timer,
-    users: usersSelector(state),
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({}, dispatch);

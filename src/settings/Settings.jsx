@@ -9,23 +9,22 @@ import { faBeer, faDonate, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './Settings.scss';
 
-function Settings(props) {
+function Settings({ settings, timer, updateSessionLengthTime, resetTimer, clearState }) {
     const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
-        window.document.body.className = props.settings.theme || '';
-    }, [props.settings.theme]);
+        window.document.body.className = settings.theme || '';
+    }, [settings.theme]);
 
     const handleTimerNumberChange = e => {
-        props.updateSessionLengthTime(e.target.value);
-        props.resetTimer();
+        updateSessionLengthTime(e.target.value);
+        resetTimer();
     };
 
     const toggleSettings = () => {
         setIsOpen(!isOpen);
     };
 
-    const { clearState, timer } = props;
     return (
         <React.Fragment>
             <div className={`settings ${isOpen ? 'slideIn' : 'slideOut'}`}>
@@ -57,7 +56,7 @@ function Settings(props) {
 
                 <div className="settings__group">
                     <h3>Theme</h3>
-                    <p className="settings__group-subtitle">(Current: {props.settings.theme})</p>
+                    <p className="settings__group-subtitle">(Current: {settings.theme})</p>
                     <ThemeSelector />
                 </div>
 
