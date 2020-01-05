@@ -19,7 +19,7 @@ class ImageLoader extends Component {
 
     render() {
         const className = `${this.state.loaded ? loadedClassName : loadingClassName}`;
-        return <img src={this.props.src} className={className} onLoad={this.onLoad} alt=""/>;
+        return <img src={this.props.src} className={className} onLoad={this.onLoad} alt="" />;
     }
 }
 
