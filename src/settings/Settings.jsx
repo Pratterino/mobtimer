@@ -101,7 +101,8 @@ const mapDispatchToProps = dispatch => {
 };
 
 Settings.propTypes = {
-    timer: PropTypes.object.isRequired,
+    timer: PropTypes.object,
+    settings: PropTypes.object,
 };
 
 export const unwrapped = Settings;

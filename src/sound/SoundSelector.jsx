@@ -44,9 +44,9 @@ const mapDispatchToProps = dispatch => {
 };
 
 SoundSelector.propTypes = {
-    activeFilename: PropTypes.string.isRequired,
-    playFinishedSound: PropTypes.func.isRequired,
-    setFinishedSound: PropTypes.func.isRequired,
+    activeFilename: PropTypes.string,
+    playFinishedSound: PropTypes.func,
+    setFinishedSound: PropTypes.func,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SoundSelector);

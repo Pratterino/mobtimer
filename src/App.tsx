@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { bindActionCreators } from 'redux';
+import * as React from 'react';
+import { useEffect, useState } from 'react';
+import { bindActionCreators, Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import { LazyImage } from 'react-lazy-images';
 
@@ -12,8 +13,33 @@ import SoundSelector from './sound/SoundSelector';
 import { fetchBackgroundImage } from './unsplashedActions';
 import './App.scss';
 
-function App({ timer, settings, test }) {
-    const [unsplash, setUnsplash] = useState({});
+interface Props {
+    timer: {
+        leaderboard: Leaderboard
+        metadata: {
+            todaysSessionLength: number;
+        };
+    };
+    settings: {
+        devMode: boolean;
+    };
+    test?: object;
+}
+
+interface Leaderboard {
+    [key: string]: number;
+}
+
+interface Unsplash {
+    userLink: string;
+    username: string;
+    unsplashedLink: string;
+    image: string;
+    imageSmall: string;
+}
+
+function App({ timer, settings, test }: Props) {
+    const [unsplash, setUnsplash] = useState<Unsplash | undefined>();
 
     useEffect(() => {
         fetchBackgroundImage().then(unsplashed => setUnsplash(unsplashed));
@@ -32,14 +58,14 @@ function App({ timer, settings, test }) {
         );
     };
 
-    const sortProperties = obj => {
+    const sortProperties = (obj: Leaderboard) => {
         const sortable = [];
         for (const key in obj) {
             if (obj.hasOwnProperty(key)) {
                 sortable.push([key, obj[key]]);
             }
         }
-        sortable.sort((a, b) => b[1] - a[1]);
+        sortable.sort((a, b) => +b[1] - +a[1]);
         return sortable;
     };
 
@@ -75,35 +101,39 @@ function App({ timer, settings, test }) {
                         <SoundSelector />
                     </div>
                     <div className="footer__item">
-                        <div className="unsplashed-credits">
-                            Photo by <a href={unsplash.userLink}>{unsplash.username}</a> on{' '}
-                            <a href={unsplash.unsplashedLink}>Unsplash</a>
-                        </div>
+                        {unsplash && (
+                            <div className="unsplashed-credits">
+                                Photo by <a href={unsplash.userLink}>{unsplash.username}</a> on{' '}
+                                <a href={unsplash.unsplashedLink}>Unsplash</a>
+                            </div>
+                        )}
                     </div>
                 </footer>
             </div>
 
             <div id="bg-image">
-                <LazyImage
-                    src={unsplash.image}
-                    alt="Image of a mountain landscape."
-                    placeholder={({ imageProps, ref }) => (
-                        <img ref={ref} src={unsplash.imageSmall} alt={imageProps.alt} />
-                    )}
-                    actual={({ imageProps }) => <img {...imageProps} alt="" />}
-                />
+                {unsplash && (
+                    <LazyImage
+                        src={unsplash.image}
+                        alt="Image of a mountain landscape."
+                        placeholder={({ imageProps, ref }) => (
+                            <img ref={ref} src={unsplash.imageSmall} alt={imageProps.alt} />
+                        )}
+                        actual={({ imageProps }) => <img {...imageProps} alt="" />}
+                    />
+                )}
             </div>
         </>
     );
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state: any) => ({
     test: state,
     settings: state.settings,
     timer: state.timer,
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators({}, dispatch);
+const mapDispatchToProps = (dispatch: Dispatch) => bindActionCreators({}, dispatch);
 
 export const unwrapped = App;
 export default connect(mapStateToProps, mapDispatchToProps)(App);
