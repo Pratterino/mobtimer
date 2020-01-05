@@ -4,11 +4,10 @@ $inactiveColor: #d7686c;
 $pausedColor: #d7d283;
 
 .Timer {
-    transform: translateY(50%);
+    margin: 40px 0;
 
     .timer {
         box-sizing: content-box;
-        display: inline-flex;
         align-items: center;
         justify-content: center;
 

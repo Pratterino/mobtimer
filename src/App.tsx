@@ -2,15 +2,15 @@ import * as React from 'react';
 import { useEffect, useState } from 'react';
 import { bindActionCreators, Dispatch } from 'redux';
 import { connect } from 'react-redux';
-import { LazyImage } from 'react-lazy-images';
-
+import { getParsedTimeRemaining } from './helper/TimerHelper';
+import { fetchBackgroundImage } from './unsplashedActions';
+import LazyLoad from 'react-lazy-load';
 import Timer from './timer/Timer';
 import Users from './user/Users';
 import Notifications from './notifications/Notifications';
 import Settings from './settings/Settings';
-import { getParsedTimeRemaining } from './helper/TimerHelper';
 import SoundSelector from './sound/SoundSelector';
-import { fetchBackgroundImage } from './unsplashedActions';
+import ImageLoader from './helper/ImageLoader';
 import './App.scss';
 
 interface Props {
@@ -79,10 +79,10 @@ function App({ timer, settings, test }: Props) {
                     </div>
                 )}
 
-                <Notifications />
-                <Settings />
-                <Users />
-                <Timer />
+                <Notifications/>
+                <Settings/>
+                <Users/>
+                <Timer/>
 
                 <footer>
                     <div className="footer__item">
@@ -95,10 +95,10 @@ function App({ timer, settings, test }: Props) {
                         <p>{getParsedTimeRemaining(timer.metadata.todaysSessionLength)}</p>
                     </div>
 
-                    <div className="footer__item" />
+                    <div className="footer__item"/>
                     <div className="footer__item center">
                         <h4>Finish sound</h4>
-                        <SoundSelector />
+                        <SoundSelector/>
                     </div>
                     <div className="footer__item">
                         {unsplash && (
@@ -113,14 +113,14 @@ function App({ timer, settings, test }: Props) {
 
             <div id="bg-image">
                 {unsplash && (
-                    <LazyImage
-                        src={unsplash.image}
-                        alt="Image of a mountain landscape."
-                        placeholder={({ imageProps, ref }) => (
-                            <img ref={ref} src={unsplash.imageSmall} alt={imageProps.alt} />
-                        )}
-                        actual={({ imageProps }) => <img {...imageProps} alt="" />}
-                    />
+                    <LazyLoad
+                        width={100}
+                        height={100}
+                        debounce={false}
+                        offsetVertical={500}
+                    >
+                        <ImageLoader src={unsplash.image} />
+                    </LazyLoad>
                 )}
             </div>
         </>

@@ -5,7 +5,7 @@ import './TimerCircle.scss';
 
 export function TimerCircle({ timer = {} }) {
     const circleGradient = timer.active ? 'active' : 'inactive';
-    const backgroundShadowColor = 'rgba(25, 25, 25, 0.5)';
+    const backgroundShadowColor = 'rgba(25, 25, 25, 0.1)';
     const backgroundColor = '--background';
     const activeColor = '--active-timer-color';
     const stopColor = '--stopped-timer-color';
