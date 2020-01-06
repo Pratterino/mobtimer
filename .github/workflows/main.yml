@@ -21,7 +21,7 @@ jobs:
       run: yarn install
       
     - name: yarn test
-      run: yarn test --watchAll
+      run: CI=true yarn test
       
     - name: yarn build
       run: yarn run build
