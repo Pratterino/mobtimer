@@ -1,5 +1,14 @@
 .circle-chart {
     overflow: visible;
+    border-radius: 50%;
+    background: transparent;
+
+    &.active {
+        background: rgba(var(--active-timer-color-rgb), 0.2);
+    }
+    &.inactive {
+        background: rgba(var(--stopped-timer-color-rgb), 0.2);
+    }
 }
 
 .circle-chart__circle {

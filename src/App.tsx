@@ -15,7 +15,7 @@ import './App.scss';
 
 interface Props {
     timer: {
-        leaderboard: Leaderboard
+        leaderboard: Leaderboard;
         metadata: {
             todaysSessionLength: number;
         };
@@ -79,10 +79,10 @@ function App({ timer, settings, test }: Props) {
                     </div>
                 )}
 
-                <Notifications/>
-                <Settings/>
-                <Users/>
-                <Timer/>
+                <Notifications />
+                <Settings />
+                <Users />
+                <Timer />
 
                 <footer>
                     <div className="footer__item">
@@ -95,10 +95,10 @@ function App({ timer, settings, test }: Props) {
                         <p>{getParsedTimeRemaining(timer.metadata.todaysSessionLength)}</p>
                     </div>
 
-                    <div className="footer__item"/>
+                    <div className="footer__item" />
                     <div className="footer__item center">
                         <h4>Finish sound</h4>
-                        <SoundSelector/>
+                        <SoundSelector />
                     </div>
                     <div className="footer__item">
                         {unsplash && (
@@ -113,12 +113,7 @@ function App({ timer, settings, test }: Props) {
 
             <div id="bg-image">
                 {unsplash && (
-                    <LazyLoad
-                        width={100}
-                        height={100}
-                        debounce={false}
-                        offsetVertical={500}
-                    >
+                    <LazyLoad width={100} height={100} debounce={false} offsetVertical={500}>
                         <ImageLoader src={unsplash.image} />
                     </LazyLoad>
                 )}

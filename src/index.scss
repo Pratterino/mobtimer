@@ -1,3 +1,11 @@
+@function hexToRGB($hex) {
+    @return red($hex), green($hex), blue($hex);
+}
+
+:root {
+    --color-primary: #16498a;
+}
+
 :root {
     --text-color: #f3f3f3;
     --background: #21282d;
@@ -7,7 +15,9 @@
     --base-padding: 10px;
 
     --active-timer-color: #66cdaa;
+    --active-timer-color-rgb: #{hexToRGB(#66cdaa)};
     --stopped-timer-color: #e784a2;
+    --stopped-timer-color-rgb: #{hexToRGB(#e784a2)};
 }
 
 .ladies-night-theme {
@@ -17,7 +27,9 @@
     --highlight-color: #85b5c7;
 
     --active-timer-color: #66cdaa;
+    --active-timer-color-rgb: #{hexToRGB(#66cdaa)};
     --stopped-timer-color: #e784a2;
+    --stopped-timer-color-rgb: #{hexToRGB(#e784a2)};
 }
 
 .sublime-theme {
@@ -27,7 +39,9 @@
     --highlight-color: #52e3f6;
 
     --active-timer-color: #a7ec21;
+    --active-timer-color-rgb: #{hexToRGB(#a7ec21)};
     --stopped-timer-color: #ff007f;
+    --stopped-timer-color-rgb: #{hexToRGB(#ff007f)};
 }
 
 body {
