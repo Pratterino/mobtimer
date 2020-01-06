@@ -1,26 +1,14 @@
 import * as React from 'react';
-import { Component } from 'react';
+import { useState } from 'react';
+import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import './ImageLoader.scss';
 
-const _loaded = {};
-const loadingClassName = 'img-loading';
-const loadedClassName = 'img-loaded';
+function ImageLoader({ src }) {
+    const [loaded, setLoaded] = useState(false);
+    const className = classNames('img', `${loaded ? 'loaded' : 'loading'}`);
 
-class ImageLoader extends Component {
-    state = {
-        loaded: _loaded[this.props.src],
-    };
-
-    onLoad = () => {
-        _loaded[this.props.src] = true;
-        this.setState(() => ({ loaded: true }));
-    };
-
-    render() {
-        const className = `${this.state.loaded ? loadedClassName : loadingClassName}`;
-        return <img src={this.props.src} className={className} onLoad={this.onLoad} alt="" />;
-    }
+    return <img src={src} className={className} onLoad={() => setLoaded(true)} alt="" />;
 }
 
 ImageLoader.propTypes = {
