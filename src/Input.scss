@@ -2,58 +2,60 @@
 @import url('https://fonts.googleapis.com/css?family=Inconsolata');
 
 .Input {
-  $width: 180px;
-  $height: 40px;
-  $color: rgba(0, 0, 0, 0.1);
+    $width: 180px;
+    $height: 40px;
+    $color: rgba(0, 0, 0, 0.1);
 
-  * {
-    margin: 0;
-    padding: 0;
-  }
-
-  .input-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-
-    &:hover {
-      label, input.message {
-        color: var(--header-color);
-        border-color: var(--header-color);
-      }
+    * {
+        margin: 0;
+        padding: 0;
     }
-  }
 
-  label {
-    position: absolute;
-    left: 0;
-    top: -24px;
-    color: var(--header-color);
-  }
+    .input-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
 
-  .parent {
-    width: $width;
-    height: $height;
-    position: relative;
+        &:hover {
+            label,
+            input.message {
+                color: var(--header-color);
+                border-color: var(--header-color);
+            }
+        }
+    }
+
+    label {
+        position: absolute;
+        left: 0;
+        top: -24px;
+        color: var(--header-color);
+    }
+
+    .parent {
+        width: $width;
+        height: $height;
+        position: relative;
+
+        .message {
+            position: absolute;
+        }
+    }
+
+    label,
+    input.message {
+        color: $color;
+        border-color: $color;
+    }
 
     .message {
-      position: absolute;
+        left: 0;
+        width: inherit;
+        background: none;
+        border: 2px solid;
+        transition: 0.4s;
+        font-size: 30px;
+        padding-left: 10px;
     }
-  }
-
-  label, input.message {
-    color: $color;
-    border-color: $color;
-  }
-
-  .message {
-    left: 0;
-    width: inherit;
-    background: none;
-    border: 2px solid;
-    transition: 0.4s;
-    font-size: 30px;
-    padding-left: 10px;
-  }
 }

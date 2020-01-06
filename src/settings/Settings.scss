@@ -1,124 +1,129 @@
 $marginHeader: 10px;
 
 .settings__hamburger {
-  position: absolute;
-  right: 0;
-  margin: 20px;
-  top: 0;
-  z-index: 99999;
+    position: absolute;
+    right: 0;
+    margin: 20px;
+    top: 0;
+    z-index: 99999;
 
-  &:hover {
-    > div {
-      background-color: #333;
-    }
-  }
-
-  .bar1, .bar2, .bar3 {
-    width: 35px;
-    height: 5px;
-    background-color: var(--header-color);
-    margin: 6px 0;
-    transition: 0.4s;
-  }
-
-  &.change {
-    > div {
-      background-color: #333;
+    &:hover {
+        > div {
+            background-color: #333;
+        }
     }
 
-    .bar1 {
-      -webkit-transform: rotate(-45deg) translate(-9px, 6px);
-      transform: rotate(-45deg) translate(-9px, 6px);
-    }
-
-    .bar2 {
-      opacity: 0;
-    }
-
+    .bar1,
+    .bar2,
     .bar3 {
-      -webkit-transform: rotate(45deg) translate(-8px, -8px);
-      transform: rotate(45deg) translate(-8px, -8px);
+        width: 35px;
+        height: 5px;
+        background-color: var(--header-color);
+        margin: 6px 0;
+        transition: 0.4s;
     }
-  }
+
+    &.change {
+        > div {
+            background-color: #333;
+        }
+
+        .bar1 {
+            -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+            transform: rotate(-45deg) translate(-9px, 6px);
+        }
+
+        .bar2 {
+            opacity: 0;
+        }
+
+        .bar3 {
+            -webkit-transform: rotate(45deg) translate(-8px, -8px);
+            transform: rotate(45deg) translate(-8px, -8px);
+        }
+    }
 }
 
 .settings {
-  $button_size: 30px;
-  z-index: 5;
-  overflow-y: auto;
-  padding: var(--base-padding);
-  background: var(--header-color);
-  display: flex;
-  position: absolute;
-  height: 100vh;
-  right: 0;
-  top: 0;
-  flex-direction: column;
-  justify-content: space-evenly;
+    $button_size: 30px;
+    z-index: 5;
+    overflow-y: auto;
+    padding: var(--base-padding);
+    background: var(--header-color);
+    display: flex;
+    position: absolute;
+    height: 100vh;
+    right: 0;
+    top: 0;
+    flex-direction: column;
+    justify-content: space-evenly;
 
-  list-style: none;
+    list-style: none;
 
-  transform: translateY(-120%);
-  transition: transform 400ms ease-in, margin-bottom 400ms ease-in;
+    transform: translateY(-120%);
+    transition: transform 400ms ease-in, margin-bottom 400ms ease-in;
 
-  &.slideIn {
-    transform: translateX(0);
-    box-shadow: var(--background) 0px 0px 0px 5px;
-  }
-
-  &.slideOut {
-    transform: translateX(120%);
-  }
-
-  h3 {
-    margin: $marginHeader 0;
-    color: #faebd7;
-    text-decoration: underline;
-    text-decoration-color: var(--link-color-darker);
-  }
-
-  .settings__group {
-    flex-basis: 33%;
-    border: 1px dashed var(--background);
-
-    &:first-of-type {
-      border-top-width: 0;
+    &.slideIn {
+        transform: translateX(0);
+        box-shadow: var(--background) 0 0 0 5px;
     }
 
-    border-left-width: 0;
-    border-right-width: 0;
-
-    .settings__group-subtitle {
-      font-size: 10pt;
-      color: var(--text-color);
-      margin-top: -$marginHeader;
+    &.slideOut {
+        transform: translateX(120%);
     }
-  }
 
-  .left {
-    text-align: left;
-  }
-
-  a, a:focus, a:visited, button {
-    margin: 4px;
-    text-decoration: none;
-    color: #fff;
-    border: 1px solid #faebd7;
-    text-align: center;
-    letter-spacing: .5px;
-    background: transparent;
-    transition: background-color .2s ease-out;
-    cursor: pointer;
-    border-left-width: 2px;
-    border-bottom-width: 2px;
-    border-radius: 4px;
-    display: inline-block;
-    height: $button_size;
-    line-height: $button_size;
-    padding: 0 12px;
-
-    &:active {
-      border: none;
+    h3 {
+        margin: $marginHeader 0;
+        color: #faebd7;
+        text-decoration: underline;
+        text-decoration-color: var(--link-color-darker);
     }
-  }
+
+    .settings__group {
+        flex-basis: 33%;
+        border: 1px dashed var(--background);
+
+        &:first-of-type {
+            border-top-width: 0;
+        }
+
+        border-left-width: 0;
+        border-right-width: 0;
+
+        .settings__group-subtitle {
+            font-size: 10pt;
+            color: var(--text-color);
+            margin-top: -$marginHeader;
+        }
+    }
+
+    .left {
+        text-align: left;
+    }
+
+    a,
+    a:focus,
+    a:visited,
+    button {
+        margin: 4px;
+        text-decoration: none;
+        color: #fff;
+        border: 1px solid #faebd7;
+        text-align: center;
+        letter-spacing: 0.5px;
+        background: transparent;
+        transition: background-color 0.2s ease-out;
+        cursor: pointer;
+        border-left-width: 2px;
+        border-bottom-width: 2px;
+        border-radius: 4px;
+        display: inline-block;
+        height: $button_size;
+        line-height: $button_size;
+        padding: 0 12px;
+
+        &:active {
+            border: none;
+        }
+    }
 }

@@ -92,9 +92,12 @@ exports[`Users render should match snapshot 1`] = `
     <Connect(Droppable)
       direction="horizontal"
       droppableId="droppable"
+      getContainerForClone={[Function]}
       ignoreContainerClipping={false}
       isCombineEnabled={false}
       isDropDisabled={false}
+      mode="standard"
+      renderClone={null}
       type="DEFAULT"
     >
       <Component />
@@ -130,6 +133,7 @@ exports[`Users render should match snapshot 1`] = `
       rotation={null}
       size="2x"
       spin={false}
+      swapOpacity={false}
       symbol={false}
       title="Next user!"
       transform={null}

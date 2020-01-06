@@ -1,30 +1,30 @@
 import React from 'react';
-import actions from "./../actionTypes";
-import userReducer, {activeUserSelector, defaultUserState, usersSelector} from "./../user/userReducer";
-import * as TimerHelper from "./../helper/TimerHelper";
+import actions from './../actionTypes';
+import userReducer, { activeUserSelector, usersSelector } from './../user/userReducer';
+import * as TimerHelper from './../helper/TimerHelper';
 
-describe("userReducer", () => {
-    const getDefaultState = (props) => ({
-        users: [{
-            image: "randomImageUrl1",
-            active: true,
-            disabled: false,
-            name: "Sean",
-        }, {
-            image: "randomImageUrl2",
-            active: false,
-            disabled: false,
-            name: "Hayes",
-        }]
+describe('userReducer', () => {
+    const getDefaultState = props => ({
+        users: [
+            {
+                image: 'randomImageUrl1',
+                active: true,
+                disabled: false,
+                name: 'Sean',
+            },
+            {
+                image: 'randomImageUrl2',
+                active: false,
+                disabled: false,
+                name: 'Hayes',
+            },
+        ],
     });
 
     //TODO: Test these "private" methods.
-    describe('getNextActiveUserIndex', () => {
-    });
-    describe('getActiveUser', () => {
-    });
-    describe('userExistInState', () => {
-    });
+    describe('getNextActiveUserIndex', () => {});
+    describe('getActiveUser', () => {});
+    describe('userExistInState', () => {});
 
     describe('ADD_USER', () => {
         let state;
@@ -38,10 +38,10 @@ describe("userReducer", () => {
             action = {
                 type: actions.ADD_USER,
                 user: {
-                    image: "randomImageUrl",
+                    image: 'randomImageUrl',
                     active: false,
                     disabled: false,
-                    name: "sean",
+                    name: 'sean',
                 },
             };
             const newState = userReducer(state, action);
@@ -53,10 +53,10 @@ describe("userReducer", () => {
             action = {
                 type: actions.ADD_USER,
                 user: {
-                    image: "randomImageUrl",
+                    image: 'randomImageUrl',
                     active: false,
                     disabled: false,
-                    name: "Scott",
+                    name: 'Scott',
                 },
             };
             const newState = userReducer(state, action);
@@ -77,10 +77,10 @@ describe("userReducer", () => {
             action = {
                 type: actions.REMOVE_USER,
                 user: {
-                    image: "",
+                    image: '',
                     active: false,
                     disabled: false,
-                    name: "Hayes",
+                    name: 'Hayes',
                 },
             };
 
@@ -93,10 +93,10 @@ describe("userReducer", () => {
             action = {
                 type: actions.REMOVE_USER,
                 user: {
-                    image: "",
+                    image: '',
                     active: false,
                     disabled: false,
-                    name: "Hodor",
+                    name: 'Hodor',
                 },
             };
 
@@ -109,10 +109,10 @@ describe("userReducer", () => {
             action = {
                 type: actions.REMOVE_USER,
                 user: {
-                    image: "",
+                    image: '',
                     active: true,
                     disabled: false,
-                    name: "Sean",
+                    name: 'Sean',
                 },
             };
 
@@ -133,30 +133,30 @@ describe("userReducer", () => {
         it('should change a users name if it exists in state', () => {
             action = {
                 type: actions.CHANGE_USER_NAME,
-                name: "Tony",
+                name: 'Tony',
                 user: {
-                    image: "",
+                    image: '',
                     active: false,
                     disabled: false,
-                    name: "Sean",
+                    name: 'Sean',
                 },
             };
 
             const newState = userReducer(state, action);
             expect(newState.users).toHaveLength(2);
-            expect(newState.users[0].name).toBe("Tony");
+            expect(newState.users[0].name).toBe('Tony');
             expect(newState.users).not.toContainEqual(action.user);
         });
 
         it('should not change a users name if it does not exists in state', () => {
             action = {
                 type: actions.CHANGE_USER_NAME,
-                name: "George Maharis",
+                name: 'George Maharis',
                 user: {
-                    image: "",
+                    image: '',
                     active: false,
                     disabled: false,
-                    name: "George Michael Bluth",
+                    name: 'George Michael Bluth',
                 },
             };
 
@@ -181,8 +181,8 @@ describe("userReducer", () => {
             };
 
             const newState = userReducer(state, action);
-            expect(newState.users[0].name).toBe("Sean");
-            expect(newState.users[1].name).toBe("Hayes");
+            expect(newState.users[0].name).toBe('Sean');
+            expect(newState.users[1].name).toBe('Hayes');
             expect(newState.users).toEqual(action.users);
         });
 
@@ -193,8 +193,8 @@ describe("userReducer", () => {
             };
 
             const newState = userReducer(state, action);
-            expect(newState.users[0].name).toBe("Hayes");
-            expect(newState.users[1].name).toBe("Sean");
+            expect(newState.users[0].name).toBe('Hayes');
+            expect(newState.users[1].name).toBe('Sean');
             expect(newState.users).toEqual(action.users);
         });
     });
@@ -211,20 +211,20 @@ describe("userReducer", () => {
             action = {
                 type: actions.TOGGLE_USER,
                 user: {
-                    image: "",
+                    image: '',
                     active: false,
                     disabled: false,
-                    name: "Sean",
+                    name: 'Sean',
                 },
             };
 
             const newState = userReducer(state, action);
-            expect(newState.users[0].name).toBe("Sean");
+            expect(newState.users[0].name).toBe('Sean');
             expect(newState.users[0].disabled).toBe(true);
             expect(newState.users).not.toContainEqual(action.user);
 
             const newState2 = userReducer(state, action);
-            expect(newState2.users[0].name).toBe("Sean");
+            expect(newState2.users[0].name).toBe('Sean');
             expect(newState2.users[0].disabled).toBe(false);
         });
     });
@@ -241,28 +241,28 @@ describe("userReducer", () => {
             action = {
                 type: actions.NEXT_USER,
             };
-            let changeFaviconSpy = jest.spyOn(TimerHelper, "changeFavicon");
+            let changeFaviconSpy = jest.spyOn(TimerHelper, 'changeFavicon');
 
             const newState = userReducer(state, action);
-            expect(newState.users[0].name).toBe("Sean");
+            expect(newState.users[0].name).toBe('Sean');
             expect(newState.users[0].active).toBe(false);
-            expect(newState.users[1].name).toBe("Hayes");
+            expect(newState.users[1].name).toBe('Hayes');
             expect(newState.users[1].active).toBe(true);
-            expect(changeFaviconSpy).toHaveBeenCalledWith("randomImageUrl2");
+            expect(changeFaviconSpy).toHaveBeenCalledWith('randomImageUrl2');
 
             const newState2 = userReducer(newState, action);
-            expect(newState2.users[0].name).toBe("Sean");
+            expect(newState2.users[0].name).toBe('Sean');
             expect(newState2.users[0].active).toBe(true);
-            expect(newState2.users[1].name).toBe("Hayes");
+            expect(newState2.users[1].name).toBe('Hayes');
             expect(newState2.users[1].active).toBe(false);
-            expect(changeFaviconSpy).toHaveBeenCalledWith("randomImageUrl1");
+            expect(changeFaviconSpy).toHaveBeenCalledWith('randomImageUrl1');
 
             const newState3 = userReducer(newState2, action);
-            expect(newState3.users[0].name).toBe("Sean");
+            expect(newState3.users[0].name).toBe('Sean');
             expect(newState3.users[0].active).toBe(false);
-            expect(newState3.users[1].name).toBe("Hayes");
+            expect(newState3.users[1].name).toBe('Hayes');
             expect(newState3.users[1].active).toBe(true);
-            expect(changeFaviconSpy).toHaveBeenCalledWith("randomImageUrl2");
+            expect(changeFaviconSpy).toHaveBeenCalledWith('randomImageUrl2');
         });
     });
 
@@ -272,14 +272,14 @@ describe("userReducer", () => {
         beforeEach(() => {
             state = {
                 users: getDefaultState(),
-            }
+            };
         });
 
-        it('should return users from state', function () {
+        it('should return users from state', function() {
             let users = usersSelector(state);
             expect(users).toHaveLength(2);
-            expect(users[0].name).toBe("Sean");
-            expect(users[1].name).toBe("Hayes");
+            expect(users[0].name).toBe('Sean');
+            expect(users[1].name).toBe('Hayes');
         });
     });
 
@@ -292,16 +292,16 @@ describe("userReducer", () => {
             };
         });
 
-        it('should return active user', function () {
+        it('should return active user', function() {
             let users = activeUserSelector(state);
-            expect(users.name).toEqual("Sean");
+            expect(users.name).toEqual('Sean');
         });
     });
 
     describe('DEFAULT', () => {
-        it('should return defaultState', function () {
+        it('should return defaultState', function() {
             const action = {
-                type: "HOLLYWOOD_HANDBOOK",
+                type: 'HOLLYWOOD_HANDBOOK',
             };
             let newState = userReducer(undefined, action);
             expect(newState.users).toHaveLength(1);

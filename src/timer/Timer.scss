@@ -1,45 +1,47 @@
-$transitionTime: .2s;
+$transitionTime: 0.2s;
 $activeColor: #66cdaa;
 $inactiveColor: #d7686c;
 $pausedColor: #d7d283;
 
 .Timer {
-  transform: translateY(50%);
+    margin: 40px 0;
 
-  .timer {
-    box-sizing: content-box;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    .timer {
+        box-sizing: content-box;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
 
-    .timer__time {
-      text-shadow: 2px 2px 4px #000;
-      user-select: none;
-      color: #f3f3f3;
-      position: absolute;
-      font-size: 50px;
+        .timer__time {
+            text-shadow: 2px 2px 2px #000;
+            user-select: none;
+            color: #f9f9f9;
+            position: absolute;
+            font-size: 50px;
+        }
+
+        .paused,
+        .inactive,
+        .active {
+            transition: stroke $transitionTime ease-in-out;
+        }
+
+        .timer__time--numbers {
+            display: block;
+        }
+
+        .timer__time--icons {
+            display: none;
+        }
+
+        &:hover {
+            .timer__time--numbers {
+                display: none;
+            }
+
+            .timer__time--icons {
+                display: block;
+            }
+        }
     }
-
-    .paused, .inactive, .active {
-      transition: stroke $transitionTime ease-in-out;
-    }
-
-    .timer__time--numbers {
-      display: block;
-    }
-
-    .timer__time--icons {
-      display: none;
-    }
-
-    &:hover {
-      .timer__time--numbers {
-        display: none;
-      }
-
-      .timer__time--icons {
-        display: block;
-      }
-    }
-  }
 }

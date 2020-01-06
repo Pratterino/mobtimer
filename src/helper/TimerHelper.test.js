@@ -2,21 +2,17 @@ import {
     addLeadingZeroToTime,
     changeFavicon,
     getParsedTimeRemaining,
-    getPercentageLeftOfTime
-} from "./../helper/TimerHelper";
+    getPercentageLeftOfTime,
+} from './../helper/TimerHelper';
 
 describe('TimerHelper', () => {
     describe('addLeadingZeroToTime', () => {
         it(`should all have length of two`, () => {
-            [0, 1, 20, 39, 60, 65].forEach((num) =>
-                expect(addLeadingZeroToTime(num).toString()).toHaveLength(2)
-            )
+            [0, 1, 20, 39, 60, 65].forEach(num => expect(addLeadingZeroToTime(num).toString()).toHaveLength(2));
         });
 
         it(`should place 0 first`, () => {
-            [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].forEach((num) =>
-                expect(addLeadingZeroToTime(num).toString()[0]).toBe("0")
-            )
+            [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].forEach(num => expect(addLeadingZeroToTime(num).toString()[0]).toBe('0'));
         });
     });
 
@@ -24,7 +20,7 @@ describe('TimerHelper', () => {
         it(`should change favicon`, () => {
             const querySelectorSpy = jest.spyOn(document, 'querySelector');
 
-            changeFavicon("bob");
+            changeFavicon('bob');
             expect(querySelectorSpy).toHaveBeenCalledWith("link[rel*='icon']");
         });
     });
@@ -65,7 +61,7 @@ describe('TimerHelper', () => {
         });
 
         it(`should return a parsed time with hours, minutes and seconds when hour in seconds passed`, () => {
-            const hours = (60 * 60) * 2.3;
+            const hours = 60 * 60 * 2.3;
             const timeRemaining = getParsedTimeRemaining(hours);
             expect(timeRemaining).toMatchSnapshot();
         });

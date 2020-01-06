@@ -1,11 +1,11 @@
 import React from 'react';
-import {unwrapped as UnwrappedTimer} from './Timer';
-import {shallow} from 'enzyme';
+import { unwrapped as UnwrappedTimer } from './Timer';
+import { shallow } from 'enzyme';
 
-describe("Timer", () => {
+describe('Timer', () => {
     let wrapper;
 
-    const renderComponent = (props) => {
+    const renderComponent = props => {
         wrapper = shallow(
             <UnwrappedTimer
                 timer={{
@@ -17,7 +17,7 @@ describe("Timer", () => {
                 playPauseTimer={jest.fn()}
                 startTimer={jest.fn()}
                 {...props}
-            />
+            />,
         );
     };
 

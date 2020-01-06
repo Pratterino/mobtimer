@@ -1,8 +1,18 @@
 .circle-chart {
     overflow: visible;
+    border-radius: 50%;
+    background: transparent;
+
+    &.active {
+        background: rgba(var(--active-timer-color-rgb), 0.2);
+    }
+    &.inactive {
+        background: rgba(var(--stopped-timer-color-rgb), 0.2);
+    }
 }
+
 .circle-chart__circle {
-    animation: circle-chart-fill .2s ease-in-out reverse;
+    animation: circle-chart-fill 0.2s ease-in-out reverse;
     transform: rotate(-90deg);
     transform-origin: center;
 }
@@ -12,4 +22,3 @@
         stroke-dasharray: 100;
     }
 }
-

@@ -1,11 +1,11 @@
 .notifications {
-  background: var(--background);
-  position: absolute;
-  top: 0;
-  left: 0;
+    background: var(--background);
+    position: absolute;
+    top: 0;
+    left: 0;
 
-  .notifications__permissions {
-    margin-left: 90px;
-    color: red;
-  }
+    .notifications__permissions {
+        margin-left: 90px;
+        color: red;
+    }
 }

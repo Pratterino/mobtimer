@@ -1,0 +1,27 @@
+@keyframes fadeInImg {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.img {
+    user-select: none;
+
+    .loading {
+        opacity: 0;
+        width: 100%;
+        height: auto;
+    }
+
+    .loaded {
+        animation: fadeInImg cubic-bezier(0.23, 1, 0.32, 1) 1;
+        position: relative;
+        opacity: 0;
+        animation-fill-mode: forwards;
+        animation-duration: 0.9s;
+        animation-delay: 0.1s;
+    }
+}
