@@ -21,7 +21,7 @@ jobs:
       run: yarn install
       
     - name: yarn test
-      run: yarn test
+      run: yarn test --watchAll
       
     - name: yarn build
       run: yarn run build
