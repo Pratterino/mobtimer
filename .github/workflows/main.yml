@@ -38,4 +38,4 @@ jobs:
         LOCAL_DIR: build
         METHOD: sftp
         PORT: 22
-        ARGS: --delete
+        ARGS: --delete --exclude-glob=.htaccess --exclude-glob=old --exclude-glob=old/** --exclude-glob=.well-known --exclude-glob=.well-known/**
