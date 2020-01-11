@@ -10,18 +10,17 @@
 .img {
     user-select: none;
 
-    .loading {
+    &.loading {
         opacity: 0;
         width: 100%;
         height: auto;
     }
 
-    .loaded {
+    &.loaded {
         animation: fadeInImg cubic-bezier(0.23, 1, 0.32, 1) 1;
         position: relative;
         opacity: 0;
         animation-fill-mode: forwards;
-        animation-duration: 0.9s;
-        animation-delay: 0.1s;
+        animation-duration: 2s;
     }
 }
