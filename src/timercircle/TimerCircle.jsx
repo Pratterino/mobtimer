@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
+import TimeRemaining from '../timeremaining/TimeRemaining';
 import { getPercentageLeftOfTime, getValueFromCSSVariable, lightenDarkenColor } from './../helper/TimerHelper';
-import { TimeRemaining } from './../timeremaining/TimeRemaining';
 import './TimerCircle.scss';
 
 export function TimerCircle({ timer = {} }) {
@@ -77,13 +77,6 @@ export function TimerCircle({ timer = {} }) {
                     cx="16.91549431"
                     cy="16.91549431"
                     r="15.91549431"
-                />
-                <div
-                    style={{
-                        backgroundColor: '#ff0ff',
-                        width: '100%',
-                        height: '100%',
-                    }}
                 />
             </svg>
             <TimeRemaining timer={timer} />

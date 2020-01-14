@@ -1,0 +1,14 @@
+$transitionTime: 0.2s;
+$activeColor: #66cdaa;
+$inactiveColor: #d7686c;
+$pausedColor: #d7d283;
+
+.time-remaining--numbers {
+    display: block;
+}
+
+.time-remaining--icons {
+    display: none;
+    -webkit-filter: drop-shadow(2px 2px 2px #000);
+    filter: drop-shadow(2px 2px 2px #000);
+}

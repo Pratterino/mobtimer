@@ -37,7 +37,7 @@ function Settings({ settings, timer, updateSessionLengthTime, resetTimer, clearS
                     </li>
                     <li>
                         <a href="https://github.com/Pratterino/mobtimer" target="__blank">
-                            target="__blank">https://github.com/Pratterino/mobtimer
+                            https://github.com/Pratterino/mobtimer
                         </a>
                     </li>
                 </div>
