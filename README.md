@@ -1,8 +1,6 @@
-mobtimer 
+mobtimer [![Actions Status](https://github.com/Pratterino/mobtimer/workflows/CI/badge.svg)](https://github.com/Pratterino/mobtimer/actions)
 ========
 The second. The best. The most stable one (yet). 
-
-[![CircleCI](https://circleci.com/gh/Pratterino/mobtimer/tree/master.svg?style=svg)](https://circleci.com/gh/Pratterino/mobtimer/tree/master)
 
 ## Features backlog
 (create an Issue for feature requests, or to report a bug 🐜!)
@@ -50,7 +48,6 @@ Misc
     
 * Version control av appen
   - Visa när ny version är tillgänglig. Uppmuntra reload.
-  - Try out react hooks
 
 ## Release log:
 ### Version 1.0: 2018
@@ -82,7 +79,7 @@ Timer
   - ~Red/green~
 * Intermesso/Break after every n rounds
 * ~"blink" on title when alarm-state.~
-* Set timer session length
+* ~Set timer session length~
 * Metadata
   - ~Overall mobtime of todays session~
   
