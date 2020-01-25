@@ -7,11 +7,11 @@
         "@fortawesome/fontawesome-svg-core": "^1.2.17",
         "@fortawesome/free-solid-svg-icons": "^5.8.1",
         "@fortawesome/react-fontawesome": "^0.1.4",
-        "@types/jest": "^24.0.25",
-        "@types/node": "^13.1.6",
-        "@types/react": "^16.9.17",
-        "@types/react-dom": "^16.9.4",
-        "@types/react-redux": "^7.1.5",
+        "@types/jest": "^24.9.1",
+        "@types/node": "^13.5.0",
+        "@types/react": "^16.9.19",
+        "@types/react-dom": "^16.9.5",
+        "@types/react-redux": "^7.1.7",
         "classnames": "^2.2.6",
         "howler": "^2.1.1",
         "lodash": "latest",
@@ -26,7 +26,7 @@
         "redux": "^4.0.1",
         "redux-persist": "^6.0.0",
         "redux-thunk": "^2.3.0",
-        "typescript": "^3.7.4"
+        "typescript": "^3.7.5"
     },
     "scripts": {
         "start": "react-scripts start",
@@ -59,9 +59,9 @@
         "enzyme-adapter-react-16": "^1.11.2",
         "enzyme-to-json": "^3.3.5",
         "eslint": "^6.8.0",
-        "husky": "^4.0.6",
-        "jest": "^24.9.0",
-        "node-sass": "^4.11.0",
+        "husky": "^4.2.1",
+        "jest": "^25.1.0",
+        "node-sass": "^4.13.1",
         "prettier": "^1.19.1",
         "redux-mock-store": "^1.5.3"
     }
