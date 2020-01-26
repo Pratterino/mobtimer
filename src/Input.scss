@@ -4,7 +4,6 @@
 .Input {
     $width: 180px;
     $height: 40px;
-    $color: rgba(0, 0, 0, 0.1);
 
     * {
         margin: 0;
@@ -16,14 +15,6 @@
         align-items: center;
         justify-content: center;
         flex-direction: column;
-
-        &:hover {
-            label,
-            input.message {
-                color: var(--header-color);
-                border-color: var(--header-color);
-            }
-        }
     }
 
     label {
@@ -45,8 +36,12 @@
 
     label,
     input.message {
-        color: $color;
-        border-color: $color;
+        color: var(--header-color);
+        border-color: var(--header-color);
+        transition: 0.2s;
+        &:focus {
+            background: var(--background);
+        }
     }
 
     .message {
@@ -54,7 +49,6 @@
         width: inherit;
         background: none;
         border: 2px solid;
-        transition: 0.4s;
         font-size: 30px;
         padding-left: 10px;
     }

@@ -1,3 +1,5 @@
+@import './../Global.scss';
+
 $transitionTime: 0.2s;
 $activeColor: #66cdaa;
 $inactiveColor: #d7686c;
@@ -13,11 +15,12 @@ $pausedColor: #d7d283;
         justify-content: center;
 
         .timer__time {
-            text-shadow: 2px 2px 2px #000;
+            @extend .text-shadow;
             user-select: none;
             color: #f9f9f9;
             position: absolute;
             font-size: 50px;
+            font-weight: bold;
         }
 
         .paused,

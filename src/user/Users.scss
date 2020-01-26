@@ -1,6 +1,14 @@
 .Users {
     $addUserSize: 180px;
-    margin-top: 10%;
+    margin: 70px;
+    margin-top: 200px;
+    padding: 20px;
+    border-radius: 3px;
+    background: rgba(var(--stopped-timer-color-rgb), 0.1);
+
+    &.active {
+        background: rgba(var(--active-timer-color-rgb), 0.1);
+    }
 
     .draggable-users {
         padding: 0 10px;

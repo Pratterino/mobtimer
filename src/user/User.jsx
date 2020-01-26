@@ -37,8 +37,8 @@ class User extends Component {
         // TODO: disabled should be able to be in user, why is it not updating if it is?
         const { name, image, disabled, active } = this.props.user;
         const classes = classNames({ active, disabled });
-
         const backgroundImage = { backgroundImage: `url(${image})` };
+
         return (
             <div className="user">
                 {active && <div className="user__crown" />}
@@ -55,9 +55,10 @@ class User extends Component {
                             />
                         </div>
                     )}
+                    {active && <div className="shine" />}
                 </figure>
                 <figcaption className="user__name">
-                    <div className="user__name--text" onClick={this.enterEditMode}>
+                    <div className={classNames('user__name--text', { active })} onClick={this.enterEditMode}>
                         {this.state.editMode ? (
                             <input
                                 ref={this.input}

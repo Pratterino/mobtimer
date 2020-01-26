@@ -6,7 +6,6 @@ import './TimerCircle.scss';
 
 export function TimerCircle({ timer = {} }) {
     const circleGradient = timer.active ? 'active' : 'inactive';
-    const backgroundShadowColor = 'rgba(0, 0, 0, 0.9)';
     const backgroundColor = '--background';
     const activeColor = '--active-timer-color';
     const stopColor = '--stopped-timer-color';
@@ -33,9 +32,6 @@ export function TimerCircle({ timer = {} }) {
                 height="225"
                 xmlns="http://www.w3.org/2000/svg">
                 <defs>
-                    <linearGradient id="background-shadow" x1="0%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" stopColor={backgroundShadowColor} />
-                    </linearGradient>
                     <linearGradient id="background" x1="0%" y1="0%" x2="0%" y2="100%">
                         <stop offset="0%" stopColor={`var(${backgroundColor})`} />
                         <stop offset="100%" stopColor={stopColors.background} />
@@ -49,15 +45,6 @@ export function TimerCircle({ timer = {} }) {
                         <stop offset="100%" stopColor={stopColors.active} />
                     </linearGradient>
                 </defs>
-                <circle
-                    className="circle-chart__background-shadow"
-                    stroke="url(#background-shadow)"
-                    strokeWidth="3.8"
-                    fill="none"
-                    cx="16.91549431"
-                    cy="16.91549431"
-                    r="15.91549431"
-                />
                 <circle
                     className="circle-chart__background"
                     stroke="url(#background)"

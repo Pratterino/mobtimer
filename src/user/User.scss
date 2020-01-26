@@ -1,10 +1,13 @@
+@import './../Global.scss';
+
 $imageSize: 80px;
+$borderSize: 3px;
 
 .user {
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
     text-align: center;
     position: relative;
-    text-shadow: 2px 2px 2px #000;
 
     &:hover {
         .user__remove {
@@ -31,31 +34,31 @@ $imageSize: 80px;
     }
 
     .user__image {
-        border-radius: 45%;
+        position: relative; // important for .shine to not overflow.
+        border-radius: 50%;
         width: $imageSize;
         height: $imageSize;
         text-indent: 0;
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-        border: 4px solid #111;
+        border: $borderSize solid var(--stopped-timer-color);
+        overflow: hidden;
 
         &.active {
-            border-radius: 45%;
-            border: 4px solid mediumspringgreen;
+            border: $borderSize solid var(--active-timer-color);
         }
 
         &.disabled {
             filter: blur(1px);
-            opacity: 0.3;
-            border-radius: 45%;
-            border: 4px solid #888888;
+            opacity: 0.4;
         }
     }
 
     .user__name {
         display: block;
         position: relative;
+        font-weight: normal;
         bottom: 0;
     }
 
@@ -70,13 +73,60 @@ $imageSize: 80px;
         }
     }
 
-    .user__name--text:hover {
-        cursor: pointer;
+    .user__name--text {
+        @extend .text-shadow;
+        &.active {
+            color: var(--active-timer-color);
+            font-weight: bold;
+        }
+        &:hover {
+            cursor: pointer;
+        }
     }
 
     .user__name--text,
     .user__name--text > input {
         width: 100%;
         text-align: center;
+    }
+
+    .shine {
+        animation: shine 5s ease-in-out infinite;
+        animation-fill-mode: forwards;
+        content: '';
+        position: absolute;
+        top: -110%;
+        left: -210%;
+        width: 200%;
+        height: 200%;
+        opacity: 0;
+        transform: rotate(30deg);
+
+        background: rgba(255, 255, 255, 0.13);
+        background: linear-gradient(
+            to right,
+            rgba(255, 255, 255, 0.13) 0%,
+            rgba(255, 255, 255, 0.13) 77%,
+            rgba(255, 255, 255, 0.5) 92%,
+            rgba(255, 255, 255, 0) 100%
+        );
+    }
+}
+
+/* animation */
+@keyframes shine {
+    10% {
+        opacity: 1;
+        top: -30%;
+        left: -30%;
+        transition-property: left, top, opacity;
+        transition-duration: 0.7s, 0.7s, 0.15s;
+        transition-timing-function: ease;
+    }
+    100% {
+        opacity: 0;
+        top: -30%;
+        left: -30%;
+        transition-property: left, top, opacity;
     }
 }

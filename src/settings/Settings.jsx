@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import ThemeSelector from './../themeselector/ThemeSelector';
-import { clearState, updateSessionLengthTime } from './../settings/settingsActions';
+import { clearState, updateSessionLengthTime } from './settingsActions';
 import { resetTimer } from './../timer/timerActions';
 import { faBeer, faDonate, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

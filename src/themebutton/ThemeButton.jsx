@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { setTheme } from './../settings/settingsActions';
+import { setTheme } from '../settings/settingsActions';
 import './ThemeButton.scss';
 
 function ThemeButton({ theme, setTempTheme, setTheme }) {

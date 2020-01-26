@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import actions from './../actionTypes';
+import actions from '../actionTypes';
 import { userImages } from './userImages';
 import { changeFavicon } from './../helper/TimerHelper';
 
