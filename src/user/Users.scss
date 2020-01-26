@@ -1,8 +1,6 @@
 .Users {
     $addUserSize: 180px;
-    margin: 70px;
-    margin-top: 200px;
-    padding: 20px;
+    padding: $addUserSize 0 $addUserSize/2;
     border-radius: 3px;
     background: rgba(var(--stopped-timer-color-rgb), 0.1);
 

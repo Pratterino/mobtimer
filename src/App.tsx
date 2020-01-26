@@ -48,7 +48,7 @@ function App({ timer, settings, test }: Props) {
         if (timer.metadata.todaysDate !== new Date().getDate()) {
             fetchBackgroundImage().then(unsplashed => setUnsplash(unsplashed));
         }
-    }, [timer]);
+    }, [timer.metadata.todaysDate]);
 
     const renderLeaderboard = () => {
         const sortedLeaderboard = sortProperties(timer.leaderboard);
