@@ -2,11 +2,6 @@
     $addUserSize: 180px;
     padding: $addUserSize 0 $addUserSize/2;
     border-radius: 3px;
-    background: rgba(var(--stopped-timer-color-rgb), 0.1);
-
-    &.active {
-        background: rgba(var(--active-timer-color-rgb), 0.1);
-    }
 
     .draggable-users {
         padding: 0 10px;

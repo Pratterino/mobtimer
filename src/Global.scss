@@ -1,3 +1,17 @@
+$shadowColor: #000;
+$shadowAmount: 1px 1px 2px;
+
 .text-shadow {
-    text-shadow: 1px 1px 2px #000;
+    text-shadow: $shadowAmount $shadowColor;
+}
+
+.icon-shadow {
+    -webkit-filter: drop-shadow($shadowAmount $shadowColor);
+    filter: drop-shadow($shadowAmount $shadowColor);
+    &.active {
+        filter: drop-shadow($shadowAmount var(--active-timer-color));
+    }
+    &.inactive {
+        filter: drop-shadow($shadowAmount var(--stopped-timer-color));
+    }
 }

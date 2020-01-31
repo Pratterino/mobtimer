@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway:300,400,500');
 @import url('https://fonts.googleapis.com/css?family=Inconsolata');
+@import './Global';
 
 .Input {
     $width: 180px;
@@ -22,6 +23,7 @@
         left: 0;
         top: -24px;
         color: var(--header-color);
+        @extend .text-shadow;
     }
 
     .parent {
@@ -34,13 +36,14 @@
         }
     }
 
-    label,
     input.message {
         color: var(--header-color);
         border-color: var(--header-color);
         transition: 0.2s;
+        @extend .icon-shadow;
+
         &:focus {
-            background: var(--background);
+            background: rgba(var(--background-rgba), 0.2);
         }
     }
 

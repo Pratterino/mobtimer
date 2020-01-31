@@ -9,6 +9,7 @@
 :root {
     --text-color: #f3f3f3;
     --background: #21282d;
+    --background-rgba: #{hexToRGB(#21282d)};
     --header-color: #e784a2;
     --link-color-darker: #ef4276;
     --highlight-color: #85b5c7;
@@ -72,19 +73,32 @@ body {
 #bg-image {
     &.active::after {
         background: rgba(var(--active-timer-color-rgb), 0.2);
+        animation: none;
     }
+
     &::after {
         content: '';
         position: absolute;
         top: 0;
-        background: rgba(var(--stopped-timer-color-rgb), 0.4);
+        background: rgba(var(--stopped-timer-color-rgb), 0.6);
         width: 100%;
         height: 100%;
         z-index: -5;
-        transition: background 200ms ease-in-out;
+        animation: fade-in-out 5s infinite;
+        transition: all 1s;
     }
 
     code {
         font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+    }
+}
+
+@keyframes fade-in-out {
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
     }
 }
