@@ -4,16 +4,22 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import ThemeSelector from './../themeselector/ThemeSelector';
 import { clearState, updateSessionLengthTime } from './settingsActions';
-import { resetTimer } from './../timer/timerActions';
 import { faBeer, faDonate, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { resetTimer } from './../timer/timerActions';
+import { geoCountryCodeOfUser } from '../DonationHelper';
 import './Settings.scss';
+
+const swishQrImage = require('./../assets/payment/swish.svg');
 
 function Settings({ settings, timer, updateSessionLengthTime, resetTimer, clearState }) {
     const [isOpen, setIsOpen] = useState(false);
+    const [userCountry, setUserCountry] = useState();
 
-    useEffect(() => {
+    useEffect(async () => {
         window.document.body.className = settings.theme || '';
+        const country = await geoCountryCodeOfUser();
+        setUserCountry(country);
     }, [settings.theme]);
 
     const handleTimerNumberChange = e => {
@@ -62,13 +68,22 @@ function Settings({ settings, timer, updateSessionLengthTime, resetTimer, clearS
 
                 <div className="settings__group">
                     <h3>Help</h3>
-                    <a href="https://paypal.me/pratterino" target="__blank">
-                        Donate a beer <FontAwesomeIcon icon={faDonate} /> => <FontAwesomeIcon icon={faBeer} />
-                    </a>
+                    <div>
+                        <a href="https://paypal.me/pratterino" target="__blank">
+                            Donate a beer <FontAwesomeIcon icon={faDonate} /> => <FontAwesomeIcon icon={faBeer} />
+                        </a>
+                    </div>
+                    {userCountry === 'SE' && [
+                        <br />,
+                        'Or donate via Swish',
+                        <div className="half">
+                            <img src={swishQrImage} alt="Swish QR code for donations" />
+                        </div>,
+                    ]}
                     <p>
-                        If you enjoy this mob timer and want to support it.
+                        If you enjoy this mobtimer and want to keep it alive!
                         <br />
-                        A small donation would be really really appreciated!
+                        Even the smallest of donations is really really appreciated!
                         <br />
                     </p>
                     <FontAwesomeIcon icon={faHeart} /> <FontAwesomeIcon icon={faHeart} />
