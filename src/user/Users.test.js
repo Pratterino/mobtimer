@@ -26,6 +26,7 @@ describe('Users', () => {
                 nextUser={jest.fn()}
                 resetTimer={jest.fn()}
                 updateUserOrder={jest.fn()}
+                timer={{ active: false }}
                 {...props}
             />,
         );
@@ -193,7 +194,12 @@ describe('Users', () => {
     });
 
     describe('render', () => {
-        it('should match snapshot', () => {
+        it('should match snapshot when active', () => {
+            renderComponent({ timer: { active: true } });
+            expect(wrapper).toMatchSnapshot();
+        });
+        it('should match snapshot when inactive', () => {
+            renderComponent({ timer: { active: false } });
             expect(wrapper).toMatchSnapshot();
         });
     });

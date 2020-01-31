@@ -8,6 +8,18 @@ const mapper = (image, user) => ({
     unsplashedLink: 'https://unsplash.com/?utm_source=pratterino_mobtimer&utm_medium=referral',
 });
 
+export const fallbackImage = () =>
+    mapper(
+        {
+            full: './assets/images/bg-image.jpg',
+            small: './assets/images/bg-image.jpg',
+        },
+        {
+            name: 'Rob Bates',
+            links: { html: 'https://unsplash.com/@inksurgeon' },
+        },
+    );
+
 export async function fetchBackgroundImage() {
     try {
         const response = await fetch(
@@ -22,17 +34,6 @@ export async function fetchBackgroundImage() {
         ).then(response => response.json());
         return mapper(response[0].urls, response[0].user);
     } catch (e) {
-        return mapper(
-            {
-                full:
-                    'https://images.unsplash.com/photo-1528920304568-7aa06b3dda8b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9',
-                small:
-                    'https://images.unsplash.com/photo-1528920304568-7aa06b3dda8b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1080&q=80',
-            },
-            {
-                name: 'Rob Bates',
-                links: { html: 'https://unsplash.com/@inksurgeon' },
-            },
-        );
+        return fallbackImage();
     }
 }

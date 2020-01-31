@@ -80,9 +80,6 @@ $marginHeader: 10px;
     }
 
     .settings__group {
-        flex-basis: 33%;
-        border: 1px dashed var(--background);
-
         &:first-of-type {
             border-top-width: 0;
         }
@@ -94,6 +91,11 @@ $marginHeader: 10px;
             font-size: 10pt;
             color: var(--text-color);
             margin-top: -$marginHeader;
+        }
+
+        .half {
+            margin: 0 auto;
+            width: 50%;
         }
     }
 

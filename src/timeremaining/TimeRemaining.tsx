@@ -1,9 +1,16 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPause, faPlay } from '@fortawesome/free-solid-svg-icons';
-import { getParsedTimeRemaining } from './../helper/TimerHelper';
+import { getParsedTimeRemaining } from '../helper/TimerHelper';
 
-export function TimeRemaining({ timer = {} }) {
+interface Props {
+    timer: {
+        active: boolean
+        currentTime: number
+    }
+}
+
+function TimeRemaining({ timer }: Props) {
     const time = getParsedTimeRemaining(timer.currentTime);
 
     return (
@@ -17,3 +24,9 @@ export function TimeRemaining({ timer = {} }) {
         </div>
     );
 }
+
+TimeRemaining.defaultProps = {
+    timer: {},
+};
+
+export default TimeRemaining;

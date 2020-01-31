@@ -1,4 +1,4 @@
-import actions from './../actionTypes';
+import actions from '../actionTypes';
 import { finishedSounds } from './../sound/sounds';
 import { Howl } from 'howler';
 

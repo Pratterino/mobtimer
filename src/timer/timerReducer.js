@@ -1,4 +1,4 @@
-import actions from './../actionTypes';
+import actions from '../actionTypes';
 import { store } from './../store';
 import { getParsedTimeRemaining } from './../helper/TimerHelper';
 import { activeUserSelector } from './../user/userReducer';
@@ -107,9 +107,9 @@ const toggleTitleOnFinish = () => {
 export default (state = defaultTimerState, action) => {
     switch (action.type) {
         case actions.SECOND_DECREMENT_TIMER:
-            let seconds = state.currentTime - 1;
-            document.title = `${getParsedTimeRemaining(seconds)}`;
-            let leaderboardCurrentUserSeconds = state.leaderboard[action.user.name] || 0;
+            const seconds = state.currentTime - 1;
+            document.title = `${getParsedTimeRemaining(seconds)}`; //TODO: useEffect()
+            const leaderboardCurrentUserSeconds = state.leaderboard[action.user.name] || 0;
             return {
                 ...state,
                 currentTime: seconds,

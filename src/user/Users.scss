@@ -1,6 +1,7 @@
 .Users {
     $addUserSize: 180px;
-    margin-top: 10%;
+    padding: $addUserSize 0 $addUserSize/2;
+    border-radius: 3px;
 
     .draggable-users {
         padding: 0 10px;

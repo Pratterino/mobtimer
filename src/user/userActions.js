@@ -1,4 +1,4 @@
-import actionTypes from './../actionTypes';
+import actionTypes from '../actionTypes';
 import { userImages } from './userImages';
 import _ from 'lodash';
 

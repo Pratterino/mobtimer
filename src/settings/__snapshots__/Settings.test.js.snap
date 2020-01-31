@@ -23,7 +23,7 @@ exports[`Settings render should match snapshot 1`] = `
           href="https://github.com/Pratterino/mobtimer"
           target="__blank"
         >
-          target="__blank"&gt;https://github.com/Pratterino/mobtimer
+          https://github.com/Pratterino/mobtimer
         </a>
       </li>
     </div>
@@ -246,7 +246,7 @@ exports[`Settings render should match snapshot when devMode 1`] = `
           href="https://github.com/Pratterino/mobtimer"
           target="__blank"
         >
-          target="__blank"&gt;https://github.com/Pratterino/mobtimer
+          https://github.com/Pratterino/mobtimer
         </a>
       </li>
     </div>

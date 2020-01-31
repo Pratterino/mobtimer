@@ -1,4 +1,4 @@
-import actionTypes from './../actionTypes';
+import actionTypes from '../actionTypes';
 import { store } from './../store';
 
 export const startTimer = () => ({

@@ -1,6 +1,6 @@
 import React from 'react';
 import timerReducer, { defaultTimerState } from './timerReducer';
-import actions from './../actionTypes';
+import actions from '../actionTypes';
 
 describe('timerReducer', () => {
     const getDefaultState = props => ({

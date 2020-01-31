@@ -15,12 +15,15 @@ import './App.scss';
 
 interface Props {
     timer: {
+        active: boolean;
         leaderboard: Leaderboard;
         metadata: {
+            todaysDate: number;
             todaysSessionLength: number;
         };
     };
     settings: {
+        unsplashed: Unsplash;
         devMode: boolean;
     };
     test?: object;
@@ -39,11 +42,13 @@ interface Unsplash {
 }
 
 function App({ timer, settings, test }: Props) {
-    const [unsplash, setUnsplash] = useState<Unsplash | undefined>();
+    const [unsplash, setUnsplash] = useState<Unsplash | undefined>(settings.unsplashed);
 
     useEffect(() => {
-        fetchBackgroundImage().then(unsplashed => setUnsplash(unsplashed));
-    }, []);
+        if (timer.metadata.todaysDate !== new Date().getDate()) {
+            fetchBackgroundImage().then(unsplashed => setUnsplash(unsplashed));
+        }
+    }, [timer.metadata.todaysDate]);
 
     const renderLeaderboard = () => {
         const sortedLeaderboard = sortProperties(timer.leaderboard);
@@ -111,7 +116,7 @@ function App({ timer, settings, test }: Props) {
                 </footer>
             </div>
 
-            <div id="bg-image">
+            <div id="bg-image" className={timer.active ? 'active' : ''}>
                 {unsplash && (
                     <LazyLoad width={100} height={100} debounce={false} offsetVertical={500}>
                         <ImageLoader src={unsplash.image} />

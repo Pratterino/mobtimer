@@ -1,5 +1,5 @@
 import React from 'react';
-import actions from './../actionTypes';
+import actions from '../actionTypes';
 import userReducer, { activeUserSelector, usersSelector } from './../user/userReducer';
 import * as TimerHelper from './../helper/TimerHelper';
 

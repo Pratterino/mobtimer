@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
+import classNames from 'classnames';
 import { usersSelector } from './userReducer';
 import { addUser, nextUser, updateUserOrder } from './userActions';
 import { resetTimer } from './../timer/timerActions';
@@ -12,14 +13,10 @@ import Input from './../Input';
 import './Users.scss';
 
 class Users extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            nameValue: '',
-            users: this.props.users,
-        };
-        this.grid = 8;
-    }
+    state = {
+        nameValue: '',
+        users: this.props.users,
+    };
 
     componentWillReceiveProps(nextProps, nextContext) {
         if (nextProps.users !== this.state.users) {
@@ -69,7 +66,7 @@ class Users extends Component {
 
     render() {
         return (
-            <div className="Users">
+            <div className={classNames('Users', { active: this.props.timer.active })}>
                 <DragDropContext onDragEnd={this.onDragEnd}>
                     <Droppable droppableId="droppable" direction="horizontal">
                         {(provided, snapshot) => (
@@ -79,7 +76,7 @@ class Users extends Component {
                                 style={this.getListStyle(snapshot.isDraggingOver)}
                                 {...provided.droppableProps}>
                                 {this.state.users.map((user, index) => (
-                                    <Draggable key={user.name} draggableId={user.name} index={index}>
+                                    <Draggable key={user.name + user.index} draggableId={user.name} index={index}>
                                         {(provided, snapshot) => (
                                             <div
                                                 ref={provided.innerRef}
@@ -108,7 +105,7 @@ class Users extends Component {
                         icon={faFastForward}
                         size="2x"
                         title="Next user!"
-                        className="pointer"
+                        className={classNames('pointer icon-shadow', this.props.timer.active ? 'active' : 'inactive')}
                         onClick={() => {
                             this.props.nextUser();
                             this.props.resetTimer();

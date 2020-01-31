@@ -1,3 +1,5 @@
+@import 'Global.scss';
+
 html,
 body {
     background: #20002c; /* fallback for old browsers */
@@ -56,7 +58,7 @@ h4 {
 }
 
 footer {
-    text-shadow: 2px 2px 2px #000;
+    @extend .text-shadow;
     box-sizing: border-box;
     position: absolute;
     bottom: 0;
