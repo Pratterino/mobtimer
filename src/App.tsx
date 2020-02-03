@@ -13,27 +13,27 @@ import SoundSelector from './sound/SoundSelector';
 import ImageLoader from './helper/ImageLoader';
 import './App.scss';
 
-interface Props {
+interface IProps {
     timer: {
         active: boolean;
-        leaderboard: Leaderboard;
+        leaderboard: ILeaderboard;
         metadata: {
             todaysDate: number;
             todaysSessionLength: number;
         };
     };
     settings: {
-        unsplashed: Unsplash;
+        unsplashed: IUnsplash;
         devMode: boolean;
     };
     test?: object;
 }
 
-interface Leaderboard {
+interface ILeaderboard {
     [key: string]: number;
 }
 
-interface Unsplash {
+interface IUnsplash {
     userLink: string;
     username: string;
     unsplashedLink: string;
@@ -41,8 +41,8 @@ interface Unsplash {
     imageSmall: string;
 }
 
-function App({ timer, settings, test }: Props) {
-    const [unsplash, setUnsplash] = useState<Unsplash | undefined>(settings.unsplashed);
+function App({ timer, settings, test }: IProps) {
+    const [unsplash, setUnsplash] = useState<IUnsplash | undefined>(settings.unsplashed);
 
     useEffect(() => {
         if (timer.metadata.todaysDate !== new Date().getDate()) {
@@ -54,7 +54,7 @@ function App({ timer, settings, test }: Props) {
         const sortedLeaderboard = sortProperties(timer.leaderboard);
         return (
             <ol>
-                {sortedLeaderboard.map((item, i) => (
+                {sortedLeaderboard.map((item) => (
                     <li>
                         {item[0]} ({getParsedTimeRemaining(item[1])})
                     </li>
@@ -63,7 +63,7 @@ function App({ timer, settings, test }: Props) {
         );
     };
 
-    const sortProperties = (obj: Leaderboard) => {
+    const sortProperties = (obj: ILeaderboard) => {
         const sortable = [];
         for (const key in obj) {
             if (obj.hasOwnProperty(key)) {

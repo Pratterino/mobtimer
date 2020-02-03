@@ -3,14 +3,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPause, faPlay } from '@fortawesome/free-solid-svg-icons';
 import { getParsedTimeRemaining } from '../helper/TimerHelper';
 
-interface Props {
+interface IProps {
     timer: {
         active: boolean
         currentTime: number
     }
 }
 
-function TimeRemaining({ timer }: Props) {
+function TimeRemaining({ timer }: IProps) {
     const time = getParsedTimeRemaining(timer.currentTime);
 
     return (
