@@ -20,8 +20,8 @@ function ThemeSelector({ settings, setTheme }) {
                 <ThemeButton
                     theme={theme}
                     key={theme}
-                    setTempTheme={(theme) => setTempTheme(theme)}
-                    setTheme={(theme) => setTheme(theme)}
+                    setTempTheme={theme => setTempTheme(theme)}
+                    setTheme={theme => setTheme(theme)}
                     className="theme-selector__button"
                 />
             ))}
