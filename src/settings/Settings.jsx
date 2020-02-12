@@ -16,10 +16,9 @@ function Settings({ settings, timer, updateSessionLengthTime, resetTimer, clearS
     const [isOpen, setIsOpen] = useState(false);
     const [userCountry, setUserCountry] = useState();
 
-    useEffect(async () => {
+    useEffect(() => {
         window.document.body.className = settings.theme || '';
-        const country = await geoCountryCodeOfUser();
-        setUserCountry(country);
+        geoCountryCodeOfUser().then(country => setUserCountry(country));
     }, [settings.theme]);
 
     const handleTimerNumberChange = e => {

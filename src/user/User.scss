@@ -34,7 +34,7 @@ $borderSize: 3px;
         background: url(../assets/images/crown.png) no-repeat;
         background-size: cover;
         height: 50px;
-        width: $imageSize+10;
+        width: $imageSize + 10;
         top: -32px;
         left: -$userSpacing;
         transform: rotate(-20deg);
@@ -118,11 +118,11 @@ $borderSize: 3px;
 
         background: rgba(255, 255, 255, 0.13);
         background: linear-gradient(
-                to right,
-                rgba(255, 255, 255, 0.13) 0%,
-                rgba(255, 255, 255, 0.13) 77%,
-                rgba(255, 255, 255, 0.5) 92%,
-                rgba(255, 255, 255, 0) 100%
+            to right,
+            rgba(255, 255, 255, 0.13) 0%,
+            rgba(255, 255, 255, 0.13) 77%,
+            rgba(255, 255, 255, 0.5) 92%,
+            rgba(255, 255, 255, 0) 100%
         );
     }
 }

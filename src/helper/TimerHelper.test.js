@@ -1,9 +1,4 @@
-import {
-    addLeadingZeroToTime,
-    changeFavicon,
-    getParsedTimeRemaining,
-    getPercentageLeftOfTime,
-} from './TimerHelper';
+import { addLeadingZeroToTime, changeFavicon, getParsedTimeRemaining, getPercentageLeftOfTime } from './TimerHelper';
 
 describe('TimerHelper', () => {
     describe('addLeadingZeroToTime', () => {
