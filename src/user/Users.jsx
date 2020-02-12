@@ -9,7 +9,7 @@ import { resetTimer } from './../timer/timerActions';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFastForward } from '@fortawesome/free-solid-svg-icons';
 import User from './User';
-import Input from './../Input';
+import Input from '../Input';
 import './Users.scss';
 
 class Users extends Component {

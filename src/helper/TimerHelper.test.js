@@ -3,7 +3,7 @@ import {
     changeFavicon,
     getParsedTimeRemaining,
     getPercentageLeftOfTime,
-} from './../helper/TimerHelper';
+} from './TimerHelper';
 
 describe('TimerHelper', () => {
     describe('addLeadingZeroToTime', () => {

@@ -1,20 +1,20 @@
-export const addLeadingZeroToTime = time => {
+export const addLeadingZeroToTime = (time: number) => {
     return time.toString().length === 1 ? `0${time}` : time;
 };
 
-export const changeFavicon = imageUrl => {
-    let selector = document.querySelector("link[rel*='icon']");
+export const changeFavicon = (imageUrl: string) => {
+    let selector: HTMLLinkElement | null = document.querySelector("link[rel*='icon']");
     if (selector && selector.href) {
         selector.setAttribute('href', imageUrl);
     }
 };
 
-export function getPercentageLeftOfTime(currentTime, sessionLength) {
+export function getPercentageLeftOfTime(currentTime: number, sessionLength: number): number {
     return (currentTime / sessionLength) * 100;
 }
 
-export const getParsedTimeRemaining = seconds => {
-    const sec_num = parseInt(seconds, 10); // don't forget the second param
+export const getParsedTimeRemaining = (seconds: number): string => {
+    const sec_num = parseInt(String(seconds), 10);
     const hour = Math.floor(sec_num / 3600);
     const minute = Math.floor((sec_num - hour * 3600) / 60);
     const second = sec_num - hour * 3600 - minute * 60;
@@ -30,11 +30,11 @@ export const getParsedTimeRemaining = seconds => {
     return `${parsedMinutes}:${parsedSeconds}`;
 };
 
-export function getValueFromCSSVariable(variable) {
+export function getValueFromCSSVariable(variable: string): string {
     return getComputedStyle(document.body).getPropertyValue(variable);
 }
 
-export const lightenDarkenColor = (hex, lum = 0) => {
+export const lightenDarkenColor = (hex: string, lum: number = 0): string => {
     // validate hex string
     hex = String(hex).replace(/[^0-9a-f]/gi, '');
     if (hex.length < 6) {

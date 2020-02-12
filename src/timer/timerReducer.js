@@ -1,9 +1,9 @@
 import actions from '../actionTypes';
 import { store } from './../store';
-import { getParsedTimeRemaining } from './../helper/TimerHelper';
+import { getParsedTimeRemaining } from '../helper/TimerHelper';
 import { activeUserSelector } from './../user/userReducer';
 import { speak } from './../helper/Speech';
-import { closeNotification, showNotification } from './../NotificationManager';
+import { closeNotification, showNotification } from '../NotificationManager';
 
 let interval;
 let speechTimeout;

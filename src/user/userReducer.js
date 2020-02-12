@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import actions from '../actionTypes';
 import { userImages } from './userImages';
-import { changeFavicon } from './../helper/TimerHelper';
+import { changeFavicon } from '../helper/TimerHelper';
 
 const images = userImages;
 

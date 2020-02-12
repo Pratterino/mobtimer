@@ -1,10 +1,19 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
 import TimeRemaining from '../timeremaining/TimeRemaining';
-import { getPercentageLeftOfTime, getValueFromCSSVariable, lightenDarkenColor } from './../helper/TimerHelper';
+import { getPercentageLeftOfTime, getValueFromCSSVariable, lightenDarkenColor } from '../helper/TimerHelper';
 import './TimerCircle.scss';
 
-export function TimerCircle({ timer = {} }) {
+interface IProps {
+    timer: {
+        active: boolean,
+        currentTime: number,
+        sessionLength: number,
+    }
+}
+
+export function TimerCircle({ timer}: IProps) {
+    // @ts-ignore
     const circleGradient = timer.active ? 'active' : 'inactive';
     const backgroundColor = '--background';
     const activeColor = '--active-timer-color';

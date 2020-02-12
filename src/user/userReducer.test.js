@@ -1,7 +1,7 @@
 import React from 'react';
 import actions from '../actionTypes';
 import userReducer, { activeUserSelector, usersSelector } from './../user/userReducer';
-import * as TimerHelper from './../helper/TimerHelper';
+import * as TimerHelper from '../helper/TimerHelper';
 
 describe('userReducer', () => {
     const getDefaultState = props => ({

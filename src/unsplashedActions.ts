@@ -1,6 +1,17 @@
-const access = '8feb602c1ac889bc9e527db6150a857ec3f7f970dc0fc9444a8287417fc3b117';
 
-const mapper = (image, user) => ({
+interface IImage {
+    full: string
+    small: string
+}
+
+interface IUser {
+    name: string
+    links: {
+        html: string
+    }
+}
+
+const mapper = (image: IImage, user: IUser) => ({
     image: image.full,
     imageSmall: image.small,
     username: user.name,
@@ -21,13 +32,14 @@ export const fallbackImage = () =>
     );
 
 export async function fetchBackgroundImage() {
+    const id = '8feb602c1ac889bc9e527db6150a857ec3f7f970dc0fc9444a8287417fc3b117';
     try {
         const response = await fetch(
-            'https://api.unsplash.com/photos/random?query=mountain&orientation=landscape&count=1&featured&client_id=8feb602c1ac889bc9e527db6150a857ec3f7f970dc0fc9444a8287417fc3b117&auto=format&fit=crop&w=1080',
+            `https://api.unsplash.com/photos/random?query=mountain&orientation=landscape&count=1&featured&client_id=${id}&auto=format&fit=crop&w=1080`,
             {
                 method: 'GET',
                 headers: {
-                    Authorization: `Client-ID ${access}`,
+                    Authorization: `Client-ID ${id}`,
                     'Content-Type': 'application/json',
                 },
             },

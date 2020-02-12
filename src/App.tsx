@@ -2,9 +2,10 @@ import * as React from 'react';
 import { useEffect, useState } from 'react';
 import { bindActionCreators, Dispatch } from 'redux';
 import { connect } from 'react-redux';
+// @ts-ignore
+import LazyLoad from 'react-lazy-load';
 import { getParsedTimeRemaining } from './helper/TimerHelper';
 import { fetchBackgroundImage } from './unsplashedActions';
-import LazyLoad from 'react-lazy-load';
 import Timer from './timer/Timer';
 import Users from './user/Users';
 import Notifications from './notifications/Notifications';
@@ -54,9 +55,9 @@ function App({ timer, settings, test }: IProps) {
         const sortedLeaderboard = sortProperties(timer.leaderboard);
         return (
             <ol>
-                {sortedLeaderboard.map((item) => (
+                {sortedLeaderboard.map(([user, seconds]) => (
                     <li>
-                        {item[0]} ({getParsedTimeRemaining(item[1])})
+                        {user} ({getParsedTimeRemaining(+seconds)})
                     </li>
                 ))}
             </ol>
@@ -84,10 +85,10 @@ function App({ timer, settings, test }: IProps) {
                     </div>
                 )}
 
-                <Notifications />
-                <Settings />
-                <Users />
-                <Timer />
+                <Notifications/>
+                <Settings/>
+                <Users/>
+                <Timer/>
 
                 <footer>
                     <div className="footer__item">
@@ -100,10 +101,10 @@ function App({ timer, settings, test }: IProps) {
                         <p>{getParsedTimeRemaining(timer.metadata.todaysSessionLength)}</p>
                     </div>
 
-                    <div className="footer__item" />
+                    <div className="footer__item"/>
                     <div className="footer__item center">
                         <h4>Finish sound</h4>
-                        <SoundSelector />
+                        <SoundSelector/>
                     </div>
                     <div className="footer__item">
                         {unsplash && (
@@ -119,7 +120,7 @@ function App({ timer, settings, test }: IProps) {
             <div id="bg-image" className={timer.active ? 'active' : ''}>
                 {unsplash && (
                     <LazyLoad width={100} height={100} debounce={false} offsetVertical={500}>
-                        <ImageLoader src={unsplash.image} />
+                        <ImageLoader src={unsplash.image}/>
                     </LazyLoad>
                 )}
             </div>
@@ -127,7 +128,7 @@ function App({ timer, settings, test }: IProps) {
     );
 }
 
-const mapStateToProps = (state: any) => ({
+const mapStateToProps = (state: IProps) => ({
     test: state,
     settings: state.settings,
     timer: state.timer,
