@@ -8,12 +8,14 @@ exports[`ThemeSelector render should match snapshot 1`] = `
     className="theme-selector__button"
     key="ladies-night-theme"
     setTempTheme={[Function]}
+    setTheme={[Function]}
     theme="ladies-night-theme"
   />
   <Connect(ThemeButton)
     className="theme-selector__button"
     key="sublime-theme"
     setTempTheme={[Function]}
+    setTheme={[Function]}
     theme="sublime-theme"
   />
 </div>
