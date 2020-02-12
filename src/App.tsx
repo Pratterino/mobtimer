@@ -2,9 +2,10 @@ import * as React from 'react';
 import { useEffect, useState } from 'react';
 import { bindActionCreators, Dispatch } from 'redux';
 import { connect } from 'react-redux';
+// @ts-ignore
+import LazyLoad from 'react-lazy-load';
 import { getParsedTimeRemaining } from './helper/TimerHelper';
 import { fetchBackgroundImage } from './unsplashedActions';
-import LazyLoad from 'react-lazy-load';
 import Timer from './timer/Timer';
 import Users from './user/Users';
 import Notifications from './notifications/Notifications';
@@ -13,27 +14,27 @@ import SoundSelector from './sound/SoundSelector';
 import ImageLoader from './helper/ImageLoader';
 import './App.scss';
 
-interface Props {
+interface IProps {
     timer: {
         active: boolean;
-        leaderboard: Leaderboard;
+        leaderboard: ILeaderboard;
         metadata: {
             todaysDate: number;
             todaysSessionLength: number;
         };
     };
     settings: {
-        unsplashed: Unsplash;
+        unsplashed: IUnsplash;
         devMode: boolean;
     };
     test?: object;
 }
 
-interface Leaderboard {
+interface ILeaderboard {
     [key: string]: number;
 }
 
-interface Unsplash {
+interface IUnsplash {
     userLink: string;
     username: string;
     unsplashedLink: string;
@@ -41,8 +42,8 @@ interface Unsplash {
     imageSmall: string;
 }
 
-function App({ timer, settings, test }: Props) {
-    const [unsplash, setUnsplash] = useState<Unsplash | undefined>(settings.unsplashed);
+function App({ timer, settings, test }: IProps) {
+    const [unsplash, setUnsplash] = useState<IUnsplash | undefined>(settings.unsplashed);
 
     useEffect(() => {
         if (timer.metadata.todaysDate !== new Date().getDate()) {
@@ -54,16 +55,16 @@ function App({ timer, settings, test }: Props) {
         const sortedLeaderboard = sortProperties(timer.leaderboard);
         return (
             <ol>
-                {sortedLeaderboard.map((item, i) => (
+                {sortedLeaderboard.map(([user, seconds]) => (
                     <li>
-                        {item[0]} ({getParsedTimeRemaining(item[1])})
+                        {user} ({getParsedTimeRemaining(+seconds)})
                     </li>
                 ))}
             </ol>
         );
     };
 
-    const sortProperties = (obj: Leaderboard) => {
+    const sortProperties = (obj: ILeaderboard) => {
         const sortable = [];
         for (const key in obj) {
             if (obj.hasOwnProperty(key)) {
@@ -84,10 +85,10 @@ function App({ timer, settings, test }: Props) {
                     </div>
                 )}
 
-                <Notifications />
-                <Settings />
-                <Users />
-                <Timer />
+                <Notifications/>
+                <Settings/>
+                <Users/>
+                <Timer/>
 
                 <footer>
                     <div className="footer__item">
@@ -100,10 +101,10 @@ function App({ timer, settings, test }: Props) {
                         <p>{getParsedTimeRemaining(timer.metadata.todaysSessionLength)}</p>
                     </div>
 
-                    <div className="footer__item" />
+                    <div className="footer__item"/>
                     <div className="footer__item center">
                         <h4>Finish sound</h4>
-                        <SoundSelector />
+                        <SoundSelector/>
                     </div>
                     <div className="footer__item">
                         {unsplash && (
@@ -119,7 +120,7 @@ function App({ timer, settings, test }: Props) {
             <div id="bg-image" className={timer.active ? 'active' : ''}>
                 {unsplash && (
                     <LazyLoad width={100} height={100} debounce={false} offsetVertical={500}>
-                        <ImageLoader src={unsplash.image} />
+                        <ImageLoader src={unsplash.image}/>
                     </LazyLoad>
                 )}
             </div>
@@ -127,7 +128,7 @@ function App({ timer, settings, test }: Props) {
     );
 }
 
-const mapStateToProps = (state: any) => ({
+const mapStateToProps = (state: IProps) => ({
     test: state,
     settings: state.settings,
     timer: state.timer,

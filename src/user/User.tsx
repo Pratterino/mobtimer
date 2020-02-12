@@ -1,26 +1,45 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { Component, createRef } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { changeName, changeUserImage, removeUser, toggleUser } from './userActions';
+import { bindActionCreators, Dispatch } from 'redux';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
+import { changeName, changeUserImage, removeUser, toggleUser } from './userActions';
 import './User.scss';
 
-class User extends Component {
+interface IProps {
+    user: {
+        name: string,
+        image: string,
+        disabled: boolean,
+        active: boolean,
+    }
+    removeUser: Function,
+    toggleUser: Function,
+    changeUserImage: Function,
+    changeName: Function,
+}
+
+interface IInput {
+    current: {
+        focus: Function
+    }
+}
+
+class User extends Component<IProps> {
+    input = createRef<HTMLDivElement>();
     state = {
         name: this.props.user.name,
         editMode: false,
     };
 
-    onChange = event => {
+    onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         this.setState({
             name: event.target.value,
         });
     };
 
-    updateName = e => {
+    updateName = (e:React.ChangeEvent<HTMLInputElement>) => {
         e.preventDefault();
         this.props.changeName(this.props.user, this.state.name);
         this.enterEditMode(false);
@@ -28,7 +47,7 @@ class User extends Component {
 
     enterEditMode = (boolean = true) => {
         this.setState({ editMode: boolean });
-        if (this.input) {
+        if (this.input.current) {
             this.input.current.focus();
         }
     };
@@ -42,26 +61,26 @@ class User extends Component {
         return (
             <div className="user">
                 {active && <div className="user__crown" />}
+                {!active && (
+                    <div className="user__remove">
+                        <FontAwesomeIcon
+                            icon={faTimesCircle}
+                            onClick={this.props.removeUser.bind(null, this.props.user)}
+                        />
+                    </div>
+                )}
                 <figure
                     className={`user__image pointer ${classes}`}
                     onDoubleClick={this.props.changeUserImage.bind(null, this.props.user)}
                     onClick={this.props.toggleUser.bind(null, this.props.user)}
                     style={backgroundImage}>
-                    {!active && (
-                        <div className="user__remove">
-                            <FontAwesomeIcon
-                                icon={faTimesCircle}
-                                onClick={this.props.removeUser.bind(null, this.props.user)}
-                            />
-                        </div>
-                    )}
                     {active && <div className="shine" />}
                 </figure>
                 <figcaption className="user__name">
-                    <div className={classNames('user__name--text', { active })} onClick={this.enterEditMode}>
+                    <div className={classNames('user__name--text', { active })} onClick={() => this.enterEditMode(true)}>
                         {this.state.editMode ? (
                             <input
-                                ref={this.input}
+                                ref={this.input as any}
                                 value={this.state.name}
                                 onChange={this.onChange}
                                 onBlur={this.updateName}
@@ -76,8 +95,7 @@ class User extends Component {
     }
 }
 
-const mapStateToProps = state => ({});
-const mapDispatchToProps = dispatch =>
+const mapDispatchToProps = (dispatch: Dispatch) =>
     bindActionCreators(
         {
             removeUser,
@@ -88,16 +106,6 @@ const mapDispatchToProps = dispatch =>
         dispatch,
     );
 
-User.propTypes = {
-    user: PropTypes.shape({
-        name: PropTypes.string,
-    }),
-    removeUser: PropTypes.func.isRequired,
-    toggleUser: PropTypes.func.isRequired,
-    changeImage: PropTypes.func.isRequired,
-    changeName: PropTypes.func.isRequired,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(User);
+export default connect(null, mapDispatchToProps)(User);
 
 export const unwrapped = User;

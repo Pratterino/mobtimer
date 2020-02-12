@@ -1,6 +1,7 @@
 @import './../Global.scss';
 
 $imageSize: 80px;
+$userSpacing: 19px;
 $borderSize: 3px;
 
 .user {
@@ -8,15 +9,24 @@ $borderSize: 3px;
     flex-direction: column;
     text-align: center;
     position: relative;
+    margin: 0 $userSpacing;
+
+    figure {
+        margin: 0;
+    }
 
     &:hover {
         .user__remove {
             visibility: visible;
+
+            svg {
+                cursor: pointer;
+            }
         }
 
         .user__crown {
             transform: rotate(0deg);
-            left: 40px;
+            left: 0;
         }
     }
 
@@ -24,10 +34,10 @@ $borderSize: 3px;
         background: url(../assets/images/crown.png) no-repeat;
         background-size: cover;
         height: 50px;
-        width: 90px;
-        top: -19px;
-        left: 19px;
-        transform: rotate(-22deg);
+        width: $imageSize+10;
+        top: -32px;
+        left: -$userSpacing;
+        transform: rotate(-20deg);
         position: absolute;
         z-index: 2;
         transition: all 0.5s;
@@ -64,21 +74,25 @@ $borderSize: 3px;
 
     .user__remove {
         visibility: hidden;
-        margin: 0 $imageSize;
         display: flex;
+        justify-content: flex-end;
 
-        &:hover {
-            opacity: 0.6;
-            color: #f00;
+        svg {
+            &:hover {
+                opacity: 0.6;
+                color: #f00;
+            }
         }
     }
 
     .user__name--text {
         @extend .text-shadow;
+
         &.active {
             color: var(--active-timer-color);
             font-weight: bold;
         }
+
         &:hover {
             cursor: pointer;
         }
@@ -104,11 +118,11 @@ $borderSize: 3px;
 
         background: rgba(255, 255, 255, 0.13);
         background: linear-gradient(
-            to right,
-            rgba(255, 255, 255, 0.13) 0%,
-            rgba(255, 255, 255, 0.13) 77%,
-            rgba(255, 255, 255, 0.5) 92%,
-            rgba(255, 255, 255, 0) 100%
+                to right,
+                rgba(255, 255, 255, 0.13) 0%,
+                rgba(255, 255, 255, 0.13) 77%,
+                rgba(255, 255, 255, 0.5) 92%,
+                rgba(255, 255, 255, 0) 100%
         );
     }
 }

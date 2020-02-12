@@ -29,8 +29,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => bindActionCreators({}, dispatch);
 
 ThemeSelector.propTypes = {
-    settings: PropTypes.object.isRequired,
-    setTheme: PropTypes.func.isRequired,
+    settings: PropTypes.object,
+    setTheme: PropTypes.func,
 };
 
 export const unwrapped = ThemeSelector;

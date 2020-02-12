@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { playPauseTimer, startTimer, stopTimer } from './timerActions';
-import { TimerCircle } from './../timercircle/TimerCircle';
+import { TimerCircle } from '../timercircle/TimerCircle';
 import './Timer.scss';
 
 function Timer(props) {

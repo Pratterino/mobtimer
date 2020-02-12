@@ -2,7 +2,7 @@ import React, { useEffect, useReducer } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Emojione } from 'react-emoji-render';
-import { askForNotificationPermission, hasAcceptedNotifications } from './../NotificationManager';
+import { askForNotificationPermission, hasAcceptedNotifications } from '../NotificationManager';
 import './Notifications.scss';
 
 function Notifications() {

@@ -9,14 +9,14 @@ export const setTheme = (theme: string) => ({
     theme,
 });
 
-interface Unsplash {
+interface IUnsplash {
     userLink: string;
     username: string;
     unsplashedLink: string;
     image: string;
     imageSmall: string;
 }
-export const setBackgroundImage = (backgroundImage: Unsplash) => ({
+export const setBackgroundImage = (backgroundImage: IUnsplash) => ({
     type: actionTypes.SET_UNSPLASHED_BACKGROUND_IMAGE,
     backgroundImage,
 });
