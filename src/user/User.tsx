@@ -7,23 +7,26 @@ import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 import { changeName, changeUserImage, removeUser, toggleUser } from './userActions';
 import './User.scss';
 
+export type IUser = {
+    id: string;
+    name: string;
+    image: string;
+    disabled: boolean;
+    active: boolean;
+};
+
 interface IProps {
-    user: {
-        name: string,
-        image: string,
-        disabled: boolean,
-        active: boolean,
-    }
-    removeUser: Function,
-    toggleUser: Function,
-    changeUserImage: Function,
-    changeName: Function,
+    user: IUser;
+    removeUser: Function;
+    toggleUser: Function;
+    changeUserImage: Function;
+    changeName: Function;
 }
 
 interface IInput {
     current: {
-        focus: Function
-    }
+        focus: Function;
+    };
 }
 
 class User extends Component<IProps> {
@@ -39,7 +42,7 @@ class User extends Component<IProps> {
         });
     };
 
-    updateName = (e:React.ChangeEvent<HTMLInputElement>) => {
+    updateName = (e: React.ChangeEvent<HTMLInputElement>) => {
         e.preventDefault();
         this.props.changeName(this.props.user, this.state.name);
         this.enterEditMode(false);
@@ -77,7 +80,9 @@ class User extends Component<IProps> {
                     {active && <div className="shine" />}
                 </figure>
                 <figcaption className="user__name">
-                    <div className={classNames('user__name--text', { active })} onClick={() => this.enterEditMode(true)}>
+                    <div
+                        className={classNames('user__name--text', { active })}
+                        onClick={() => this.enterEditMode(true)}>
                         {this.state.editMode ? (
                             <input
                                 ref={this.input as any}

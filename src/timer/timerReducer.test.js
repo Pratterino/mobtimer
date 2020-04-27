@@ -200,7 +200,7 @@ describe('timerReducer', () => {
             expect(newState.active).toBe(true);
         });
 
-        describe('should match snapshots', function() {
+        describe('should match snapshots', function () {
             it('when active', () => {
                 state = getDefaultState({
                     currentTime: 40,
@@ -292,7 +292,7 @@ describe('timerReducer', () => {
     });
 
     describe('DEFAULT', () => {
-        it('should return defaultState', function() {
+        it('should return defaultState', function () {
             const action = {
                 type: 'ACTION MAN',
             };

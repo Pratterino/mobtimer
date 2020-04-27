@@ -75,22 +75,25 @@ class Users extends Component {
                                 ref={provided.innerRef}
                                 style={this.getListStyle(snapshot.isDraggingOver)}
                                 {...provided.droppableProps}>
-                                {this.state.users.map((user, index) => (
-                                    <Draggable key={user.name + user.index} draggableId={user.name} index={index}>
-                                        {(provided, snapshot) => (
-                                            <div
-                                                ref={provided.innerRef}
-                                                {...provided.draggableProps}
-                                                {...provided.dragHandleProps}
-                                                style={this.getItemStyle(
-                                                    snapshot.isDragging,
-                                                    provided.draggableProps.style,
-                                                )}>
-                                                <User key={user.name} user={user} disabled={user.disabled} />
-                                            </div>
-                                        )}
-                                    </Draggable>
-                                ))}
+                                {this.state.users.map((user, index) => {
+                                    console.log(user);
+                                    return (
+                                        <Draggable key={user.name + user.index} draggableId={user.name} index={index}>
+                                            {(provided, snapshot) => (
+                                                <div
+                                                    ref={provided.innerRef}
+                                                    {...provided.draggableProps}
+                                                    {...provided.dragHandleProps}
+                                                    style={this.getItemStyle(
+                                                        snapshot.isDragging,
+                                                        provided.draggableProps.style,
+                                                    )}>
+                                                    <User key={user.name} user={user} disabled={user.disabled} />
+                                                </div>
+                                            )}
+                                        </Draggable>
+                                    );
+                                })}
                                 {provided.placeholder}
                                 <form className="user__add" onSubmit={e => e.preventDefault()}>
                                     <Input handleInputSubmit={text => this.props.addUser(text)}>Add user</Input>

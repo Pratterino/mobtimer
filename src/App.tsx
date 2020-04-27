@@ -1,18 +1,22 @@
-import * as React from 'react';
-import { useEffect, useState } from 'react';
-import { bindActionCreators, Dispatch } from 'redux';
-import { connect } from 'react-redux';
+import * as React from "react";
+import { useEffect, useState } from "react";
+import { bindActionCreators, Dispatch } from "redux";
+import { connect } from "react-redux";
 // @ts-ignore
-import LazyLoad from 'react-lazy-load';
-import { getParsedTimeRemaining } from './helper/TimerHelper';
-import { fetchBackgroundImage } from './unsplashedActions';
-import Timer from './timer/Timer';
-import Users from './user/Users';
-import Notifications from './notifications/Notifications';
-import Settings from './settings/Settings';
-import SoundSelector from './sound/SoundSelector';
-import ImageLoader from './helper/ImageLoader';
-import './App.scss';
+import LazyLoad from "react-lazy-load";
+import { getParsedTimeRemaining } from "./helper/TimerHelper";
+import { fetchBackgroundImage } from "./unsplashedActions";
+import Timer from "./timer/Timer";
+import Users from "./user/Users";
+import Notifications from "./notifications/Notifications";
+import Settings from "./settings/Settings";
+import Session from "./session/Session";
+import SoundSelector from "./sound/SoundSelector";
+import ImageLoader from "./helper/ImageLoader";
+import "./App.scss";
+import FirebaseManager from "./FirebaseManager";
+import { updateUsersFromFirebase } from "./user/userActions";
+import { IUser } from "./user/User";
 
 interface IProps {
     timer: {
@@ -24,6 +28,7 @@ interface IProps {
         };
     };
     settings: {
+        sessionId: string;
         unsplashed: IUnsplash;
         devMode: boolean;
     };
@@ -42,7 +47,17 @@ interface IUnsplash {
     imageSmall: string;
 }
 
+
+FirebaseManager.init();
+
 function App({ timer, settings, test }: IProps) {
+    useEffect(() => {
+        FirebaseManager.subscribeToDbChanges(settings.sessionId, (users: Array<IUser>) => {
+            updateUsersFromFirebase(users);
+        });
+
+        return () => FirebaseManager.unsubscribeToDbChanges(settings.sessionId);
+    }, [settings.sessionId])
     const [unsplash, setUnsplash] = useState<IUnsplash | undefined>(settings.unsplashed);
 
     useEffect(() => {
@@ -81,14 +96,15 @@ function App({ timer, settings, test }: IProps) {
                 {settings.devMode && false && (
                     <div className="hide">
                         <h3>ReduxState</h3>
-                        <pre>{JSON.stringify(test, null, 2)}</pre>
+                        <pre>{JSON.stringify(test, null, 1)}</pre>
                     </div>
                 )}
 
-                <Notifications/>
-                <Settings/>
-                <Users/>
-                <Timer/>
+                <Notifications />
+                <Settings />
+                <Session />
+                <Users />
+                <Timer />
 
                 <footer>
                     <div className="footer__item">
@@ -101,10 +117,10 @@ function App({ timer, settings, test }: IProps) {
                         <p>{getParsedTimeRemaining(timer.metadata.todaysSessionLength)}</p>
                     </div>
 
-                    <div className="footer__item"/>
+                    <div className="footer__item" />
                     <div className="footer__item center">
                         <h4>Finish sound</h4>
-                        <SoundSelector/>
+                        <SoundSelector />
                     </div>
                     <div className="footer__item">
                         {unsplash && (
@@ -120,7 +136,7 @@ function App({ timer, settings, test }: IProps) {
             <div id="bg-image" className={timer.active ? 'active' : ''}>
                 {unsplash && (
                     <LazyLoad width={100} height={100} debounce={false} offsetVertical={500}>
-                        <ImageLoader src={unsplash.image}/>
+                        <ImageLoader src={unsplash.image} />
                     </LazyLoad>
                 )}
             </div>

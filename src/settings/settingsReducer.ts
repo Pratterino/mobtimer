@@ -1,7 +1,9 @@
 import actions from '../actionTypes';
 import { fallbackImage } from '../unsplashedActions';
+import { uniqueId } from '../helper/Utils';
 
 const defaultSettingsState = {
+    sessionId: uniqueId(),
     theme: 'ladies-night-theme',
     devMode: window.location.hostname === 'localhost',
     unsplashed: fallbackImage(),

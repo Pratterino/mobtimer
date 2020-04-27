@@ -275,7 +275,7 @@ describe('userReducer', () => {
             };
         });
 
-        it('should return users from state', function() {
+        it('should return users from state', function () {
             let users = usersSelector(state);
             expect(users).toHaveLength(2);
             expect(users[0].name).toBe('Sean');
@@ -292,14 +292,14 @@ describe('userReducer', () => {
             };
         });
 
-        it('should return active user', function() {
+        it('should return active user', function () {
             let users = activeUserSelector(state);
             expect(users.name).toEqual('Sean');
         });
     });
 
     describe('DEFAULT', () => {
-        it('should return defaultState', function() {
+        it('should return defaultState', function () {
             const action = {
                 type: 'HOLLYWOOD_HANDBOOK',
             };

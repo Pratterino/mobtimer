@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './Input.scss';
 
 interface IProps {
-    handleInputSubmit: Function,
+    handleInputSubmit: Function;
 }
 
 function Input({ handleInputSubmit }: IProps) {

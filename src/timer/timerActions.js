@@ -1,9 +1,16 @@
 import actionTypes from '../actionTypes';
 import { store } from './../store';
+import FirebaseManager from '../FirebaseManager';
 
-export const startTimer = () => ({
-    type: actionTypes.START_TIMER,
-});
+export const startTimer = () => {
+    store.dispatch({
+        type: actionTypes.START_TIMER,
+    });
+
+    return (dispatch, getState) => {
+        FirebaseManager.updateState(getState());
+    };
+};
 
 export const playPauseTimer = timer => {
     if (timer.metadata.todaysDate !== new Date().getDate()) {
@@ -12,15 +19,29 @@ export const playPauseTimer = timer => {
         });
     }
 
-    return {
+    store.dispatch({
         type: actionTypes.PLAY_PAUSE_TIMER,
+    });
+
+    return (dispatch, getState) => {
+        FirebaseManager.updateState(getState());
     };
 };
 
-export const stopTimer = () => ({
-    type: actionTypes.STOP_TIMER,
-});
+export const stopTimer = () => {
+    store.dispatch({
+        type: actionTypes.STOP_TIMER,
+    });
+    return (dispatch, getState) => {
+        FirebaseManager.updateState(getState());
+    };
+};
 
-export const resetTimer = () => ({
-    type: actionTypes.RESET_TIMER,
-});
+export const resetTimer = () => {
+    store.dispatch({
+        type: actionTypes.RESET_TIMER,
+    });
+    return (dispatch, getState) => {
+        FirebaseManager.updateState(getState());
+    };
+};

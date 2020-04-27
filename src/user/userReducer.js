@@ -2,6 +2,7 @@ import _ from 'lodash';
 import actions from '../actionTypes';
 import { userImages } from './userImages';
 import { changeFavicon } from '../helper/TimerHelper';
+import { uniqueId } from '../helper/Utils';
 
 const images = userImages;
 
@@ -24,6 +25,7 @@ const getARandomImageUrl = currentImage => {
 export const defaultUserState = {
     users: [
         {
+            id: uniqueId(),
             image: getRandomImageUrl(),
             active: true,
             disabled: false,
@@ -109,6 +111,12 @@ export default (state = defaultUserState, action) => {
             return {
                 users: [...action.users],
             };
+
+        case actions.UPDATE_USERS_FROM_FIREBASE: {
+            return {
+                users: Object.entries(action.users).map(user => user[1]),
+            };
+        }
 
         case actions.TOGGLE_USER:
             users = [...state.users].map(user => {

@@ -1,14 +1,13 @@
-
 interface IImage {
-    full: string
-    small: string
+    full: string;
+    small: string;
 }
 
 interface IUser {
-    name: string
+    name: string;
     links: {
-        html: string
-    }
+        html: string;
+    };
 }
 
 const mapper = (image: IImage, user: IUser) => ({

@@ -4,6 +4,7 @@ import { getParsedTimeRemaining } from '../helper/TimerHelper';
 import { activeUserSelector } from './../user/userReducer';
 import { speak } from './../helper/Speech';
 import { closeNotification, showNotification } from '../NotificationManager';
+import FirebaseManager from './../FirebaseManager';
 
 let interval;
 let speechTimeout;
@@ -47,6 +48,11 @@ const showNextUserNotification = () => {
 const stopTimerInterval = () => {
     clearInterval(interval);
     console.info('TIMER: CLEARED INTERVAL');
+    return () => store.dispatch(updateState);
+};
+
+const updateState = (dispatch, getState) => {
+    return FirebaseManager.updateState(getState());
 };
 
 const startTimerInterval = () => {
@@ -66,6 +72,8 @@ const startTimerInterval = () => {
             type: actions.SECOND_DECREMENT_TIMER,
             user: activeUserSelector(state),
         });
+
+        store.dispatch(updateState);
     }, 1000);
     console.info('TIMER: MOB SESSION STARTED!');
     closeNotification();

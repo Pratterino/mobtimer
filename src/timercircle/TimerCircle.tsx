@@ -6,13 +6,13 @@ import './TimerCircle.scss';
 
 interface IProps {
     timer: {
-        active: boolean,
-        currentTime: number,
-        sessionLength: number,
-    }
+        active: boolean;
+        currentTime: number;
+        sessionLength: number;
+    };
 }
 
-export function TimerCircle({ timer}: IProps) {
+export function TimerCircle({ timer }: IProps) {
     // @ts-ignore
     const circleGradient = timer.active ? 'active' : 'inactive';
     const backgroundColor = '--background';

@@ -1,6 +1,6 @@
 interface IUser {
-    name: string
-    image: string
+    name: string;
+    image: string;
 }
 
 let notification: Notification;
@@ -60,4 +60,4 @@ export {
     hasAcceptedNotifications,
     closeNotification,
     showNotification,
-}
+};

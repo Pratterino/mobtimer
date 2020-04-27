@@ -1,4 +1,4 @@
-const geoCountryCodeOfUser = async ():Promise<string> => {
+const geoCountryCodeOfUser = async (): Promise<string> => {
     try {
         return await fetch('https://extreme-ip-lookup.com/json/')
             .then(res => res.json())
@@ -8,6 +8,4 @@ const geoCountryCodeOfUser = async ():Promise<string> => {
     }
 };
 
-export {
-    geoCountryCodeOfUser,
-};
+export { geoCountryCodeOfUser };

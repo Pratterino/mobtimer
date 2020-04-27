@@ -7,18 +7,23 @@
         "@fortawesome/fontawesome-svg-core": "^1.2.17",
         "@fortawesome/free-solid-svg-icons": "^5.8.1",
         "@fortawesome/react-fontawesome": "^0.1.4",
+        "@react-firebase/database": "^0.3.11",
         "@types/classnames": "^2.2.9",
         "@types/jest": "^25.1.1",
+        "@types/lodash": "^4.14.150",
         "@types/node": "^13.7.0",
         "@types/react": "^16.9.19",
         "@types/react-dom": "^16.9.5",
         "@types/react-redux": "^7.1.7",
+        "@types/uuid": "^7.0.3",
         "classnames": "^2.2.6",
+        "firebase": "^7.14.2",
         "howler": "^2.1.1",
-        "lodash": "latest",
-        "prop-types": "latest",
+        "lodash": "^4.17.15",
+        "prop-types": "^15.7.2",
+        "qrcode.react": "^1.0.0",
         "react": "^16.8.6",
-        "react-beautiful-dnd": "^12.2.0",
+        "react-beautiful-dnd": "^13.0.0",
         "react-dom": "^16.8.6",
         "react-emoji-render": "^1.2.1",
         "react-lazy-load": "^3.0.13",
@@ -27,14 +32,15 @@
         "redux": "^4.0.1",
         "redux-persist": "^6.0.0",
         "redux-thunk": "^2.3.0",
-        "typescript": "^3.7.5"
+        "typescript": "^3.7.5",
+        "uuid": "^8.0.0"
     },
     "scripts": {
         "start": "react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
-        "prettier": "npx prettier --write src/**/*.{js,jsx,scss}"
+        "prettier": "npx prettier --write src/**/*.{js,jsx,ts,tsx,scss}"
     },
     "husky": {
         "hooks": {
@@ -62,7 +68,7 @@
         "eslint": "^6.8.0",
         "husky": "^4.2.1",
         "node-sass": "^4.13.1",
-        "prettier": "^1.19.1",
+        "prettier": "^2.0.5",
         "redux-mock-store": "^1.5.3"
     }
 }

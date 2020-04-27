@@ -5,9 +5,9 @@ import { getParsedTimeRemaining } from '../helper/TimerHelper';
 
 interface IProps {
     timer: {
-        active: boolean
-        currentTime: number
-    }
+        active: boolean;
+        currentTime: number;
+    };
 }
 
 function TimeRemaining({ timer }: IProps) {
