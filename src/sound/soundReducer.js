@@ -18,7 +18,6 @@ const defaultSoundState = {
     filename: finishedSounds[0].filename,
 };
 
-// TODO: Preload these to evade lag before playing a sound
 const playFinishedSound = filename => {
     const sound = soundMap[filename];
     sound.play();
